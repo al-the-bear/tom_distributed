@@ -1,7 +1,7 @@
 name: tom_process_monitor_tool
 description: CLI tools for ProcessMonitor - process_monitor and monitor_watcher commands.
 version: 1.0.1
-repository: https://github.com/al-the-bear/tom_module_distributed
+repository: https://github.com/al-the-bear/tom_distributed
 publish_to: none
 
 environment:

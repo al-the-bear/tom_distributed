@@ -3,7 +3,7 @@ description: >
   File-based Distributed Processing Ledger (DPL) for coordinating multi-process
   operations with heartbeat monitoring, abort handling, and resource tracking.
 version: 0.1.1
-repository: https://github.com/al-the-bear/tom_module_distributed
+repository: https://github.com/al-the-bear/tom_distributed
 publish_to: none
 
 environment:
