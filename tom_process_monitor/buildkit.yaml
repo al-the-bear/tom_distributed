@@ -1,0 +1,26 @@
+# Tom Build Configuration for tom_process_monitor
+
+d4rtgen:
+  name: tom_process_monitor
+  helpersImport: package:tom_d4rt/tom_d4rt.dart
+  generateBarrel: true
+  barrelPath: lib/d4rt_bridges.dart
+  generateDartscript: true
+  dartscriptPath: lib/dartscript.dart
+  generateTestRunner: true
+  testRunnerPath: bin/d4rtrun.b.dart
+  registrationClass: TomProcessMonitorBridges
+  modules:
+    - name: all
+      barrelFiles:
+        - lib/tom_process_monitor.dart
+      barrelImport: tom_process_monitor.dart
+      outputPath: lib/src/d4rt_bridges/tom_process_monitor_bridges.dart
+      excludePatterns:
+        - _bridge.dart
+        - _generated.dart
+      excludeClasses:
+        - AlivenessServer
+        - AlivenessServerHelper
+        - ProcessMonitor
+        - RemoteApiServer
