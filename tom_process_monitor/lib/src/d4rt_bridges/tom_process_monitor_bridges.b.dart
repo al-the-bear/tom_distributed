@@ -1,6 +1,6 @@
 // D4rt Bridge - Generated file, do not edit
 // Sources: 28 files
-// Generated: 2026-02-14T12:48:07.948204
+// Generated: 2026-02-27T00:31:23.119690
 
 // ignore_for_file: unused_import, deprecated_member_use, prefer_function_declarations_over_variables
 
@@ -8,6 +8,7 @@ import 'package:tom_d4rt/d4rt.dart';
 import 'package:tom_d4rt/tom_d4rt.dart';
 import 'dart:async';
 
+import 'package:http/src/response.dart' as $http_1;
 import 'package:tom_basics_network/src/http_retry.dart' as $tom_basics_network_1;
 import 'package:tom_basics_network/src/server_discovery.dart' as $tom_basics_network_2;
 import 'package:tom_process_monitor/src/client/local_process_monitor_client.dart' as $tom_process_monitor_1;
@@ -152,67 +153,12 @@ class AllBridge {
           },
         },
       ),
-      BridgedExtensionDefinition(
-        name: 'ProcessStateExtension',
-        onTypeName: 'ProcessState',
-        methods: {
-          'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_14.ProcessState;
-            return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
-          },
-        },
-      ),
-      BridgedExtensionDefinition(
-        name: 'ProcessStateExtension',
-        onTypeName: 'ProcessState',
-        methods: {
-          'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_14.ProcessState;
-            return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
-          },
-        },
-      ),
-      BridgedExtensionDefinition(
-        name: 'ProcessStateExtension',
-        onTypeName: 'ProcessState',
-        methods: {
-          'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_14.ProcessState;
-            return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
-          },
-        },
-      ),
-      BridgedExtensionDefinition(
-        name: 'ProcessStateExtension',
-        onTypeName: 'ProcessState',
-        methods: {
-          'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_14.ProcessState;
-            return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
-          },
-        },
-      ),
-      BridgedExtensionDefinition(
-        name: 'ProcessStateExtension',
-        onTypeName: 'ProcessState',
-        methods: {
-          'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_14.ProcessState;
-            return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
-          },
-        },
-      ),
     ];
   }
 
   /// Returns a map of extension identifiers to their canonical source URIs.
   static Map<String, String> extensionSourceUris() {
     return {
-      'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
-      'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
-      'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
-      'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
-      'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
       'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
     };
   }
@@ -2228,34 +2174,16 @@ BridgedClass _createServerDiscoveryBridge() {
     },
     staticMethods: {
       'discover': (visitor, positional, named, typeArgs) {
-        if (positional.length == 1) {
-          final options = D4.getRequiredArg<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', 'discover');
-          return $tom_basics_network_2.ServerDiscovery.discover(options);
-        }
-        if (positional.isEmpty) {
-          return $tom_basics_network_2.ServerDiscovery.discover();
-        }
-        throw ArgumentError('Invalid argument count for discover');
+        final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
+        return $tom_basics_network_2.ServerDiscovery.discover(options);
       },
       'discoverOrThrow': (visitor, positional, named, typeArgs) {
-        if (positional.length == 1) {
-          final options = D4.getRequiredArg<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', 'discoverOrThrow');
-          return $tom_basics_network_2.ServerDiscovery.discoverOrThrow(options);
-        }
-        if (positional.isEmpty) {
-          return $tom_basics_network_2.ServerDiscovery.discoverOrThrow();
-        }
-        throw ArgumentError('Invalid argument count for discoverOrThrow');
+        final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
+        return $tom_basics_network_2.ServerDiscovery.discoverOrThrow(options);
       },
       'discoverAll': (visitor, positional, named, typeArgs) {
-        if (positional.length == 1) {
-          final options = D4.getRequiredArg<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', 'discoverAll');
-          return $tom_basics_network_2.ServerDiscovery.discoverAll(options);
-        }
-        if (positional.isEmpty) {
-          return $tom_basics_network_2.ServerDiscovery.discoverAll();
-        }
-        throw ArgumentError('Invalid argument count for discoverAll');
+        final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
+        return $tom_basics_network_2.ServerDiscovery.discoverAll(options);
       },
       'getLocalIpAddresses': (visitor, positional, named, typeArgs) {
         return $tom_basics_network_2.ServerDiscovery.getLocalIpAddresses();
