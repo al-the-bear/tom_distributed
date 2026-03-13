@@ -1,12 +1,12 @@
 // D4rt Bridge - Generated file, do not edit
 // Dartscript registration for tom_dist_ledger
-// Generated: 2026-02-27T00:31:22.082080
+// Generated: 2026-03-12T17:10:58.693855
 
 /// D4rt Bridge Registration for tom_dist_ledger
 library;
 
 import 'package:tom_d4rt/d4rt.dart';
-import 'src/d4rt_bridges/tom_dist_ledger_bridges.b.dart' as all_bridges;
+import 'src\d4rt_bridges\tom_dist_ledger_bridges.b.dart' as all_bridges;
 
 /// Combined bridge registration for tom_dist_ledger.
 class TomDistLedgerBridges {

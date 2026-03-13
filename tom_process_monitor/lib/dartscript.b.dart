@@ -1,12 +1,12 @@
 // D4rt Bridge - Generated file, do not edit
 // Dartscript registration for tom_process_monitor
-// Generated: 2026-02-27T00:31:23.147620
+// Generated: 2026-03-12T17:11:03.295679
 
 /// D4rt Bridge Registration for tom_process_monitor
 library;
 
 import 'package:tom_d4rt/d4rt.dart';
-import 'src/d4rt_bridges/tom_process_monitor_bridges.b.dart' as all_bridges;
+import 'src\d4rt_bridges\tom_process_monitor_bridges.b.dart' as all_bridges;
 
 /// Combined bridge registration for tom_process_monitor.
 class TomProcessMonitorBridges {
