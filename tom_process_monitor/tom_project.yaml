@@ -2,3 +2,4 @@ project_id: PML
 name: pm-lib
 description: >-
   Process monitor library.
+license: BSD-3-Clause

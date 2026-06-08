@@ -2,3 +2,4 @@ project_id: DOL
 name: do-lib
 description: >-
   Distribution orchestration lib.
+license: BSD-3-Clause

@@ -2,3 +2,4 @@ project_id: DL
 name: distledger
 description: >-
   Ledger CLI tool.
+license: BSD-3-Clause
