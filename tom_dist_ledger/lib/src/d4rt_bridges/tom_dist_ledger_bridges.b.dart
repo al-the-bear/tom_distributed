@@ -1,8 +1,8 @@
 // D4rt Bridge - Generated file, do not edit
-// Sources: 10 files
-// Generated: 2026-03-12T17:10:58.684989
+// Sources: 9 files
+// Generated: 2026-06-16T23:28:02.753916
 
-// ignore_for_file: unused_import, deprecated_member_use, prefer_function_declarations_over_variables, implementation_imports, sort_child_properties_last, non_constant_identifier_names, avoid_function_literals_in_foreach_calls
+// ignore_for_file: unused_import, deprecated_member_use, prefer_function_declarations_over_variables, implementation_imports, sort_child_properties_last, non_constant_identifier_names, avoid_function_literals_in_foreach_calls, invalid_use_of_protected_member, unnecessary_non_null_assertion, invalid_use_of_visible_for_testing_member, unnecessary_cast, unused_local_variable, no_leading_underscores_for_local_identifiers, prefer_is_empty, unnecessary_question_mark, unreachable_switch_case, unintended_html_in_doc_comment, empty_constructor_bodies, prefer_const_constructors_in_immutables, prefer_final_fields, unused_field, must_call_super, no_logic_in_create_state, use_key_in_widget_constructors, annotate_overrides, unnecessary_import
 
 import 'package:tom_d4rt/d4rt.dart';
 import 'package:tom_d4rt/tom_d4rt.dart';
@@ -12,11 +12,11 @@ import 'dart:io';
 import 'package:http/src/response.dart' as $http_1;
 import 'package:tom_basics_network/src/http_retry.dart' as $tom_basics_network_1;
 import 'package:tom_basics_network/src/server_discovery.dart' as $tom_basics_network_2;
-import 'package:tom_dist_ledger/src/ledger_api/call_callback.dart' as $tom_dist_ledger_1;
-import 'package:tom_dist_ledger/src/ledger_api/cleanup_handler.dart' as $tom_dist_ledger_2;
-import 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart' as $tom_dist_ledger_3;
-import 'package:tom_dist_ledger/src/ledger_api/ledger_base.dart' as $tom_dist_ledger_4;
-import 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart' as $tom_dist_ledger_5;
+import 'package:tom_dist_ledger/src/ledger_api/cleanup_handler.dart' as $tom_dist_ledger_1;
+import 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart' as $tom_dist_ledger_2;
+import 'package:tom_dist_ledger/src/ledger_api/ledger_base.dart' as $tom_dist_ledger_3;
+import 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart' as $tom_dist_ledger_4;
+import 'package:tom_dist_ledger/src/ledger_client/remote_ledger_client.dart' as $tom_dist_ledger_5;
 import 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart' as $tom_dist_ledger_6;
 
 /// Bridge class for all module.
@@ -61,34 +61,53 @@ class AllBridge {
   /// multiple barrels (e.g., tom_core_kernel and tom_core_server).
   static Map<String, String> classSourceUris() {
     return {
-      'CleanupHandler': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\cleanup_handler.dart',
-      'CallFrame': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
-      'TempResource': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
-      'LedgerData': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
-      'HeartbeatResult': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
-      'HeartbeatError': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_types.dart',
-      'Operation': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_base.dart',
-      'Ledger': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_base.dart',
-      'LocalOperation': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'LocalLedger': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'LedgerCallback': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'OperationCallback': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'CallCallback': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'OperationFailedInfo': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'OperationFailedException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'CallLifecycle': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'Call': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'SpawnedCall': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'SyncResult': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'OperationHelper': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'RemoteLedgerException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_client\remote_ledger_client.dart',
-      'RemoteOperation': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_client\remote_ledger_client.dart',
-      'RetryExhaustedException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
-      'RetryConfig': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
-      'DiscoveredServer': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'DiscoveryOptions': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'DiscoveryFailedException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'ServerDiscovery': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
+      'CleanupHandler': 'package:tom_dist_ledger/src/ledger_api/cleanup_handler.dart',
+      'CallFrame': 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
+      'TempResource': 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
+      'LedgerData': 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
+      'HeartbeatResult': 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
+      'HeartbeatError': 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart',
+      'Operation': 'package:tom_dist_ledger/src/ledger_api/ledger_base.dart',
+      'Ledger': 'package:tom_dist_ledger/src/ledger_api/ledger_base.dart',
+      'LocalOperation': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'LocalLedger': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'LedgerCallback': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'OperationCallback': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'CallCallback': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'OperationFailedInfo': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'OperationFailedException': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'CallLifecycle': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'Call': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'SpawnedCall': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'SyncResult': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'OperationHelper': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'RemoteLedgerException': 'package:tom_dist_ledger/src/ledger_client/remote_ledger_client.dart',
+      'RemoteOperation': 'package:tom_dist_ledger/src/ledger_client/remote_ledger_client.dart',
+      'RetryExhaustedException': 'package:tom_basics_network/src/http_retry.dart',
+      'RetryConfig': 'package:tom_basics_network/src/http_retry.dart',
+      'DiscoveredServer': 'package:tom_basics_network/src/server_discovery.dart',
+      'DiscoveryOptions': 'package:tom_basics_network/src/server_discovery.dart',
+      'DiscoveryFailedException': 'package:tom_basics_network/src/server_discovery.dart',
+      'ServerDiscovery': 'package:tom_basics_network/src/server_discovery.dart',
+    };
+  }
+
+  /// Returns a map of class names to their flattened (transitive)
+  /// native supertype names (superclasses, interfaces and mixins).
+  ///
+  /// Fed to `BridgedClass.registerSupertypes` so interpreted subclasses
+  /// of bridged classes pass `is`/subtype checks against bridged
+  /// ancestors and the interface-proxy supertype walk resolves up the
+  /// chain (MCI#1 / A1).
+  static Map<String, List<String>> classSupertypes() {
+    return {
+      'LocalOperation': ['Operation'],
+      'LocalLedger': ['Ledger'],
+      'OperationFailedException': ['Exception'],
+      'RemoteLedgerException': ['Exception'],
+      'RemoteOperation': ['Operation', 'CallLifecycle'],
+      'RetryExhaustedException': ['Exception'],
+      'DiscoveryFailedException': ['Exception'],
     };
   }
 
@@ -125,13 +144,13 @@ class AllBridge {
         name: 'OperationState',
         values: $tom_dist_ledger_6.OperationState.values,
       ),
-      BridgedEnumDefinition<$tom_dist_ledger_5.HeartbeatErrorType>(
+      BridgedEnumDefinition<$tom_dist_ledger_4.HeartbeatErrorType>(
         name: 'HeartbeatErrorType',
-        values: $tom_dist_ledger_5.HeartbeatErrorType.values,
+        values: $tom_dist_ledger_4.HeartbeatErrorType.values,
       ),
-      BridgedEnumDefinition<$tom_dist_ledger_3.DLLogLevel>(
+      BridgedEnumDefinition<$tom_dist_ledger_2.DLLogLevel>(
         name: 'DLLogLevel',
-        values: $tom_dist_ledger_3.DLLogLevel.values,
+        values: $tom_dist_ledger_2.DLLogLevel.values,
       ),
     ];
   }
@@ -142,10 +161,10 @@ class AllBridge {
   /// multiple barrels (e.g., tom_core_kernel and tom_core_server).
   static Map<String, String> enumSourceUris() {
     return {
-      'FrameState': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
-      'OperationState': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
-      'HeartbeatErrorType': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_types.dart',
-      'DLLogLevel': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\call_callback.dart',
+      'FrameState': 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
+      'OperationState': 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
+      'HeartbeatErrorType': 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart',
+      'DLLogLevel': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
     };
   }
 
@@ -156,14 +175,21 @@ class AllBridge {
         name: 'DLLogLevelExtension',
         onTypeName: 'DLLogLevel',
         getters: {
-          'name': (visitor, target) => (target as $tom_dist_ledger_1.DLLogLevel).name,
+          'name': (visitor, target) => (target as $tom_dist_ledger_2.DLLogLevel).name,
         },
       ),
       BridgedExtensionDefinition(
         name: 'DLLogLevelExtension',
         onTypeName: 'DLLogLevel',
         getters: {
-          'name': (visitor, target) => (target as $tom_dist_ledger_3.DLLogLevel).name,
+          'name': (visitor, target) => (target as $tom_dist_ledger_2.DLLogLevel).name,
+        },
+      ),
+      BridgedExtensionDefinition(
+        name: 'RetryableResponse',
+        onTypeName: 'Response',
+        getters: {
+          'isRetryable': (visitor, target) => (target as $http_1.Response).isRetryable,
         },
       ),
     ];
@@ -173,8 +199,30 @@ class AllBridge {
   static Map<String, String> extensionSourceUris() {
     return {
       'DLLogLevelExtension': 'package:tom_dist_ledger/src/ledger_api/call_callback.dart',
-      'DLLogLevelExtension': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\call_callback.dart',
+      'DLLogLevelExtension': 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'RetryableResponse': 'package:tom_basics_network/src/http_retry.dart',
     };
+  }
+
+  /// GEN-107: Library re-exports declared by the bridged source
+  /// libraries. Each tuple mirrors a Dart `export '…'` directive.
+  /// Consumed by `registerBridges` via `D4rt.registerLibraryReExport`
+  /// (mirrored on `D4rtRunner` in tom_d4rt_ast).
+  static List<({String source, String target, Set<String>? show, Set<String>? hide})>
+  bridgeReExports() {
+    return [
+      (source: 'package:tom_dist_ledger/tom_dist_ledger.dart', target: 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/tom_dist_ledger.dart', target: 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/tom_dist_ledger.dart', target: 'package:tom_dist_ledger/src/ledger_client/remote_ledger_client.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/tom_dist_ledger.dart', target: 'package:tom_basics_network/tom_basics_network.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart', target: 'package:tom_dist_ledger/src/ledger_local/file_ledger.dart', show: {'HeartbeatResult'}, hide: null),
+      (source: 'package:tom_dist_ledger/src/ledger_api/ledger_base.dart', target: 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart', target: 'package:tom_dist_ledger/src/ledger_api/cleanup_handler.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart', target: 'package:tom_dist_ledger/src/ledger_api/ledger_base.dart', show: null, hide: null),
+      (source: 'package:tom_dist_ledger/src/ledger_api/ledger_api.dart', target: 'package:tom_dist_ledger/src/ledger_api/ledger_types.dart', show: null, hide: null),
+      (source: 'package:tom_basics_network/tom_basics_network.dart', target: 'package:tom_basics_network/src/http_retry.dart', show: null, hide: null),
+      (source: 'package:tom_basics_network/tom_basics_network.dart', target: 'package:tom_basics_network/src/server_discovery.dart', show: null, hide: null),
+    ];
   }
 
   /// Registers all bridges with an interpreter.
@@ -188,6 +236,11 @@ class AllBridge {
     for (final bridge in classes) {
       interpreter.registerBridgedClass(bridge, importPath, sourceUri: classSources[bridge.name]);
     }
+
+    // MCI#1 / A1: Register the flattened native supertype table so
+    // interpreted subclasses pass subtype checks against bridged
+    // ancestors. Idempotent — safe to call per barrel.
+    BridgedClass.registerSupertypes(classSupertypes());
 
     // Register bridged enums with source URIs for deduplication
     final enums = bridgedEnums();
@@ -220,6 +273,11 @@ class AllBridge {
     for (final name in typedefs) {
       interpreter.registerFunctionTypedef(name, importPath);
     }
+
+    // GEN-107: Register library re-exports
+    for (final r in bridgeReExports()) {
+      interpreter.registerLibraryReExport(r.source, r.target, show: r.show, hide: r.hide);
+    }
   }
 
   /// Registers all global variables with the interpreter.
@@ -231,7 +289,7 @@ class AllBridge {
     final errors = <String>[];
 
     try {
-      interpreter.registerGlobalVariable('kDefaultRetryDelaysMs', kDefaultRetryDelaysMs, importPath, sourceUri: 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart');
+      interpreter.registerGlobalVariable('kDefaultRetryDelaysMs', $tom_basics_network_1.kDefaultRetryDelaysMs, importPath, sourceUri: 'package:tom_basics_network/src/http_retry.dart');
     } catch (e) {
       errors.add('Failed to register variable "kDefaultRetryDelaysMs": $e');
     }
@@ -250,11 +308,11 @@ class AllBridge {
           throw ArgumentError('withRetry: Missing required argument "operation" at position 0');
         }
         final operationRaw = positional[0];
-        final operation = () { return D4.callInterpreterCallback(visitor!, operationRaw, []) as Future<dynamic>; };
+        final operation = (() { return Future.value(D4.callInterpreterCallback(visitor!, operationRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function();
         final config = D4.getNamedArgWithDefault<$tom_basics_network_1.RetryConfig>(named, 'config', $tom_basics_network_1.RetryConfig.defaultConfig);
         final shouldRetryRaw = named['shouldRetry'];
-        final shouldRetry = shouldRetryRaw == null ? null : (Object p0) { return D4.callInterpreterCallback(visitor!, shouldRetryRaw, [p0]) as bool; };
-        return withRetry<dynamic>(operation, config: config, shouldRetry: shouldRetry);
+        final shouldRetry = shouldRetryRaw == null ? null : ((Object p0) { return D4.callInterpreterCallback(visitor!, shouldRetryRaw, [p0]) as bool; }) as bool Function(Object);
+        return $tom_basics_network_1.withRetry<dynamic>(operation, config: config, shouldRetry: shouldRetry);
       },
     };
   }
@@ -265,7 +323,7 @@ class AllBridge {
   /// multiple barrels (e.g., tom_core_kernel and tom_core_server).
   static Map<String, String> globalFunctionSourceUris() {
     return {
-      'withRetry': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
+      'withRetry': 'package:tom_basics_network/src/http_retry.dart',
     };
   }
 
@@ -283,15 +341,14 @@ class AllBridge {
   /// multiple barrels.
   static List<String> sourceLibraries() {
     return [
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\call_callback.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\cleanup_handler.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_api.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_base.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_api\ledger_types.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_client\remote_ledger_client.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_dist_ledger\lib\src\ledger_local\file_ledger.dart',
+      'package:tom_basics_network/src/http_retry.dart',
+      'package:tom_basics_network/src/server_discovery.dart',
+      'package:tom_dist_ledger/src/ledger_api/cleanup_handler.dart',
+      'package:tom_dist_ledger/src/ledger_api/ledger_api.dart',
+      'package:tom_dist_ledger/src/ledger_api/ledger_base.dart',
+      'package:tom_dist_ledger/src/ledger_api/ledger_types.dart',
+      'package:tom_dist_ledger/src/ledger_client/remote_ledger_client.dart',
+      'package:tom_dist_ledger/src/ledger_local/file_ledger.dart',
     ];
   }
 
@@ -300,7 +357,10 @@ class AllBridge {
   /// Use this in your D4rt initialization script to make all
   /// bridged classes available to scripts.
   static String getImportBlock() {
-    return "import 'package:tom_dist_ledger/tom_dist_ledger.dart';";
+    final imports = StringBuffer();
+    imports.writeln("import 'package:tom_dist_ledger/tom_dist_ledger.dart';");
+    imports.writeln("import 'package:tom_basics_network/tom_basics_network.dart';");
+    return imports.toString();
   }
 
   /// Returns barrel import URIs for sub-packages discovered through re-exports.
@@ -310,7 +370,9 @@ class AllBridge {
   /// These barrels need to be registered with the interpreter separately
   /// so that module resolution finds content for those URIs.
   static List<String> subPackageBarrels() {
-    return [];
+    return [
+      'package:tom_basics_network/tom_basics_network.dart',
+    ];
   }
 
   /// Returns a list of bridged enum names.
@@ -329,40 +391,40 @@ class AllBridge {
 
 BridgedClass _createCleanupHandlerBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_2.CleanupHandler,
+    nativeType: $tom_dist_ledger_1.CleanupHandler,
     name: 'CleanupHandler',
-    isAssignable: (v) => v is $tom_dist_ledger_2.CleanupHandler,
+    isAssignable: (v) => v is $tom_dist_ledger_1.CleanupHandler,
     constructors: {
     },
     methods: {
       'register': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_2.CleanupHandler>(target, 'CleanupHandler');
+        final t = D4.validateTarget<$tom_dist_ledger_1.CleanupHandler>(target, 'CleanupHandler');
         D4.requireMinArgs(positional, 1, 'register');
         if (positional.isEmpty) {
           throw ArgumentError('register: Missing required argument "callback" at position 0');
         }
         final callbackRaw = positional[0];
-        return t.register(() { return D4.callInterpreterCallback(visitor!, callbackRaw, []) as Future<void>; });
+        return t.register((() { return Future.value(D4.callInterpreterCallback(visitor!, callbackRaw, [])); }) as Future<void> Function());
       },
       'unregister': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_2.CleanupHandler>(target, 'CleanupHandler');
+        final t = D4.validateTarget<$tom_dist_ledger_1.CleanupHandler>(target, 'CleanupHandler');
         D4.requireMinArgs(positional, 1, 'unregister');
         final id = D4.getRequiredArg<int>(positional, 0, 'id', 'unregister');
         t.unregister(id);
         return null;
       },
       'cleanup': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_2.CleanupHandler>(target, 'CleanupHandler');
+        final t = D4.validateTarget<$tom_dist_ledger_1.CleanupHandler>(target, 'CleanupHandler');
         return t.cleanup();
       },
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_2.CleanupHandler>(target, 'CleanupHandler');
+        final t = D4.validateTarget<$tom_dist_ledger_1.CleanupHandler>(target, 'CleanupHandler');
         (t as dynamic).dispose();
         return null;
       },
     },
     staticGetters: {
-      'instance': (visitor) => $tom_dist_ledger_2.CleanupHandler.instance,
+      'instance': (visitor) => $tom_dist_ledger_1.CleanupHandler.instance,
     },
     methodSignatures: {
       'register': 'int register(CleanupCallback callback)',
@@ -696,25 +758,25 @@ BridgedClass _createHeartbeatResultBridge() {
 
 BridgedClass _createHeartbeatErrorBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_5.HeartbeatError,
+    nativeType: $tom_dist_ledger_4.HeartbeatError,
     name: 'HeartbeatError',
-    isAssignable: (v) => v is $tom_dist_ledger_5.HeartbeatError,
+    isAssignable: (v) => v is $tom_dist_ledger_4.HeartbeatError,
     constructors: {
       '': (visitor, positional, named) {
-        final type = D4.getRequiredNamedArg<$tom_dist_ledger_5.HeartbeatErrorType>(named, 'type', 'HeartbeatError');
+        final type = D4.getRequiredNamedArg<$tom_dist_ledger_4.HeartbeatErrorType>(named, 'type', 'HeartbeatError');
         final message = D4.getRequiredNamedArg<String>(named, 'message', 'HeartbeatError');
         final cause = D4.getOptionalNamedArg<Object?>(named, 'cause');
-        return $tom_dist_ledger_5.HeartbeatError(type: type, message: message, cause: cause);
+        return $tom_dist_ledger_4.HeartbeatError(type: type, message: message, cause: cause);
       },
     },
     getters: {
-      'type': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.HeartbeatError>(target, 'HeartbeatError').type,
-      'message': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.HeartbeatError>(target, 'HeartbeatError').message,
-      'cause': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.HeartbeatError>(target, 'HeartbeatError').cause,
+      'type': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.HeartbeatError>(target, 'HeartbeatError').type,
+      'message': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.HeartbeatError>(target, 'HeartbeatError').message,
+      'cause': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.HeartbeatError>(target, 'HeartbeatError').cause,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_5.HeartbeatError>(target, 'HeartbeatError');
+        final t = D4.validateTarget<$tom_dist_ledger_4.HeartbeatError>(target, 'HeartbeatError');
         return t.toString();
       },
     },
@@ -738,71 +800,72 @@ BridgedClass _createHeartbeatErrorBridge() {
 
 BridgedClass _createOperationBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_4.Operation,
+    nativeType: $tom_dist_ledger_3.Operation,
     name: 'Operation',
-    isAssignable: (v) => v is $tom_dist_ledger_4.Operation,
+    isAssignable: (v) => v is $tom_dist_ledger_3.Operation,
+    isAbstract: true,
     constructors: {
     },
     getters: {
-      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').operationId,
-      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').participantId,
-      'isInitiator': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').isInitiator,
-      'sessionId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').sessionId,
-      'startTime': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').startTime,
-      'isAborted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').isAborted,
-      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').onAbort,
-      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').onFailure,
-      'elapsedFormatted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').elapsedFormatted,
-      'elapsedDuration': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').elapsedDuration,
-      'startTimeIso': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').startTimeIso,
-      'startTimeMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').startTimeMs,
-      'pendingCallCount': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').pendingCallCount,
-      'cachedData': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation').cachedData,
+      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').operationId,
+      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').participantId,
+      'isInitiator': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').isInitiator,
+      'sessionId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').sessionId,
+      'startTime': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').startTime,
+      'isAborted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').isAborted,
+      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').onAbort,
+      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').onFailure,
+      'elapsedFormatted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').elapsedFormatted,
+      'elapsedDuration': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').elapsedDuration,
+      'startTimeIso': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').startTimeIso,
+      'startTimeMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').startTimeMs,
+      'pendingCallCount': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').pendingCallCount,
+      'cachedData': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation').cachedData,
     },
     methods: {
       'startCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
         return t.startCall(callback: callback, description: description, failOnCrash: failOnCrash);
       },
       'hasPendingCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         return t.hasPendingCalls();
       },
       'spawnCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         if (!named.containsKey('work') || named['work'] == null) {
           throw ArgumentError('spawnCall: Missing required named argument "work"');
         }
         final workRaw = named['work'];
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
-        return t.spawnCall(work: ($tom_dist_ledger_3.SpawnedCall<dynamic> p0, $tom_dist_ledger_4.Operation p1) { return D4.callInterpreterCallback(visitor!, workRaw, [p0, p1]) as Future<dynamic>; }, callback: callback, description: description, failOnCrash: failOnCrash);
+        return t.spawnCall<Object?>(work: (($tom_dist_ledger_2.SpawnedCall<dynamic> p0, $tom_dist_ledger_3.Operation p1) { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [p0, p1])).then((v) => v as dynamic); }) as Future<dynamic> Function($tom_dist_ledger_2.SpawnedCall<dynamic>, $tom_dist_ledger_3.Operation), callback: callback, description: description, failOnCrash: failOnCrash);
       },
       'sync': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         D4.requireMinArgs(positional, 1, 'sync');
         if (positional.isEmpty) {
           throw ArgumentError('sync: Missing required argument "calls" at position 0');
         }
-        final calls = D4.coerceList<$tom_dist_ledger_3.SpawnedCall<dynamic>>(positional[0], 'calls');
+        final calls = D4.coerceList<$tom_dist_ledger_2.SpawnedCall>(positional[0], 'calls');
         final onOperationFailedRaw = named['onOperationFailed'];
         final onCompletionRaw = named['onCompletion'];
-        return t.sync(calls, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCompletionRaw, []) as Future<void>; });
+        return t.sync(calls, onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onCompletion: onCompletionRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [])); }) as Future<void> Function());
       },
       'awaitCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         D4.requireMinArgs(positional, 1, 'awaitCall');
-        final call = D4.getRequiredArg<$tom_dist_ledger_3.SpawnedCall<dynamic>>(positional, 0, 'call', 'awaitCall');
+        final call = D4.getRequiredArg<$tom_dist_ledger_2.SpawnedCall<dynamic>>(positional, 0, 'call', 'awaitCall');
         final onOperationFailedRaw = named['onOperationFailed'];
         final onCompletionRaw = named['onCompletion'];
-        return t.awaitCall(call, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCompletionRaw, []) as Future<void>; });
+        return t.awaitCall(call, onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onCompletion: onCompletionRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [])); }) as Future<void> Function());
       },
       'waitForCompletion': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         D4.requireMinArgs(positional, 1, 'waitForCompletion');
         if (positional.isEmpty) {
           throw ArgumentError('waitForCompletion: Missing required argument "work" at position 0');
@@ -810,63 +873,63 @@ BridgedClass _createOperationBridge() {
         final workRaw = positional[0];
         final onOperationFailedRaw = named['onOperationFailed'];
         final onErrorRaw = named['onError'];
-        return t.waitForCompletion(() { return D4.callInterpreterCallback(visitor!, workRaw, []) as Future<dynamic>; }, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onError: onErrorRaw == null ? null : (Object p0, StackTrace p1) { return D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]) as Future<dynamic>; });
+        return t.waitForCompletion<Object?>((() { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function(), onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onError: onErrorRaw == null ? null : ((Object p0, StackTrace p1) { return Future.value(D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1])).then((v) => v as dynamic); }) as Future<dynamic> Function(Object, StackTrace));
       },
       'leave': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         final cancelPendingCalls = D4.getNamedArgWithDefault<bool>(named, 'cancelPendingCalls', false);
         return t.leave(cancelPendingCalls: cancelPendingCalls);
       },
       'log': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         D4.requireMinArgs(positional, 1, 'log');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'log');
-        final level = D4.getNamedArgWithDefault<$tom_dist_ledger_3.DLLogLevel>(named, 'level', $tom_dist_ledger_3.DLLogLevel.info);
+        final level = D4.getNamedArgWithDefault<$tom_dist_ledger_2.DLLogLevel>(named, 'level', $tom_dist_ledger_2.DLLogLevel.info);
         return t.log(message, level: level);
       },
       'complete': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         return t.complete();
       },
       'setAbortFlag': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         D4.requireMinArgs(positional, 1, 'setAbortFlag');
         final value = D4.getRequiredArg<bool>(positional, 0, 'value', 'setAbortFlag');
         return t.setAbortFlag(value);
       },
       'checkAbort': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         return t.checkAbort();
       },
       'triggerAbort': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         t.triggerAbort();
         return null;
       },
       'startHeartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         final onErrorRaw = named['onError'];
         final onSuccessRaw = named['onSuccess'];
-        t.startHeartbeat(onError: onErrorRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_5.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); }, onSuccess: onSuccessRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onSuccessRaw, [p0, p1]); });
+        t.startHeartbeat(onError: onErrorRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_4.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); }, onSuccess: onSuccessRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onSuccessRaw, [p0, p1]); });
         return null;
       },
       'createCallFrame': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'createCallFrame');
         return t.createCallFrame(callId: callId);
       },
       'deleteCallFrame': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'deleteCallFrame');
         return t.deleteCallFrame(callId: callId);
       },
       'registerTempResource': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         final path = D4.getRequiredNamedArg<String>(named, 'path', 'registerTempResource');
         return t.registerTempResource(path: path);
       },
       'unregisterTempResource': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Operation>(target, 'Operation');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Operation>(target, 'Operation');
         final path = D4.getRequiredNamedArg<String>(named, 'path', 'unregisterTempResource');
         return t.unregisterTempResource(path: path);
       },
@@ -875,7 +938,7 @@ BridgedClass _createOperationBridge() {
       'startCall': 'Future<Call<T>> startCall({CallCallback<T>? callback, String? description, bool failOnCrash = true})',
       'hasPendingCalls': 'bool hasPendingCalls()',
       'spawnCall': 'SpawnedCall<T> spawnCall({required Future<T> Function(SpawnedCall<T> call, Operation operation) work, CallCallback<T>? callback, String? description, bool failOnCrash = true})',
-      'sync': 'Future<SyncResult> sync(List<SpawnedCall<dynamic>> calls, {Future<void> Function(OperationFailedInfo info)? onOperationFailed, Future<void> Function()? onCompletion})',
+      'sync': 'Future<SyncResult> sync(List<SpawnedCall> calls, {Future<void> Function(OperationFailedInfo info)? onOperationFailed, Future<void> Function()? onCompletion})',
       'awaitCall': 'Future<SyncResult> awaitCall(SpawnedCall<T> call, {Future<void> Function(OperationFailedInfo info)? onOperationFailed, Future<void> Function()? onCompletion})',
       'waitForCompletion': 'Future<T> waitForCompletion(Future<T> Function() work, {Future<void> Function(OperationFailedInfo info)? onOperationFailed, Future<T> Function(Object error, StackTrace stackTrace)? onError})',
       'leave': 'FutureOr<void> leave({bool cancelPendingCalls = false})',
@@ -915,33 +978,34 @@ BridgedClass _createOperationBridge() {
 
 BridgedClass _createLedgerBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_4.Ledger,
+    nativeType: $tom_dist_ledger_3.Ledger,
     name: 'Ledger',
-    isAssignable: (v) => v is $tom_dist_ledger_4.Ledger,
+    isAssignable: (v) => v is $tom_dist_ledger_3.Ledger,
+    isAbstract: true,
     constructors: {
     },
     getters: {
-      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger').participantId,
-      'participantPid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger').participantPid,
-      'maxBackups': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger').maxBackups,
-      'heartbeatInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger').heartbeatInterval,
-      'staleThreshold': (visitor, target) => D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger').staleThreshold,
+      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger').participantId,
+      'participantPid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger').participantPid,
+      'maxBackups': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger').maxBackups,
+      'heartbeatInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger').heartbeatInterval,
+      'staleThreshold': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger').staleThreshold,
     },
     methods: {
       'createOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.OperationCallback?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.OperationCallback?>(named, 'callback');
         return t.createOperation(description: description, callback: callback);
       },
       'joinOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger');
         final operationId = D4.getRequiredNamedArg<String>(named, 'operationId', 'joinOperation');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.OperationCallback?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.OperationCallback?>(named, 'callback');
         return t.joinOperation(operationId: operationId, callback: callback);
       },
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_4.Ledger>(target, 'Ledger');
+        final t = D4.validateTarget<$tom_dist_ledger_3.Ledger>(target, 'Ledger');
         (t as dynamic).dispose();
         return null;
       },
@@ -952,11 +1016,11 @@ BridgedClass _createLedgerBridge() {
         final basePath = D4.getOptionalNamedArg<String?>(named, 'basePath');
         final serverUrl = D4.getOptionalNamedArg<String?>(named, 'serverUrl');
         final participantPid = D4.getOptionalNamedArg<int?>(named, 'participantPid');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.LedgerCallback?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.LedgerCallback?>(named, 'callback');
         final maxBackups = D4.getNamedArgWithDefault<int>(named, 'maxBackups', 20);
         final heartbeatInterval = D4.getNamedArgWithDefault<Duration>(named, 'heartbeatInterval', const Duration(seconds: 5));
         final staleThreshold = D4.getNamedArgWithDefault<Duration>(named, 'staleThreshold', const Duration(seconds: 15));
-        return $tom_dist_ledger_4.Ledger.connect(participantId: participantId, basePath: basePath, serverUrl: serverUrl, participantPid: participantPid, callback: callback, maxBackups: maxBackups, heartbeatInterval: heartbeatInterval, staleThreshold: staleThreshold);
+        return $tom_dist_ledger_3.Ledger.connect(participantId: participantId, basePath: basePath, serverUrl: serverUrl, participantPid: participantPid, callback: callback, maxBackups: maxBackups, heartbeatInterval: heartbeatInterval, staleThreshold: staleThreshold);
       },
     },
     methodSignatures: {
@@ -983,99 +1047,100 @@ BridgedClass _createLedgerBridge() {
 
 BridgedClass _createLocalOperationBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.LocalOperation,
+    nativeType: $tom_dist_ledger_2.LocalOperation,
     name: 'LocalOperation',
-    isAssignable: (v) => v is $tom_dist_ledger_3.LocalOperation,
+    isAssignable: (v) => v is $tom_dist_ledger_2.LocalOperation,
+    hierarchyDepth: 1,
     constructors: {
     },
     getters: {
-      'sessionId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').sessionId,
-      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').operationId,
-      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').participantId,
-      'pid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').pid,
-      'isInitiator': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').isInitiator,
-      'startTime': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').startTime,
-      'cachedData': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').cachedData,
-      'lastChangeTimestamp': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').lastChangeTimestamp,
-      'isAborted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').isAborted,
-      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').onAbort,
-      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').onFailure,
-      'elapsedFormatted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').elapsedFormatted,
-      'elapsedDuration': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').elapsedDuration,
-      'startTimeIso': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').startTimeIso,
-      'startTimeMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').startTimeMs,
-      'stalenessThresholdMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').stalenessThresholdMs,
-      'pendingCallCount': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').pendingCallCount,
+      'sessionId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').sessionId,
+      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').operationId,
+      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').participantId,
+      'pid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').pid,
+      'isInitiator': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').isInitiator,
+      'startTime': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').startTime,
+      'cachedData': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').cachedData,
+      'lastChangeTimestamp': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').lastChangeTimestamp,
+      'isAborted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').isAborted,
+      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').onAbort,
+      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').onFailure,
+      'elapsedFormatted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').elapsedFormatted,
+      'elapsedDuration': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').elapsedDuration,
+      'startTimeIso': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').startTimeIso,
+      'startTimeMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').startTimeMs,
+      'stalenessThresholdMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').stalenessThresholdMs,
+      'pendingCallCount': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').pendingCallCount,
     },
     setters: {
       'stalenessThresholdMs': (visitor, target, value) => 
-        D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation').stalenessThresholdMs = D4.extractBridgedArg<int>(value, 'stalenessThresholdMs'),
+        D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation').stalenessThresholdMs = D4.extractBridgedArg<int>(value, 'stalenessThresholdMs'),
     },
     methods: {
       'startCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
         return t.startCall(callback: callback, description: description, failOnCrash: failOnCrash);
       },
       'spawnCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         if (!named.containsKey('work') || named['work'] == null) {
           throw ArgumentError('spawnCall: Missing required named argument "work"');
         }
         final workRaw = named['work'];
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
-        return t.spawnCall(work: ($tom_dist_ledger_3.SpawnedCall<dynamic> p0, $tom_dist_ledger_4.Operation p1) { return D4.callInterpreterCallback(visitor!, workRaw, [p0, p1]) as Future<dynamic>; }, callback: callback, description: description, failOnCrash: failOnCrash);
+        return t.spawnCall<Object?>(work: (($tom_dist_ledger_2.SpawnedCall<dynamic> p0, $tom_dist_ledger_3.Operation p1) { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [p0, p1])).then((v) => v as dynamic); }) as Future<dynamic> Function($tom_dist_ledger_2.SpawnedCall<dynamic>, $tom_dist_ledger_3.Operation), callback: callback, description: description, failOnCrash: failOnCrash);
       },
       'hasPendingCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.hasPendingCalls();
       },
       'getPendingSpawnedCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.getPendingSpawnedCalls();
       },
       'getPendingCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.getPendingCalls();
       },
       'leave': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final cancelPendingCalls = D4.getNamedArgWithDefault<bool>(named, 'cancelPendingCalls', false);
         t.leave(cancelPendingCalls: cancelPendingCalls);
         return null;
       },
       'log': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'log');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'log');
-        final level = D4.getNamedArgWithDefault<$tom_dist_ledger_3.DLLogLevel>(named, 'level', $tom_dist_ledger_3.DLLogLevel.info);
+        final level = D4.getNamedArgWithDefault<$tom_dist_ledger_2.DLLogLevel>(named, 'level', $tom_dist_ledger_2.DLLogLevel.info);
         return t.log(message, level: level);
       },
       'complete': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.complete();
       },
       'setAbortFlag': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'setAbortFlag');
         final value = D4.getRequiredArg<bool>(positional, 0, 'value', 'setAbortFlag');
         return t.setAbortFlag(value);
       },
       'checkAbort': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.checkAbort();
       },
       'triggerAbort': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         t.triggerAbort();
         return null;
       },
       'waitForCompletion': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'waitForCompletion');
         if (positional.isEmpty) {
           throw ArgumentError('waitForCompletion: Missing required argument "work" at position 0');
@@ -1083,35 +1148,35 @@ BridgedClass _createLocalOperationBridge() {
         final workRaw = positional[0];
         final onOperationFailedRaw = named['onOperationFailed'];
         final onErrorRaw = named['onError'];
-        return t.waitForCompletion(() { return D4.callInterpreterCallback(visitor!, workRaw, []) as Future<dynamic>; }, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onError: onErrorRaw == null ? null : (Object p0, StackTrace p1) { return D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]) as Future<dynamic>; });
+        return t.waitForCompletion<Object?>((() { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function(), onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onError: onErrorRaw == null ? null : ((Object p0, StackTrace p1) { return Future.value(D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1])).then((v) => v as dynamic); }) as Future<dynamic> Function(Object, StackTrace));
       },
       'startHeartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final interval = D4.getNamedArgWithDefault<Duration>(named, 'interval', const Duration(milliseconds: 4500));
         final jitterMs = D4.getNamedArgWithDefault<int>(named, 'jitterMs', 500);
         final onErrorRaw = named['onError'];
         final onSuccessRaw = named['onSuccess'];
-        t.startHeartbeat(interval: interval, jitterMs: jitterMs, onError: onErrorRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_5.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); }, onSuccess: onSuccessRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onSuccessRaw, [p0, p1]); });
+        t.startHeartbeat(interval: interval, jitterMs: jitterMs, onError: onErrorRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_4.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); }, onSuccess: onSuccessRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onSuccessRaw, [p0, p1]); });
         return null;
       },
       'stopHeartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         t.stopHeartbeat();
         return null;
       },
       'sync': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'sync');
         if (positional.isEmpty) {
           throw ArgumentError('sync: Missing required argument "calls" at position 0');
         }
-        final calls = D4.coerceList<$tom_dist_ledger_3.SpawnedCall>(positional[0], 'calls');
+        final calls = D4.coerceList<$tom_dist_ledger_2.SpawnedCall>(positional[0], 'calls');
         final onOperationFailedRaw = named['onOperationFailed'];
         final onCompletionRaw = named['onCompletion'];
-        return t.sync(calls, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCompletionRaw, []) as Future<void>; });
+        return t.sync(calls, onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onCompletion: onCompletionRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [])); }) as Future<void> Function());
       },
       'execFileResultWorker': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final executable = D4.getRequiredNamedArg<String>(named, 'executable', 'execFileResultWorker');
         if (!named.containsKey('arguments') || named['arguments'] == null) {
           throw ArgumentError('execFileResultWorker: Missing required named argument "arguments"');
@@ -1128,11 +1193,11 @@ BridgedClass _createLocalOperationBridge() {
         final onStderrRaw = named['onStderr'];
         final onExitRaw = named['onExit'];
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
-        return t.execFileResultWorker(executable: executable, arguments: arguments, resultFilePath: resultFilePath, workingDirectory: workingDirectory, description: description, deserializer: deserializerRaw == null ? null : (String p0) { return D4.castCallbackResult<dynamic>(D4.callInterpreterCallback(visitor!, deserializerRaw, [p0])); }, deleteResultFile: deleteResultFile, pollInterval: pollInterval, timeout: timeout, onStdout: onStdoutRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onStdoutRaw, [p0]); }, onStderr: onStderrRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onStderrRaw, [p0]); }, onExit: onExitRaw == null ? null : (int p0) { D4.callInterpreterCallback(visitor!, onExitRaw, [p0]); }, failOnCrash: failOnCrash, callback: callback);
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
+        return t.execFileResultWorker<Object?>(executable: executable, arguments: arguments, resultFilePath: resultFilePath, workingDirectory: workingDirectory, description: description, deserializer: deserializerRaw == null ? null : (String p0) { return D4.castCallbackResult<dynamic>(D4.callInterpreterCallback(visitor!, deserializerRaw, [p0])); }, deleteResultFile: deleteResultFile, pollInterval: pollInterval, timeout: timeout, onStdout: onStdoutRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onStdoutRaw, [p0]); }, onStderr: onStderrRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onStderrRaw, [p0]); }, onExit: onExitRaw == null ? null : (int p0) { D4.callInterpreterCallback(visitor!, onExitRaw, [p0]); }, failOnCrash: failOnCrash, callback: callback);
       },
       'execStdioWorker': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final executable = D4.getRequiredNamedArg<String>(named, 'executable', 'execStdioWorker');
         if (!named.containsKey('arguments') || named['arguments'] == null) {
           throw ArgumentError('execStdioWorker: Missing required named argument "arguments"');
@@ -1145,79 +1210,79 @@ BridgedClass _createLocalOperationBridge() {
         final onExitRaw = named['onExit'];
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
-        return t.execStdioWorker(executable: executable, arguments: arguments, workingDirectory: workingDirectory, description: description, deserializer: deserializerRaw == null ? null : (String p0) { return D4.castCallbackResult<dynamic>(D4.callInterpreterCallback(visitor!, deserializerRaw, [p0])); }, onStderr: onStderrRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onStderrRaw, [p0]); }, onExit: onExitRaw == null ? null : (int p0) { D4.callInterpreterCallback(visitor!, onExitRaw, [p0]); }, timeout: timeout, failOnCrash: failOnCrash, callback: callback);
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
+        return t.execStdioWorker<Object?>(executable: executable, arguments: arguments, workingDirectory: workingDirectory, description: description, deserializer: deserializerRaw == null ? null : (String p0) { return D4.castCallbackResult<dynamic>(D4.callInterpreterCallback(visitor!, deserializerRaw, [p0])); }, onStderr: onStderrRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onStderrRaw, [p0]); }, onExit: onExitRaw == null ? null : (int p0) { D4.callInterpreterCallback(visitor!, onExitRaw, [p0]); }, timeout: timeout, failOnCrash: failOnCrash, callback: callback);
       },
       'awaitCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'awaitCall');
-        final call = D4.getRequiredArg<$tom_dist_ledger_3.SpawnedCall<dynamic>>(positional, 0, 'call', 'awaitCall');
+        final call = D4.getRequiredArg<$tom_dist_ledger_2.SpawnedCall<dynamic>>(positional, 0, 'call', 'awaitCall');
         final onOperationFailedRaw = named['onOperationFailed'];
         final onCompletionRaw = named['onCompletion'];
-        return t.awaitCall(call, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCompletionRaw, []) as Future<void>; });
+        return t.awaitCall(call, onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onCompletion: onCompletionRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [])); }) as Future<void> Function());
       },
       'debugLog': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'debugLog');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'debugLog');
         return t.debugLog(message);
       },
       'getOperationState': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.getOperationState();
       },
       'setOperationState': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'setOperationState');
         final state = D4.getRequiredArg<$tom_dist_ledger_6.OperationState>(positional, 0, 'state', 'setOperationState');
         return t.setOperationState(state);
       },
       'heartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.heartbeat();
       },
       'logMessage': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final depth = D4.getRequiredNamedArg<int>(named, 'depth', 'logMessage');
         final message = D4.getRequiredNamedArg<String>(named, 'message', 'logMessage');
         return t.logMessage(depth: depth, message: message);
       },
       'createCallFrame': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'createCallFrame');
         return t.createCallFrame(callId: callId);
       },
       'deleteCallFrame': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'deleteCallFrame');
         return t.deleteCallFrame(callId: callId);
       },
       'registerTempResource': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final path = D4.getRequiredNamedArg<String>(named, 'path', 'registerTempResource');
         return t.registerTempResource(path: path);
       },
       'unregisterTempResource': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         final path = D4.getRequiredNamedArg<String>(named, 'path', 'unregisterTempResource');
         return t.unregisterTempResource(path: path);
       },
       'retrieveAndLockOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.retrieveAndLockOperation();
       },
       'unlockOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         return t.unlockOperation();
       },
       'writeAndUnlockOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         D4.requireMinArgs(positional, 1, 'writeAndUnlockOperation');
         final data = D4.getRequiredArg<$tom_dist_ledger_6.LedgerData>(positional, 0, 'data', 'writeAndUnlockOperation');
         return t.writeAndUnlockOperation(data);
       },
       'execServerRequest': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalOperation>(target, 'LocalOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalOperation>(target, 'LocalOperation');
         if (!named.containsKey('work') || named['work'] == null) {
           throw ArgumentError('execServerRequest: Missing required named argument "work"');
         }
@@ -1225,8 +1290,8 @@ BridgedClass _createLocalOperationBridge() {
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
-        return t.execServerRequest(work: () { return D4.callInterpreterCallback(visitor!, workRaw, []) as Future<dynamic>; }, description: description, timeout: timeout, failOnCrash: failOnCrash, callback: callback);
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
+        return t.execServerRequest<Object?>(work: (() { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function(), description: description, timeout: timeout, failOnCrash: failOnCrash, callback: callback);
       },
     },
     methodSignatures: {
@@ -1234,7 +1299,7 @@ BridgedClass _createLocalOperationBridge() {
       'spawnCall': 'SpawnedCall<T> spawnCall({required Future<T> Function(SpawnedCall<T> call, Operation operation) work, CallCallback<T>? callback, String? description, bool failOnCrash = true})',
       'hasPendingCalls': 'bool hasPendingCalls()',
       'getPendingSpawnedCalls': 'List<SpawnedCall> getPendingSpawnedCalls()',
-      'getPendingCalls': 'List<Call<dynamic>> getPendingCalls()',
+      'getPendingCalls': 'List<Call> getPendingCalls()',
       'leave': 'void leave({bool cancelPendingCalls = false})',
       'log': 'Future<void> log(String message, {DLLogLevel level = DLLogLevel.info})',
       'complete': 'Future<void> complete()',
@@ -1293,51 +1358,52 @@ BridgedClass _createLocalOperationBridge() {
 
 BridgedClass _createLocalLedgerBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.LocalLedger,
+    nativeType: $tom_dist_ledger_2.LocalLedger,
     name: 'LocalLedger',
-    isAssignable: (v) => v is $tom_dist_ledger_3.LocalLedger,
+    isAssignable: (v) => v is $tom_dist_ledger_2.LocalLedger,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         final basePath = D4.getRequiredNamedArg<String>(named, 'basePath', 'LocalLedger');
         final participantId = D4.getRequiredNamedArg<String>(named, 'participantId', 'LocalLedger');
         final participantPid = D4.getOptionalNamedArg<int?>(named, 'participantPid');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.LedgerCallback?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.LedgerCallback?>(named, 'callback');
         final maxBackups = D4.getNamedArgWithDefault<int>(named, 'maxBackups', 20);
         final heartbeatInterval = D4.getNamedArgWithDefault<Duration>(named, 'heartbeatInterval', const Duration(seconds: 5));
         final staleThreshold = D4.getNamedArgWithDefault<Duration>(named, 'staleThreshold', const Duration(seconds: 15));
         final lockTimeout = D4.getNamedArgWithDefault<Duration>(named, 'lockTimeout', const Duration(seconds: 2));
         final lockRetryInterval = D4.getNamedArgWithDefault<Duration>(named, 'lockRetryInterval', const Duration(milliseconds: 50));
         final maxLockRetryInterval = D4.getNamedArgWithDefault<Duration>(named, 'maxLockRetryInterval', const Duration(milliseconds: 500));
-        return $tom_dist_ledger_3.LocalLedger(basePath: basePath, participantId: participantId, participantPid: participantPid, callback: callback, maxBackups: maxBackups, heartbeatInterval: heartbeatInterval, staleThreshold: staleThreshold, lockTimeout: lockTimeout, lockRetryInterval: lockRetryInterval, maxLockRetryInterval: maxLockRetryInterval);
+        return $tom_dist_ledger_2.LocalLedger(basePath: basePath, participantId: participantId, participantPid: participantPid, callback: callback, maxBackups: maxBackups, heartbeatInterval: heartbeatInterval, staleThreshold: staleThreshold, lockTimeout: lockTimeout, lockRetryInterval: lockRetryInterval, maxLockRetryInterval: maxLockRetryInterval);
       },
     },
     getters: {
-      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').participantId,
-      'participantPid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').participantPid,
-      'maxBackups': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').maxBackups,
-      'heartbeatInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').heartbeatInterval,
-      'staleThreshold': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').staleThreshold,
-      'basePath': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').basePath,
-      'callback': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').callback,
-      'lockTimeout': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').lockTimeout,
-      'lockRetryInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').lockRetryInterval,
-      'maxLockRetryInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger').maxLockRetryInterval,
+      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').participantId,
+      'participantPid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').participantPid,
+      'maxBackups': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').maxBackups,
+      'heartbeatInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').heartbeatInterval,
+      'staleThreshold': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').staleThreshold,
+      'basePath': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').basePath,
+      'callback': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').callback,
+      'lockTimeout': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').lockTimeout,
+      'lockRetryInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').lockRetryInterval,
+      'maxLockRetryInterval': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger').maxLockRetryInterval,
     },
     methods: {
       'createOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.OperationCallback?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.OperationCallback?>(named, 'callback');
         return t.createOperation(description: description, callback: callback);
       },
       'joinOperation': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger');
         final operationId = D4.getRequiredNamedArg<String>(named, 'operationId', 'joinOperation');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.OperationCallback?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.OperationCallback?>(named, 'callback');
         return t.joinOperation(operationId: operationId, callback: callback);
       },
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.LocalLedger>(target, 'LocalLedger');
+        final t = D4.validateTarget<$tom_dist_ledger_2.LocalLedger>(target, 'LocalLedger');
         (t as dynamic).dispose();
         return null;
       },
@@ -1371,15 +1437,15 @@ BridgedClass _createLocalLedgerBridge() {
 
 BridgedClass _createLedgerCallbackBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.LedgerCallback,
+    nativeType: $tom_dist_ledger_2.LedgerCallback,
     name: 'LedgerCallback',
-    isAssignable: (v) => v is $tom_dist_ledger_3.LedgerCallback,
+    isAssignable: (v) => v is $tom_dist_ledger_2.LedgerCallback,
     constructors: {
       '': (visitor, positional, named) {
         final onBackupCreatedRaw = named['onBackupCreated'];
         final onLogLineRaw = named['onLogLine'];
         final onGlobalHeartbeatErrorRaw = named['onGlobalHeartbeatError'];
-        return $tom_dist_ledger_3.LedgerCallback(onBackupCreated: onBackupCreatedRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onBackupCreatedRaw, [p0]); }, onLogLine: onLogLineRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onLogLineRaw, [p0]); }, onGlobalHeartbeatError: onGlobalHeartbeatErrorRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_5.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onGlobalHeartbeatErrorRaw, [p0, p1]); });
+        return $tom_dist_ledger_2.LedgerCallback(onBackupCreated: onBackupCreatedRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onBackupCreatedRaw, [p0]); }, onLogLine: onLogLineRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, onLogLineRaw, [p0]); }, onGlobalHeartbeatError: onGlobalHeartbeatErrorRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_4.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onGlobalHeartbeatErrorRaw, [p0, p1]); });
       },
       'onBackup': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'LedgerCallback');
@@ -1387,16 +1453,16 @@ BridgedClass _createLedgerCallbackBridge() {
           throw ArgumentError('LedgerCallback: Missing required argument "onBackup" at position 0');
         }
         final onBackupRaw = positional[0];
-        return $tom_dist_ledger_3.LedgerCallback.onBackup((String p0) { D4.callInterpreterCallback(visitor!, onBackupRaw, [p0]); });
+        return $tom_dist_ledger_2.LedgerCallback.onBackup((String p0) { D4.callInterpreterCallback(visitor!, onBackupRaw, [p0]); });
       },
     },
     getters: {
-      'onBackupCreated': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LedgerCallback>(target, 'LedgerCallback').onBackupCreated,
-      'onLogLine': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LedgerCallback>(target, 'LedgerCallback').onLogLine,
-      'onGlobalHeartbeatError': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.LedgerCallback>(target, 'LedgerCallback').onGlobalHeartbeatError,
+      'onBackupCreated': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LedgerCallback>(target, 'LedgerCallback').onBackupCreated,
+      'onLogLine': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LedgerCallback>(target, 'LedgerCallback').onLogLine,
+      'onGlobalHeartbeatError': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.LedgerCallback>(target, 'LedgerCallback').onGlobalHeartbeatError,
     },
     constructorSignatures: {
-      '': 'const LedgerCallback({void Function(String)? onBackupCreated, void Function(String)? onLogLine, void Function(Operation, HeartbeatError)? onGlobalHeartbeatError})',
+      '': 'const LedgerCallback({void Function(String path)? onBackupCreated, void Function(String line)? onLogLine, void Function(Operation operation, HeartbeatError error)? onGlobalHeartbeatError})',
       'onBackup': 'factory LedgerCallback.onBackup(void Function(String path) onBackup)',
     },
     getterSignatures: {
@@ -1413,16 +1479,16 @@ BridgedClass _createLedgerCallbackBridge() {
 
 BridgedClass _createOperationCallbackBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.OperationCallback,
+    nativeType: $tom_dist_ledger_2.OperationCallback,
     name: 'OperationCallback',
-    isAssignable: (v) => v is $tom_dist_ledger_3.OperationCallback,
+    isAssignable: (v) => v is $tom_dist_ledger_2.OperationCallback,
     constructors: {
       '': (visitor, positional, named) {
         final onHeartbeatSuccessRaw = named['onHeartbeatSuccess'];
         final onHeartbeatErrorRaw = named['onHeartbeatError'];
         final onAbortRaw = named['onAbort'];
         final onFailureRaw = named['onFailure'];
-        return $tom_dist_ledger_3.OperationCallback(onHeartbeatSuccess: onHeartbeatSuccessRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onHeartbeatSuccessRaw, [p0, p1]); }, onHeartbeatError: onHeartbeatErrorRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_5.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onHeartbeatErrorRaw, [p0, p1]); }, onAbort: onAbortRaw == null ? null : ($tom_dist_ledger_4.Operation p0) { D4.callInterpreterCallback(visitor!, onAbortRaw, [p0]); }, onFailure: onFailureRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_3.OperationFailedInfo p1) { D4.callInterpreterCallback(visitor!, onFailureRaw, [p0, p1]); });
+        return $tom_dist_ledger_2.OperationCallback(onHeartbeatSuccess: onHeartbeatSuccessRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onHeartbeatSuccessRaw, [p0, p1]); }, onHeartbeatError: onHeartbeatErrorRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_4.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onHeartbeatErrorRaw, [p0, p1]); }, onAbort: onAbortRaw == null ? null : ($tom_dist_ledger_3.Operation p0) { D4.callInterpreterCallback(visitor!, onAbortRaw, [p0]); }, onFailure: onFailureRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_2.OperationFailedInfo p1) { D4.callInterpreterCallback(visitor!, onFailureRaw, [p0, p1]); });
       },
       'onError': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'OperationCallback');
@@ -1430,7 +1496,7 @@ BridgedClass _createOperationCallbackBridge() {
           throw ArgumentError('OperationCallback: Missing required argument "onError" at position 0');
         }
         final onErrorRaw = positional[0];
-        return $tom_dist_ledger_3.OperationCallback.onError(($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_5.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); });
+        return $tom_dist_ledger_2.OperationCallback.onError(($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_4.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); });
       },
       'onFailure': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'OperationCallback');
@@ -1438,17 +1504,17 @@ BridgedClass _createOperationCallbackBridge() {
           throw ArgumentError('OperationCallback: Missing required argument "onFailure" at position 0');
         }
         final onFailureRaw = positional[0];
-        return $tom_dist_ledger_3.OperationCallback.onFailure(($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_3.OperationFailedInfo p1) { D4.callInterpreterCallback(visitor!, onFailureRaw, [p0, p1]); });
+        return $tom_dist_ledger_2.OperationCallback.onFailure(($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_2.OperationFailedInfo p1) { D4.callInterpreterCallback(visitor!, onFailureRaw, [p0, p1]); });
       },
     },
     getters: {
-      'onHeartbeatSuccess': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationCallback>(target, 'OperationCallback').onHeartbeatSuccess,
-      'onHeartbeatError': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationCallback>(target, 'OperationCallback').onHeartbeatError,
-      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationCallback>(target, 'OperationCallback').onAbort,
-      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationCallback>(target, 'OperationCallback').onFailure,
+      'onHeartbeatSuccess': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationCallback>(target, 'OperationCallback').onHeartbeatSuccess,
+      'onHeartbeatError': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationCallback>(target, 'OperationCallback').onHeartbeatError,
+      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationCallback>(target, 'OperationCallback').onAbort,
+      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationCallback>(target, 'OperationCallback').onFailure,
     },
     constructorSignatures: {
-      '': 'const OperationCallback({void Function(Operation, HeartbeatResult)? onHeartbeatSuccess, void Function(Operation, HeartbeatError)? onHeartbeatError, void Function(Operation)? onAbort, void Function(Operation, OperationFailedInfo)? onFailure})',
+      '': 'const OperationCallback({void Function(Operation operation, HeartbeatResult result)? onHeartbeatSuccess, void Function(Operation operation, HeartbeatError error)? onHeartbeatError, void Function(Operation operation)? onAbort, void Function(Operation operation, OperationFailedInfo info)? onFailure})',
       'onError': 'factory OperationCallback.onError(void Function(Operation operation, HeartbeatError error) onError)',
       'onFailure': 'factory OperationCallback.onFailure(void Function(Operation operation, OperationFailedInfo info) onFailure)',
     },
@@ -1467,16 +1533,16 @@ BridgedClass _createOperationCallbackBridge() {
 
 BridgedClass _createCallCallbackBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.CallCallback,
+    nativeType: $tom_dist_ledger_2.CallCallback,
     name: 'CallCallback',
-    isAssignable: (v) => v is $tom_dist_ledger_3.CallCallback,
+    isAssignable: (v) => v is $tom_dist_ledger_2.CallCallback,
     constructors: {
       '': (visitor, positional, named) {
         final onCleanupRaw = named['onCleanup'];
         final onCompletionRaw = named['onCompletion'];
         final onCallCrashedRaw = named['onCallCrashed'];
         final onOperationFailedRaw = named['onOperationFailed'];
-        return $tom_dist_ledger_3.CallCallback(onCleanup: onCleanupRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCleanupRaw, []) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : (dynamic p0) { return D4.callInterpreterCallback(visitor!, onCompletionRaw, [p0]) as Future<void>; }, onCallCrashed: onCallCrashedRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCallCrashedRaw, []) as Future<dynamic>; }, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; });
+        return $tom_dist_ledger_2.CallCallback(onCleanup: onCleanupRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCleanupRaw, [])); }) as Future<void> Function(), onCompletion: onCompletionRaw == null ? null : ((dynamic p0) { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [p0])); }) as Future<void> Function(dynamic), onCallCrashed: onCallCrashedRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCallCrashedRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function(), onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo));
       },
       'cleanup': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'CallCallback');
@@ -1484,17 +1550,17 @@ BridgedClass _createCallCallbackBridge() {
           throw ArgumentError('CallCallback: Missing required argument "onCleanup" at position 0');
         }
         final onCleanupRaw = positional[0];
-        return $tom_dist_ledger_3.CallCallback.cleanup(() { return D4.callInterpreterCallback(visitor!, onCleanupRaw, []) as Future<void>; });
+        return $tom_dist_ledger_2.CallCallback.cleanup((() { return Future.value(D4.callInterpreterCallback(visitor!, onCleanupRaw, [])); }) as Future<void> Function());
       },
     },
     getters: {
-      'onCleanup': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.CallCallback>(target, 'CallCallback').onCleanup,
-      'onCompletion': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.CallCallback>(target, 'CallCallback').onCompletion,
-      'onCallCrashed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.CallCallback>(target, 'CallCallback').onCallCrashed,
-      'onOperationFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.CallCallback>(target, 'CallCallback').onOperationFailed,
+      'onCleanup': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.CallCallback>(target, 'CallCallback').onCleanup,
+      'onCompletion': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.CallCallback>(target, 'CallCallback').onCompletion,
+      'onCallCrashed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.CallCallback>(target, 'CallCallback').onCallCrashed,
+      'onOperationFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.CallCallback>(target, 'CallCallback').onOperationFailed,
     },
     constructorSignatures: {
-      '': 'CallCallback({Future<void> Function()? onCleanup, Future<void> Function(T)? onCompletion, Future<T?> Function()? onCallCrashed, Future<void> Function(OperationFailedInfo)? onOperationFailed})',
+      '': 'CallCallback({Future<void> Function()? onCleanup, Future<void> Function(T result)? onCompletion, Future<T?> Function()? onCallCrashed, Future<void> Function(OperationFailedInfo info)? onOperationFailed})',
       'cleanup': 'factory CallCallback.cleanup(Future<void> Function() onCleanup)',
     },
     getterSignatures: {
@@ -1512,9 +1578,9 @@ BridgedClass _createCallCallbackBridge() {
 
 BridgedClass _createOperationFailedInfoBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.OperationFailedInfo,
+    nativeType: $tom_dist_ledger_2.OperationFailedInfo,
     name: 'OperationFailedInfo',
-    isAssignable: (v) => v is $tom_dist_ledger_3.OperationFailedInfo,
+    isAssignable: (v) => v is $tom_dist_ledger_2.OperationFailedInfo,
     constructors: {
       '': (visitor, positional, named) {
         final operationId = D4.getRequiredNamedArg<String>(named, 'operationId', 'OperationFailedInfo');
@@ -1523,18 +1589,18 @@ BridgedClass _createOperationFailedInfoBridge() {
         final crashedCallIds = named.containsKey('crashedCallIds') && named['crashedCallIds'] != null
             ? D4.coerceList<String>(named['crashedCallIds'], 'crashedCallIds')
             : const <String>[];
-        return $tom_dist_ledger_3.OperationFailedInfo(operationId: operationId, failedAt: failedAt, reason: reason, crashedCallIds: crashedCallIds);
+        return $tom_dist_ledger_2.OperationFailedInfo(operationId: operationId, failedAt: failedAt, reason: reason, crashedCallIds: crashedCallIds);
       },
     },
     getters: {
-      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationFailedInfo>(target, 'OperationFailedInfo').operationId,
-      'failedAt': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationFailedInfo>(target, 'OperationFailedInfo').failedAt,
-      'reason': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationFailedInfo>(target, 'OperationFailedInfo').reason,
-      'crashedCallIds': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.OperationFailedInfo>(target, 'OperationFailedInfo').crashedCallIds,
+      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationFailedInfo>(target, 'OperationFailedInfo').operationId,
+      'failedAt': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationFailedInfo>(target, 'OperationFailedInfo').failedAt,
+      'reason': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationFailedInfo>(target, 'OperationFailedInfo').reason,
+      'crashedCallIds': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationFailedInfo>(target, 'OperationFailedInfo').crashedCallIds,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.OperationFailedInfo>(target, 'OperationFailedInfo');
+        final t = D4.validateTarget<$tom_dist_ledger_2.OperationFailedInfo>(target, 'OperationFailedInfo');
         return t.toString();
       },
     },
@@ -1559,22 +1625,23 @@ BridgedClass _createOperationFailedInfoBridge() {
 
 BridgedClass _createOperationFailedExceptionBridge() {
   return BridgedClass(
-    nativeType: OperationFailedException,
+    nativeType: $tom_dist_ledger_2.OperationFailedException,
     name: 'OperationFailedException',
-    isAssignable: (v) => v is OperationFailedException,
+    isAssignable: (v) => v is $tom_dist_ledger_2.OperationFailedException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'OperationFailedException');
-        final info = D4.getRequiredArg<$tom_dist_ledger_3.OperationFailedInfo>(positional, 0, 'info', 'OperationFailedException');
-        return OperationFailedException(info);
+        final info = D4.getRequiredArg<$tom_dist_ledger_2.OperationFailedInfo>(positional, 0, 'info', 'OperationFailedException');
+        return $tom_dist_ledger_2.OperationFailedException(info);
       },
     },
     getters: {
-      'info': (visitor, target) => D4.validateTarget<OperationFailedException>(target, 'OperationFailedException').info,
+      'info': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.OperationFailedException>(target, 'OperationFailedException').info,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<OperationFailedException>(target, 'OperationFailedException');
+        final t = D4.validateTarget<$tom_dist_ledger_2.OperationFailedException>(target, 'OperationFailedException');
         return t.toString();
       },
     },
@@ -1596,20 +1663,21 @@ BridgedClass _createOperationFailedExceptionBridge() {
 
 BridgedClass _createCallLifecycleBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.CallLifecycle,
+    nativeType: $tom_dist_ledger_2.CallLifecycle,
     name: 'CallLifecycle',
-    isAssignable: (v) => v is $tom_dist_ledger_3.CallLifecycle,
+    isAssignable: (v) => v is $tom_dist_ledger_2.CallLifecycle,
+    isAbstract: true,
     constructors: {
     },
     methods: {
       'endCallInternal': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.CallLifecycle>(target, 'CallLifecycle');
+        final t = D4.validateTarget<$tom_dist_ledger_2.CallLifecycle>(target, 'CallLifecycle');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'endCallInternal');
         final result = D4.getOptionalNamedArg<dynamic>(named, 'result');
         return t.endCallInternal(callId: callId, result: result);
       },
       'failCallInternal': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.CallLifecycle>(target, 'CallLifecycle');
+        final t = D4.validateTarget<$tom_dist_ledger_2.CallLifecycle>(target, 'CallLifecycle');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'failCallInternal');
         final error = D4.getRequiredNamedArg<Object>(named, 'error', 'failCallInternal');
         final stackTrace = D4.getOptionalNamedArg<StackTrace?>(named, 'stackTrace');
@@ -1629,39 +1697,39 @@ BridgedClass _createCallLifecycleBridge() {
 
 BridgedClass _createCallBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.Call,
+    nativeType: $tom_dist_ledger_2.Call,
     name: 'Call',
-    isAssignable: (v) => v is $tom_dist_ledger_3.Call,
+    isAssignable: (v) => v is $tom_dist_ledger_2.Call,
     constructors: {
       'internal': (visitor, positional, named) {
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'Call');
-        final operation = D4.getRequiredNamedArg<$tom_dist_ledger_3.CallLifecycle>(named, 'operation', 'Call');
+        final operation = D4.getRequiredNamedArg<$tom_dist_ledger_2.CallLifecycle>(named, 'operation', 'Call');
         final startedAt = D4.getRequiredNamedArg<DateTime>(named, 'startedAt', 'Call');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
-        return $tom_dist_ledger_3.Call.internal(callId: callId, operation: operation, startedAt: startedAt, description: description);
+        return $tom_dist_ledger_2.Call.internal(callId: callId, operation: operation, startedAt: startedAt, description: description);
       },
     },
     getters: {
-      'callId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call').callId,
-      'description': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call').description,
-      'startedAt': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call').startedAt,
-      'isCompleted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call').isCompleted,
+      'callId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call').callId,
+      'description': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call').description,
+      'startedAt': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call').startedAt,
+      'isCompleted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call').isCompleted,
     },
     methods: {
       'end': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call');
+        final t = D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call');
         final result = D4.getOptionalArg<dynamic>(positional, 0, 'result');
         return t.end(result);
       },
       'fail': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call');
+        final t = D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call');
         D4.requireMinArgs(positional, 1, 'fail');
         final error = D4.getRequiredArg<Object>(positional, 0, 'error', 'fail');
         final stackTrace = D4.getOptionalArg<StackTrace?>(positional, 1, 'stackTrace');
         return t.fail(error, stackTrace);
       },
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.Call>(target, 'Call');
+        final t = D4.validateTarget<$tom_dist_ledger_2.Call>(target, 'Call');
         return t.toString();
       },
     },
@@ -1688,58 +1756,58 @@ BridgedClass _createCallBridge() {
 
 BridgedClass _createSpawnedCallBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.SpawnedCall,
+    nativeType: $tom_dist_ledger_2.SpawnedCall,
     name: 'SpawnedCall',
-    isAssignable: (v) => v is $tom_dist_ledger_3.SpawnedCall,
+    isAssignable: (v) => v is $tom_dist_ledger_2.SpawnedCall,
     constructors: {
       '': (visitor, positional, named) {
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'SpawnedCall');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
-        return $tom_dist_ledger_3.SpawnedCall(callId: callId, description: description);
+        return $tom_dist_ledger_2.SpawnedCall(callId: callId, description: description);
       },
     },
     getters: {
-      'callId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').callId,
-      'description': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').description,
-      'isCompleted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').isCompleted,
-      'isSuccess': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').isSuccess,
-      'isFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').isFailed,
-      'isCancelled': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').isCancelled,
-      'result': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').result,
-      'resultOrNull': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').resultOrNull,
-      'future': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').future,
-      'error': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').error,
-      'stackTrace': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall').stackTrace,
+      'callId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').callId,
+      'description': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').description,
+      'isCompleted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').isCompleted,
+      'isSuccess': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').isSuccess,
+      'isFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').isFailed,
+      'isCancelled': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').isCancelled,
+      'result': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').result,
+      'resultOrNull': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').resultOrNull,
+      'future': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').future,
+      'error': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').error,
+      'stackTrace': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall').stackTrace,
     },
     methods: {
       'resultOr': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         D4.requireMinArgs(positional, 1, 'resultOr');
         final defaultValue = D4.getRequiredArg<dynamic>(positional, 0, 'defaultValue', 'resultOr');
         return t.resultOr(defaultValue);
       },
       'cancel': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         return t.cancel();
       },
       'kill': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         final signal = D4.getOptionalArgWithDefault<ProcessSignal>(positional, 0, 'signal', ProcessSignal.sigterm);
         return t.kill(signal);
       },
       'await': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         return t.await();
       },
       'complete': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         D4.requireMinArgs(positional, 1, 'complete');
         final result = D4.getRequiredArg<dynamic>(positional, 0, 'result', 'complete');
         t.complete(result);
         return null;
       },
       'fail': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         D4.requireMinArgs(positional, 1, 'fail');
         final error = D4.getRequiredArg<Object>(positional, 0, 'error', 'fail');
         final stackTrace = D4.getOptionalArg<StackTrace?>(positional, 1, 'stackTrace');
@@ -1747,7 +1815,7 @@ BridgedClass _createSpawnedCallBridge() {
         return null;
       },
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SpawnedCall>(target, 'SpawnedCall');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SpawnedCall>(target, 'SpawnedCall');
         return t.toString();
       },
     },
@@ -1785,41 +1853,41 @@ BridgedClass _createSpawnedCallBridge() {
 
 BridgedClass _createSyncResultBridge() {
   return BridgedClass(
-    nativeType: $tom_dist_ledger_3.SyncResult,
+    nativeType: $tom_dist_ledger_2.SyncResult,
     name: 'SyncResult',
-    isAssignable: (v) => v is $tom_dist_ledger_3.SyncResult,
+    isAssignable: (v) => v is $tom_dist_ledger_2.SyncResult,
     constructors: {
       '': (visitor, positional, named) {
         final successfulCalls = named.containsKey('successfulCalls') && named['successfulCalls'] != null
-            ? D4.coerceList<$tom_dist_ledger_3.SpawnedCall<dynamic>>(named['successfulCalls'], 'successfulCalls')
-            : const <$tom_dist_ledger_3.SpawnedCall<dynamic>>[];
+            ? D4.coerceList<$tom_dist_ledger_2.SpawnedCall>(named['successfulCalls'], 'successfulCalls')
+            : const <$tom_dist_ledger_2.SpawnedCall>[];
         final failedCalls = named.containsKey('failedCalls') && named['failedCalls'] != null
-            ? D4.coerceList<$tom_dist_ledger_3.SpawnedCall<dynamic>>(named['failedCalls'], 'failedCalls')
-            : const <$tom_dist_ledger_3.SpawnedCall<dynamic>>[];
+            ? D4.coerceList<$tom_dist_ledger_2.SpawnedCall>(named['failedCalls'], 'failedCalls')
+            : const <$tom_dist_ledger_2.SpawnedCall>[];
         final unknownCalls = named.containsKey('unknownCalls') && named['unknownCalls'] != null
-            ? D4.coerceList<$tom_dist_ledger_3.SpawnedCall<dynamic>>(named['unknownCalls'], 'unknownCalls')
-            : const <$tom_dist_ledger_3.SpawnedCall<dynamic>>[];
+            ? D4.coerceList<$tom_dist_ledger_2.SpawnedCall>(named['unknownCalls'], 'unknownCalls')
+            : const <$tom_dist_ledger_2.SpawnedCall>[];
         final operationFailed = D4.getNamedArgWithDefault<bool>(named, 'operationFailed', false);
-        return $tom_dist_ledger_3.SyncResult(successfulCalls: successfulCalls, failedCalls: failedCalls, unknownCalls: unknownCalls, operationFailed: operationFailed);
+        return $tom_dist_ledger_2.SyncResult(successfulCalls: successfulCalls, failedCalls: failedCalls, unknownCalls: unknownCalls, operationFailed: operationFailed);
       },
     },
     getters: {
-      'successfulCalls': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').successfulCalls,
-      'failedCalls': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').failedCalls,
-      'unknownCalls': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').unknownCalls,
-      'operationFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').operationFailed,
-      'allSucceeded': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').allSucceeded,
-      'hasFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').hasFailed,
-      'allResolved': (visitor, target) => D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult').allResolved,
+      'successfulCalls': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').successfulCalls,
+      'failedCalls': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').failedCalls,
+      'unknownCalls': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').unknownCalls,
+      'operationFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').operationFailed,
+      'allSucceeded': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').allSucceeded,
+      'hasFailed': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').hasFailed,
+      'allResolved': (visitor, target) => D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult').allResolved,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_dist_ledger_3.SyncResult>(target, 'SyncResult');
+        final t = D4.validateTarget<$tom_dist_ledger_2.SyncResult>(target, 'SyncResult');
         return t.toString();
       },
     },
     constructorSignatures: {
-      '': 'SyncResult({List<SpawnedCall<dynamic>> successfulCalls = const [], List<SpawnedCall<dynamic>> failedCalls = const [], List<SpawnedCall<dynamic>> unknownCalls = const [], bool operationFailed = false})',
+      '': 'SyncResult({List<SpawnedCall> successfulCalls = const [], List<SpawnedCall> failedCalls = const [], List<SpawnedCall> unknownCalls = const [], bool operationFailed = false})',
     },
     methodSignatures: {
       'toString': 'String toString()',
@@ -1842,9 +1910,9 @@ BridgedClass _createSyncResultBridge() {
 
 BridgedClass _createOperationHelperBridge() {
   return BridgedClass(
-    nativeType: OperationHelper,
+    nativeType: $tom_dist_ledger_2.OperationHelper,
     name: 'OperationHelper',
-    isAssignable: (v) => v is OperationHelper,
+    isAssignable: (v) => v is $tom_dist_ledger_2.OperationHelper,
     constructors: {
     },
     staticMethods: {
@@ -1855,17 +1923,17 @@ BridgedClass _createOperationHelperBridge() {
         final deserializer = deserializerRaw == null ? null : (String p0) { return D4.castCallbackResult<dynamic>(D4.callInterpreterCallback(visitor!, deserializerRaw, [p0])); };
         final pollInterval = D4.getNamedArgWithDefault<Duration>(named, 'pollInterval', const Duration(milliseconds: 100));
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
-        return OperationHelper.pollFile(path: path, delete: delete, deserializer: deserializer, pollInterval: pollInterval, timeout: timeout);
+        return $tom_dist_ledger_2.OperationHelper.pollFile(path: path, delete: delete, deserializer: deserializer, pollInterval: pollInterval, timeout: timeout);
       },
       'pollUntil': (visitor, positional, named, typeArgs) {
         if (!named.containsKey('check') || named['check'] == null) {
           throw ArgumentError('pollUntil: Missing required named argument "check"');
         }
         final checkRaw = named['check'];
-        final check = () { return D4.callInterpreterCallback(visitor!, checkRaw, []) as Future<dynamic>; };
+        final check = (() { return Future.value(D4.callInterpreterCallback(visitor!, checkRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function();
         final pollInterval = D4.getNamedArgWithDefault<Duration>(named, 'pollInterval', const Duration(milliseconds: 100));
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
-        return OperationHelper.pollUntil(check: check, pollInterval: pollInterval, timeout: timeout);
+        return $tom_dist_ledger_2.OperationHelper.pollUntil(check: check, pollInterval: pollInterval, timeout: timeout);
       },
       'pollFiles': (visitor, positional, named, typeArgs) {
         if (!named.containsKey('paths') || named['paths'] == null) {
@@ -1877,7 +1945,7 @@ BridgedClass _createOperationHelperBridge() {
         final deserializer = deserializerRaw == null ? null : (String p0) { return D4.castCallbackResult<dynamic>(D4.callInterpreterCallback(visitor!, deserializerRaw, [p0])); };
         final pollInterval = D4.getNamedArgWithDefault<Duration>(named, 'pollInterval', const Duration(milliseconds: 100));
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
-        return OperationHelper.pollFiles(paths: paths, delete: delete, deserializer: deserializer, pollInterval: pollInterval, timeout: timeout);
+        return $tom_dist_ledger_2.OperationHelper.pollFiles(paths: paths, delete: delete, deserializer: deserializer, pollInterval: pollInterval, timeout: timeout);
       },
     },
     staticMethodSignatures: {
@@ -1894,24 +1962,25 @@ BridgedClass _createOperationHelperBridge() {
 
 BridgedClass _createRemoteLedgerExceptionBridge() {
   return BridgedClass(
-    nativeType: RemoteLedgerException,
+    nativeType: $tom_dist_ledger_5.RemoteLedgerException,
     name: 'RemoteLedgerException',
-    isAssignable: (v) => v is RemoteLedgerException,
+    isAssignable: (v) => v is $tom_dist_ledger_5.RemoteLedgerException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'RemoteLedgerException');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'RemoteLedgerException');
         final statusCode = D4.getOptionalNamedArg<int?>(named, 'statusCode');
-        return RemoteLedgerException(message, statusCode: statusCode);
+        return $tom_dist_ledger_5.RemoteLedgerException(message, statusCode: statusCode);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<RemoteLedgerException>(target, 'RemoteLedgerException').message,
-      'statusCode': (visitor, target) => D4.validateTarget<RemoteLedgerException>(target, 'RemoteLedgerException').statusCode,
+      'message': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteLedgerException>(target, 'RemoteLedgerException').message,
+      'statusCode': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteLedgerException>(target, 'RemoteLedgerException').statusCode,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteLedgerException>(target, 'RemoteLedgerException');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteLedgerException>(target, 'RemoteLedgerException');
         return t.toString();
       },
     },
@@ -1934,94 +2003,95 @@ BridgedClass _createRemoteLedgerExceptionBridge() {
 
 BridgedClass _createRemoteOperationBridge() {
   return BridgedClass(
-    nativeType: RemoteOperation,
+    nativeType: $tom_dist_ledger_5.RemoteOperation,
     name: 'RemoteOperation',
-    isAssignable: (v) => v is RemoteOperation,
+    isAssignable: (v) => v is $tom_dist_ledger_5.RemoteOperation,
+    hierarchyDepth: 2,
     constructors: {
     },
     getters: {
-      'sessionId': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').sessionId,
-      'operationId': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').operationId,
-      'participantId': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').participantId,
-      'pid': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').pid,
-      'isInitiator': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').isInitiator,
-      'startTime': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').startTime,
-      'isAborted': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').isAborted,
-      'onAbort': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').onAbort,
-      'onFailure': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').onFailure,
-      'elapsedFormatted': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').elapsedFormatted,
-      'elapsedDuration': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').elapsedDuration,
-      'startTimeIso': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').startTimeIso,
-      'startTimeMs': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').startTimeMs,
-      'pendingCallCount': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').pendingCallCount,
-      'cachedData': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').cachedData,
-      'localTempResources': (visitor, target) => D4.validateTarget<RemoteOperation>(target, 'RemoteOperation').localTempResources,
+      'sessionId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').sessionId,
+      'operationId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').operationId,
+      'participantId': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').participantId,
+      'pid': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').pid,
+      'isInitiator': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').isInitiator,
+      'startTime': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').startTime,
+      'isAborted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').isAborted,
+      'onAbort': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').onAbort,
+      'onFailure': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').onFailure,
+      'elapsedFormatted': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').elapsedFormatted,
+      'elapsedDuration': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').elapsedDuration,
+      'startTimeIso': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').startTimeIso,
+      'startTimeMs': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').startTimeMs,
+      'pendingCallCount': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').pendingCallCount,
+      'cachedData': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').cachedData,
+      'localTempResources': (visitor, target) => D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation').localTempResources,
     },
     methods: {
       'startCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
         return t.startCall(callback: callback, description: description, failOnCrash: failOnCrash);
       },
       'spawnCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         if (!named.containsKey('work') || named['work'] == null) {
           throw ArgumentError('spawnCall: Missing required named argument "work"');
         }
         final workRaw = named['work'];
-        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_3.CallCallback<dynamic>?>(named, 'callback');
+        final callback = D4.getOptionalNamedArg<$tom_dist_ledger_2.CallCallback<dynamic>?>(named, 'callback');
         final description = D4.getOptionalNamedArg<String?>(named, 'description');
         final failOnCrash = D4.getNamedArgWithDefault<bool>(named, 'failOnCrash', true);
-        return t.spawnCall(work: ($tom_dist_ledger_3.SpawnedCall<dynamic> p0, $tom_dist_ledger_4.Operation p1) { return D4.callInterpreterCallback(visitor!, workRaw, [p0, p1]) as Future<dynamic>; }, callback: callback, description: description, failOnCrash: failOnCrash);
+        return t.spawnCall<Object?>(work: (($tom_dist_ledger_2.SpawnedCall<dynamic> p0, $tom_dist_ledger_3.Operation p1) { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [p0, p1])).then((v) => v as dynamic); }) as Future<dynamic> Function($tom_dist_ledger_2.SpawnedCall<dynamic>, $tom_dist_ledger_3.Operation), callback: callback, description: description, failOnCrash: failOnCrash);
       },
       'endCallInternal': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'endCallInternal');
         final result = D4.getOptionalNamedArg<dynamic>(named, 'result');
         return t.endCallInternal(callId: callId, result: result);
       },
       'failCallInternal': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'failCallInternal');
         final error = D4.getRequiredNamedArg<Object>(named, 'error', 'failCallInternal');
         final stackTrace = D4.getOptionalNamedArg<StackTrace?>(named, 'stackTrace');
         return t.failCallInternal(callId: callId, error: error, stackTrace: stackTrace);
       },
       'hasPendingCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.hasPendingCalls();
       },
       'getPendingSpawnedCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.getPendingSpawnedCalls();
       },
       'getPendingCalls': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.getPendingCalls();
       },
       'sync': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         D4.requireMinArgs(positional, 1, 'sync');
         if (positional.isEmpty) {
           throw ArgumentError('sync: Missing required argument "calls" at position 0');
         }
-        final calls = D4.coerceList<$tom_dist_ledger_3.SpawnedCall>(positional[0], 'calls');
+        final calls = D4.coerceList<$tom_dist_ledger_2.SpawnedCall>(positional[0], 'calls');
         final onOperationFailedRaw = named['onOperationFailed'];
         final onCompletionRaw = named['onCompletion'];
-        return t.sync(calls, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCompletionRaw, []) as Future<void>; });
+        return t.sync(calls, onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onCompletion: onCompletionRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [])); }) as Future<void> Function());
       },
       'awaitCall': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         D4.requireMinArgs(positional, 1, 'awaitCall');
-        final call = D4.getRequiredArg<$tom_dist_ledger_3.SpawnedCall<dynamic>>(positional, 0, 'call', 'awaitCall');
+        final call = D4.getRequiredArg<$tom_dist_ledger_2.SpawnedCall<dynamic>>(positional, 0, 'call', 'awaitCall');
         final onOperationFailedRaw = named['onOperationFailed'];
         final onCompletionRaw = named['onCompletion'];
-        return t.awaitCall(call, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onCompletion: onCompletionRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onCompletionRaw, []) as Future<void>; });
+        return t.awaitCall(call, onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onCompletion: onCompletionRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onCompletionRaw, [])); }) as Future<void> Function());
       },
       'waitForCompletion': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         D4.requireMinArgs(positional, 1, 'waitForCompletion');
         if (positional.isEmpty) {
           throw ArgumentError('waitForCompletion: Missing required argument "work" at position 0');
@@ -2029,79 +2099,79 @@ BridgedClass _createRemoteOperationBridge() {
         final workRaw = positional[0];
         final onOperationFailedRaw = named['onOperationFailed'];
         final onErrorRaw = named['onError'];
-        return t.waitForCompletion(() { return D4.callInterpreterCallback(visitor!, workRaw, []) as Future<dynamic>; }, onOperationFailed: onOperationFailedRaw == null ? null : ($tom_dist_ledger_3.OperationFailedInfo p0) { return D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0]) as Future<void>; }, onError: onErrorRaw == null ? null : (Object p0, StackTrace p1) { return D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]) as Future<dynamic>; });
+        return t.waitForCompletion<Object?>((() { return Future.value(D4.callInterpreterCallback(visitor!, workRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function(), onOperationFailed: onOperationFailedRaw == null ? null : (($tom_dist_ledger_2.OperationFailedInfo p0) { return Future.value(D4.callInterpreterCallback(visitor!, onOperationFailedRaw, [p0])); }) as Future<void> Function($tom_dist_ledger_2.OperationFailedInfo), onError: onErrorRaw == null ? null : ((Object p0, StackTrace p1) { return Future.value(D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1])).then((v) => v as dynamic); }) as Future<dynamic> Function(Object, StackTrace));
       },
       'leave': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final cancelPendingCalls = D4.getNamedArgWithDefault<bool>(named, 'cancelPendingCalls', false);
         return t.leave(cancelPendingCalls: cancelPendingCalls);
       },
       'log': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         D4.requireMinArgs(positional, 1, 'log');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'log');
-        final level = D4.getNamedArgWithDefault<$tom_dist_ledger_3.DLLogLevel>(named, 'level', $tom_dist_ledger_3.DLLogLevel.info);
+        final level = D4.getNamedArgWithDefault<$tom_dist_ledger_2.DLLogLevel>(named, 'level', $tom_dist_ledger_2.DLLogLevel.info);
         return t.log(message, level: level);
       },
       'complete': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.complete();
       },
       'setAbortFlag': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         D4.requireMinArgs(positional, 1, 'setAbortFlag');
         final value = D4.getRequiredArg<bool>(positional, 0, 'value', 'setAbortFlag');
         return t.setAbortFlag(value);
       },
       'checkAbort': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.checkAbort();
       },
       'triggerAbort': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         t.triggerAbort();
         return null;
       },
       'createCallFrame': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'createCallFrame');
         return t.createCallFrame(callId: callId);
       },
       'deleteCallFrame': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final callId = D4.getRequiredNamedArg<String>(named, 'callId', 'deleteCallFrame');
         return t.deleteCallFrame(callId: callId);
       },
       'registerTempResource': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final path = D4.getRequiredNamedArg<String>(named, 'path', 'registerTempResource');
         return t.registerTempResource(path: path);
       },
       'unregisterTempResource': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final path = D4.getRequiredNamedArg<String>(named, 'path', 'unregisterTempResource');
         return t.unregisterTempResource(path: path);
       },
       'cleanupLocalTempResources': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.cleanupLocalTempResources();
       },
       'startHeartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         final interval = D4.getNamedArgWithDefault<Duration>(named, 'interval', const Duration(milliseconds: 4500));
         final jitterMs = D4.getNamedArgWithDefault<int>(named, 'jitterMs', 500);
         final onErrorRaw = named['onError'];
         final onSuccessRaw = named['onSuccess'];
-        t.startHeartbeat(interval: interval, jitterMs: jitterMs, onError: onErrorRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_5.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); }, onSuccess: onSuccessRaw == null ? null : ($tom_dist_ledger_4.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onSuccessRaw, [p0, p1]); });
+        t.startHeartbeat(interval: interval, jitterMs: jitterMs, onError: onErrorRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_4.HeartbeatError p1) { D4.callInterpreterCallback(visitor!, onErrorRaw, [p0, p1]); }, onSuccess: onSuccessRaw == null ? null : ($tom_dist_ledger_3.Operation p0, $tom_dist_ledger_6.HeartbeatResult p1) { D4.callInterpreterCallback(visitor!, onSuccessRaw, [p0, p1]); });
         return null;
       },
       'stopHeartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         t.stopHeartbeat();
         return null;
       },
       'heartbeat': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RemoteOperation>(target, 'RemoteOperation');
+        final t = D4.validateTarget<$tom_dist_ledger_5.RemoteOperation>(target, 'RemoteOperation');
         return t.heartbeat();
       },
     },
@@ -2158,25 +2228,26 @@ BridgedClass _createRemoteOperationBridge() {
 
 BridgedClass _createRetryExhaustedExceptionBridge() {
   return BridgedClass(
-    nativeType: RetryExhaustedException,
+    nativeType: $tom_basics_network_1.RetryExhaustedException,
     name: 'RetryExhaustedException',
-    isAssignable: (v) => v is RetryExhaustedException,
+    isAssignable: (v) => v is $tom_basics_network_1.RetryExhaustedException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         final lastError = D4.getRequiredNamedArg<Object>(named, 'lastError', 'RetryExhaustedException');
         final lastStackTrace = D4.getOptionalNamedArg<StackTrace?>(named, 'lastStackTrace');
         final attempts = D4.getRequiredNamedArg<int>(named, 'attempts', 'RetryExhaustedException');
-        return RetryExhaustedException(lastError: lastError, lastStackTrace: lastStackTrace, attempts: attempts);
+        return $tom_basics_network_1.RetryExhaustedException(lastError: lastError, lastStackTrace: lastStackTrace, attempts: attempts);
       },
     },
     getters: {
-      'lastError': (visitor, target) => D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException').lastError,
-      'lastStackTrace': (visitor, target) => D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException').lastStackTrace,
-      'attempts': (visitor, target) => D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException').attempts,
+      'lastError': (visitor, target) => D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException').lastError,
+      'lastStackTrace': (visitor, target) => D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException').lastStackTrace,
+      'attempts': (visitor, target) => D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException').attempts,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException');
+        final t = D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException');
         return t.toString();
       },
     },
@@ -2224,7 +2295,7 @@ BridgedClass _createRetryConfigBridge() {
       'defaultConfig': (visitor) => $tom_basics_network_1.RetryConfig.defaultConfig,
     },
     constructorSignatures: {
-      '': 'const RetryConfig({List<int> retryDelaysMs = kDefaultRetryDelaysMs, void Function(int, Object, Duration)? onRetry})',
+      '': 'const RetryConfig({List<int> retryDelaysMs = kDefaultRetryDelaysMs, void Function(int attempt, Object error, Duration nextDelay)? onRetry})',
     },
     getterSignatures: {
       'retryDelaysMs': 'List<int> get retryDelaysMs',
@@ -2302,7 +2373,7 @@ BridgedClass _createDiscoveryOptionsBridge() {
         final statusPath = D4.getNamedArgWithDefault<String>(named, 'statusPath', '/status');
         final loggerRaw = named['logger'];
         final statusValidatorRaw = named['statusValidator'];
-        return $tom_basics_network_2.DiscoveryOptions(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : (Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; });
+        return $tom_basics_network_2.DiscoveryOptions(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : ((Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; }) as bool Function(Map<String, dynamic>));
       },
     },
     getters: {
@@ -2324,11 +2395,11 @@ BridgedClass _createDiscoveryOptionsBridge() {
         final statusPath = D4.getOptionalNamedArg<String?>(named, 'statusPath');
         final loggerRaw = named['logger'];
         final statusValidatorRaw = named['statusValidator'];
-        return t.copyWith(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : (Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; });
+        return t.copyWith(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : ((Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; }) as bool Function(Map<String, dynamic>));
       },
     },
     constructorSignatures: {
-      '': 'const DiscoveryOptions({int port = 19880, Duration timeout = const Duration(milliseconds: 500), bool scanSubnet = true, int maxConcurrent = 20, String statusPath = \'/status\', void Function(String)? logger, bool Function(Map<String, dynamic>)? statusValidator})',
+      '': 'const DiscoveryOptions({int port = 19880, Duration timeout = const Duration(milliseconds: 500), bool scanSubnet = true, int maxConcurrent = 20, String statusPath = \'/status\', void Function(String message)? logger, bool Function(Map<String, dynamic> status)? statusValidator})',
     },
     methodSignatures: {
       'copyWith': 'DiscoveryOptions copyWith({int? port, Duration? timeout, bool? scanSubnet, int? maxConcurrent, String? statusPath, void Function(String message)? logger, bool Function(Map<String, dynamic> status)? statusValidator})',
@@ -2351,22 +2422,23 @@ BridgedClass _createDiscoveryOptionsBridge() {
 
 BridgedClass _createDiscoveryFailedExceptionBridge() {
   return BridgedClass(
-    nativeType: DiscoveryFailedException,
+    nativeType: $tom_basics_network_2.DiscoveryFailedException,
     name: 'DiscoveryFailedException',
-    isAssignable: (v) => v is DiscoveryFailedException,
+    isAssignable: (v) => v is $tom_basics_network_2.DiscoveryFailedException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'DiscoveryFailedException');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'DiscoveryFailedException');
-        return DiscoveryFailedException(message);
+        return $tom_basics_network_2.DiscoveryFailedException(message);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<DiscoveryFailedException>(target, 'DiscoveryFailedException').message,
+      'message': (visitor, target) => D4.validateTarget<$tom_basics_network_2.DiscoveryFailedException>(target, 'DiscoveryFailedException').message,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<DiscoveryFailedException>(target, 'DiscoveryFailedException');
+        final t = D4.validateTarget<$tom_basics_network_2.DiscoveryFailedException>(target, 'DiscoveryFailedException');
         return t.toString();
       },
     },
@@ -2388,34 +2460,34 @@ BridgedClass _createDiscoveryFailedExceptionBridge() {
 
 BridgedClass _createServerDiscoveryBridge() {
   return BridgedClass(
-    nativeType: ServerDiscovery,
+    nativeType: $tom_basics_network_2.ServerDiscovery,
     name: 'ServerDiscovery',
-    isAssignable: (v) => v is ServerDiscovery,
+    isAssignable: (v) => v is $tom_basics_network_2.ServerDiscovery,
     constructors: {
       '': (visitor, positional, named) {
-        return ServerDiscovery();
+        return $tom_basics_network_2.ServerDiscovery();
       },
     },
     staticMethods: {
       'discover': (visitor, positional, named, typeArgs) {
         final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
-        return ServerDiscovery.discover(options);
+        return $tom_basics_network_2.ServerDiscovery.discover(options);
       },
       'discoverOrThrow': (visitor, positional, named, typeArgs) {
         final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
-        return ServerDiscovery.discoverOrThrow(options);
+        return $tom_basics_network_2.ServerDiscovery.discoverOrThrow(options);
       },
       'discoverAll': (visitor, positional, named, typeArgs) {
         final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
-        return ServerDiscovery.discoverAll(options);
+        return $tom_basics_network_2.ServerDiscovery.discoverAll(options);
       },
       'getLocalIpAddresses': (visitor, positional, named, typeArgs) {
-        return ServerDiscovery.getLocalIpAddresses();
+        return $tom_basics_network_2.ServerDiscovery.getLocalIpAddresses();
       },
       'getSubnetAddresses': (visitor, positional, named, typeArgs) {
         D4.requireMinArgs(positional, 1, 'getSubnetAddresses');
         final ip = D4.getRequiredArg<String>(positional, 0, 'ip', 'getSubnetAddresses');
-        return ServerDiscovery.getSubnetAddresses(ip);
+        return $tom_basics_network_2.ServerDiscovery.getSubnetAddresses(ip);
       },
     },
     constructorSignatures: {

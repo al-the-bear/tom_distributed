@@ -1,8 +1,8 @@
 // D4rt Bridge - Generated file, do not edit
 // Sources: 28 files
-// Generated: 2026-03-12T17:11:03.283883
+// Generated: 2026-06-16T23:28:04.374516
 
-// ignore_for_file: unused_import, deprecated_member_use, prefer_function_declarations_over_variables, implementation_imports, sort_child_properties_last, non_constant_identifier_names, avoid_function_literals_in_foreach_calls
+// ignore_for_file: unused_import, deprecated_member_use, prefer_function_declarations_over_variables, implementation_imports, sort_child_properties_last, non_constant_identifier_names, avoid_function_literals_in_foreach_calls, invalid_use_of_protected_member, unnecessary_non_null_assertion, invalid_use_of_visible_for_testing_member, unnecessary_cast, unused_local_variable, no_leading_underscores_for_local_identifiers, prefer_is_empty, unnecessary_question_mark, unreachable_switch_case, unintended_html_in_doc_comment, empty_constructor_bodies, prefer_const_constructors_in_immutables, prefer_final_fields, unused_field, must_call_super, no_logic_in_create_state, use_key_in_widget_constructors, annotate_overrides, unnecessary_import
 
 import 'package:tom_d4rt/d4rt.dart';
 import 'package:tom_d4rt/tom_d4rt.dart';
@@ -11,20 +11,31 @@ import 'dart:async';
 import 'package:http/src/response.dart' as $http_1;
 import 'package:tom_basics_network/src/http_retry.dart' as $tom_basics_network_1;
 import 'package:tom_basics_network/src/server_discovery.dart' as $tom_basics_network_2;
-import 'package:tom_process_monitor/src/client/process_monitor_base.dart' as $tom_process_monitor_1;
-import 'package:tom_process_monitor/src/client/remote_process_monitor_client.dart' as $tom_process_monitor_2;
-import 'package:tom_process_monitor/src/models/aliveness_check.dart' as $tom_process_monitor_3;
-import 'package:tom_process_monitor/src/models/monitor_status.dart' as $tom_process_monitor_4;
-import 'package:tom_process_monitor/src/models/partner_discovery_config.dart' as $tom_process_monitor_5;
-import 'package:tom_process_monitor/src/models/process_config.dart' as $tom_process_monitor_6;
-import 'package:tom_process_monitor/src/models/process_entry.dart' as $tom_process_monitor_7;
-import 'package:tom_process_monitor/src/models/process_state.dart' as $tom_process_monitor_8;
-import 'package:tom_process_monitor/src/models/process_status.dart' as $tom_process_monitor_9;
-import 'package:tom_process_monitor/src/models/registry.dart' as $tom_process_monitor_10;
-import 'package:tom_process_monitor/src/models/remote_access_config.dart' as $tom_process_monitor_11;
-import 'package:tom_process_monitor/src/models/restart_policy.dart' as $tom_process_monitor_12;
-import 'package:tom_process_monitor/src/models/startup_check.dart' as $tom_process_monitor_13;
-import 'package:tom_process_monitor/src/exceptions/process_monitor_exception.dart' as $aux_tom_process_monitor;
+import 'package:tom_process_monitor/src/client/local_process_monitor_client.dart' as $tom_process_monitor_1;
+import 'package:tom_process_monitor/src/client/process_monitor_base.dart' as $tom_process_monitor_2;
+import 'package:tom_process_monitor/src/client/remote_process_monitor_client.dart' as $tom_process_monitor_3;
+import 'package:tom_process_monitor/src/exceptions/lock_timeout_exception.dart' as $tom_process_monitor_4;
+import 'package:tom_process_monitor/src/exceptions/permission_denied_exception.dart' as $tom_process_monitor_5;
+import 'package:tom_process_monitor/src/exceptions/process_disabled_exception.dart' as $tom_process_monitor_6;
+import 'package:tom_process_monitor/src/exceptions/process_monitor_exception.dart' as $tom_process_monitor_7;
+import 'package:tom_process_monitor/src/exceptions/process_not_found_exception.dart' as $tom_process_monitor_8;
+import 'package:tom_process_monitor/src/models/aliveness_check.dart' as $tom_process_monitor_9;
+import 'package:tom_process_monitor/src/models/monitor_status.dart' as $tom_process_monitor_10;
+import 'package:tom_process_monitor/src/models/partner_discovery_config.dart' as $tom_process_monitor_11;
+import 'package:tom_process_monitor/src/models/process_config.dart' as $tom_process_monitor_12;
+import 'package:tom_process_monitor/src/models/process_entry.dart' as $tom_process_monitor_13;
+import 'package:tom_process_monitor/src/models/process_state.dart' as $tom_process_monitor_14;
+import 'package:tom_process_monitor/src/models/process_status.dart' as $tom_process_monitor_15;
+import 'package:tom_process_monitor/src/models/registry.dart' as $tom_process_monitor_16;
+import 'package:tom_process_monitor/src/models/remote_access_config.dart' as $tom_process_monitor_17;
+import 'package:tom_process_monitor/src/models/restart_policy.dart' as $tom_process_monitor_18;
+import 'package:tom_process_monitor/src/models/startup_check.dart' as $tom_process_monitor_19;
+import 'package:tom_process_monitor/src/services/aliveness_checker.dart' as $tom_process_monitor_20;
+import 'package:tom_process_monitor/src/services/aliveness_server_helper.dart' as $tom_process_monitor_21;
+import 'package:tom_process_monitor/src/services/log_manager.dart' as $tom_process_monitor_22;
+import 'package:tom_process_monitor/src/services/process_control.dart' as $tom_process_monitor_23;
+import 'package:tom_process_monitor/src/services/registry_lock.dart' as $tom_process_monitor_24;
+import 'package:tom_process_monitor/src/services/registry_service.dart' as $tom_process_monitor_25;
 
 /// Bridge class for all module.
 class AllBridge {
@@ -73,39 +84,60 @@ class AllBridge {
   /// multiple barrels (e.g., tom_core_kernel and tom_core_server).
   static Map<String, String> classSourceUris() {
     return {
-      'ProcessConfig': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_config.dart',
-      'ProcessEntry': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_entry.dart',
-      'ProcessStatus': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_status.dart',
-      'MonitorStatus': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\monitor_status.dart',
-      'RestartPolicy': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\restart_policy.dart',
-      'AlivenessCheck': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\aliveness_check.dart',
-      'StartupCheck': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\startup_check.dart',
-      'RemoteAccessConfig': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\remote_access_config.dart',
-      'PartnerDiscoveryConfig': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\partner_discovery_config.dart',
-      'AlivenessServerConfig': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\registry.dart',
-      'WatcherInfo': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\registry.dart',
-      'ProcessRegistry': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\registry.dart',
-      'ProcessMonitorException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\process_monitor_exception.dart',
-      'LockTimeoutException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\lock_timeout_exception.dart',
-      'ProcessNotFoundException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\process_not_found_exception.dart',
-      'ProcessDisabledException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\process_disabled_exception.dart',
-      'PermissionDeniedException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\permission_denied_exception.dart',
-      'LockInfo': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\registry_lock.dart',
-      'RegistryLock': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\registry_lock.dart',
-      'RegistryService': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\registry_service.dart',
-      'ProcessControl': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\process_control.dart',
-      'AlivenessChecker': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\aliveness_checker.dart',
-      'AlivenessCallback': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\aliveness_server_helper.dart',
-      'LogManager': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\log_manager.dart',
-      'RetryExhaustedException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
-      'RetryConfig': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
-      'DiscoveredServer': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'DiscoveryOptions': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'DiscoveryFailedException': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'ServerDiscovery': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'ProcessMonitorClient': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\client\process_monitor_base.dart',
-      'LocalProcessMonitorClient': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\client\local_process_monitor_client.dart',
-      'RemoteProcessMonitorClient': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\client\remote_process_monitor_client.dart',
+      'ProcessConfig': 'package:tom_process_monitor/src/models/process_config.dart',
+      'ProcessEntry': 'package:tom_process_monitor/src/models/process_entry.dart',
+      'ProcessStatus': 'package:tom_process_monitor/src/models/process_status.dart',
+      'MonitorStatus': 'package:tom_process_monitor/src/models/monitor_status.dart',
+      'RestartPolicy': 'package:tom_process_monitor/src/models/restart_policy.dart',
+      'AlivenessCheck': 'package:tom_process_monitor/src/models/aliveness_check.dart',
+      'StartupCheck': 'package:tom_process_monitor/src/models/startup_check.dart',
+      'RemoteAccessConfig': 'package:tom_process_monitor/src/models/remote_access_config.dart',
+      'PartnerDiscoveryConfig': 'package:tom_process_monitor/src/models/partner_discovery_config.dart',
+      'AlivenessServerConfig': 'package:tom_process_monitor/src/models/registry.dart',
+      'WatcherInfo': 'package:tom_process_monitor/src/models/registry.dart',
+      'ProcessRegistry': 'package:tom_process_monitor/src/models/registry.dart',
+      'ProcessMonitorException': 'package:tom_process_monitor/src/exceptions/process_monitor_exception.dart',
+      'LockTimeoutException': 'package:tom_process_monitor/src/exceptions/lock_timeout_exception.dart',
+      'ProcessNotFoundException': 'package:tom_process_monitor/src/exceptions/process_not_found_exception.dart',
+      'ProcessDisabledException': 'package:tom_process_monitor/src/exceptions/process_disabled_exception.dart',
+      'PermissionDeniedException': 'package:tom_process_monitor/src/exceptions/permission_denied_exception.dart',
+      'LockInfo': 'package:tom_process_monitor/src/services/registry_lock.dart',
+      'RegistryLock': 'package:tom_process_monitor/src/services/registry_lock.dart',
+      'RegistryService': 'package:tom_process_monitor/src/services/registry_service.dart',
+      'ProcessControl': 'package:tom_process_monitor/src/services/process_control.dart',
+      'AlivenessChecker': 'package:tom_process_monitor/src/services/aliveness_checker.dart',
+      'AlivenessCallback': 'package:tom_process_monitor/src/services/aliveness_server_helper.dart',
+      'LogManager': 'package:tom_process_monitor/src/services/log_manager.dart',
+      'RetryExhaustedException': 'package:tom_basics_network/src/http_retry.dart',
+      'RetryConfig': 'package:tom_basics_network/src/http_retry.dart',
+      'DiscoveredServer': 'package:tom_basics_network/src/server_discovery.dart',
+      'DiscoveryOptions': 'package:tom_basics_network/src/server_discovery.dart',
+      'DiscoveryFailedException': 'package:tom_basics_network/src/server_discovery.dart',
+      'ServerDiscovery': 'package:tom_basics_network/src/server_discovery.dart',
+      'ProcessMonitorClient': 'package:tom_process_monitor/src/client/process_monitor_base.dart',
+      'LocalProcessMonitorClient': 'package:tom_process_monitor/src/client/local_process_monitor_client.dart',
+      'RemoteProcessMonitorClient': 'package:tom_process_monitor/src/client/remote_process_monitor_client.dart',
+    };
+  }
+
+  /// Returns a map of class names to their flattened (transitive)
+  /// native supertype names (superclasses, interfaces and mixins).
+  ///
+  /// Fed to `BridgedClass.registerSupertypes` so interpreted subclasses
+  /// of bridged classes pass `is`/subtype checks against bridged
+  /// ancestors and the interface-proxy supertype walk resolves up the
+  /// chain (MCI#1 / A1).
+  static Map<String, List<String>> classSupertypes() {
+    return {
+      'ProcessMonitorException': ['Exception'],
+      'LockTimeoutException': ['ProcessMonitorException', 'Exception'],
+      'ProcessNotFoundException': ['ProcessMonitorException', 'Exception'],
+      'ProcessDisabledException': ['ProcessMonitorException', 'Exception'],
+      'PermissionDeniedException': ['ProcessMonitorException', 'Exception'],
+      'RetryExhaustedException': ['Exception'],
+      'DiscoveryFailedException': ['Exception'],
+      'LocalProcessMonitorClient': ['ProcessMonitorClient'],
+      'RemoteProcessMonitorClient': ['ProcessMonitorClient'],
     };
   }
 
@@ -131,9 +163,9 @@ class AllBridge {
   /// Returns all bridged enum definitions.
   static List<BridgedEnumDefinition> bridgedEnums() {
     return [
-      BridgedEnumDefinition<$tom_process_monitor_8.ProcessState>(
+      BridgedEnumDefinition<$tom_process_monitor_14.ProcessState>(
         name: 'ProcessState',
-        values: $tom_process_monitor_8.ProcessState.values,
+        values: $tom_process_monitor_14.ProcessState.values,
       ),
     ];
   }
@@ -144,7 +176,7 @@ class AllBridge {
   /// multiple barrels (e.g., tom_core_kernel and tom_core_server).
   static Map<String, String> enumSourceUris() {
     return {
-      'ProcessState': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_state.dart',
+      'ProcessState': 'package:tom_process_monitor/src/models/process_state.dart',
     };
   }
 
@@ -156,19 +188,16 @@ class AllBridge {
         onTypeName: 'ProcessState',
         methods: {
           'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_8.ProcessState;
+            final t = target as $tom_process_monitor_14.ProcessState;
             return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
           },
         },
       ),
       BridgedExtensionDefinition(
-        name: 'ProcessStateExtension',
-        onTypeName: 'ProcessState',
-        methods: {
-          'toJson': (visitor, target, positional, named, typeArgs) {
-            final t = target as $tom_process_monitor_8.ProcessState;
-            return Function.apply(t.toJson, positional, named.map((k, v) => MapEntry(Symbol(k), v)));
-          },
+        name: 'RetryableResponse',
+        onTypeName: 'Response',
+        getters: {
+          'isRetryable': (visitor, target) => (target as $http_1.Response).isRetryable,
         },
       ),
     ];
@@ -178,8 +207,49 @@ class AllBridge {
   static Map<String, String> extensionSourceUris() {
     return {
       'ProcessStateExtension': 'package:tom_process_monitor/src/models/process_state.dart',
-      'ProcessStateExtension': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_state.dart',
+      'RetryableResponse': 'package:tom_basics_network/src/http_retry.dart',
     };
+  }
+
+  /// GEN-107: Library re-exports declared by the bridged source
+  /// libraries. Each tuple mirrors a Dart `export '…'` directive.
+  /// Consumed by `registerBridges` via `D4rt.registerLibraryReExport`
+  /// (mirrored on `D4rtRunner` in tom_d4rt_ast).
+  static List<({String source, String target, Set<String>? show, Set<String>? hide})>
+  bridgeReExports() {
+    return [
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/process_config.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/process_entry.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/process_state.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/process_status.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/monitor_status.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/restart_policy.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/aliveness_check.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/startup_check.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/remote_access_config.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/partner_discovery_config.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/models/registry.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/exceptions/process_monitor_exception.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/exceptions/lock_timeout_exception.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/exceptions/process_not_found_exception.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/exceptions/process_disabled_exception.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/exceptions/permission_denied_exception.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/registry_lock.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/registry_service.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/process_control.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/aliveness_server.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/aliveness_checker.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/aliveness_server_helper.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/services/log_manager.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_basics_network/tom_basics_network.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/client/process_monitor_base.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/client/local_process_monitor_client.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/client/remote_process_monitor_client.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/http/remote_api_server.dart', show: null, hide: null),
+      (source: 'package:tom_process_monitor/tom_process_monitor.dart', target: 'package:tom_process_monitor/src/process_monitor.dart', show: null, hide: null),
+      (source: 'package:tom_basics_network/tom_basics_network.dart', target: 'package:tom_basics_network/src/http_retry.dart', show: null, hide: null),
+      (source: 'package:tom_basics_network/tom_basics_network.dart', target: 'package:tom_basics_network/src/server_discovery.dart', show: null, hide: null),
+    ];
   }
 
   /// Registers all bridges with an interpreter.
@@ -193,6 +263,11 @@ class AllBridge {
     for (final bridge in classes) {
       interpreter.registerBridgedClass(bridge, importPath, sourceUri: classSources[bridge.name]);
     }
+
+    // MCI#1 / A1: Register the flattened native supertype table so
+    // interpreted subclasses pass subtype checks against bridged
+    // ancestors. Idempotent — safe to call per barrel.
+    BridgedClass.registerSupertypes(classSupertypes());
 
     // Register bridged enums with source URIs for deduplication
     final enums = bridgedEnums();
@@ -219,6 +294,11 @@ class AllBridge {
       final extKey = extDef.name ?? '<unnamed>@${extDef.onTypeName}';
       interpreter.registerBridgedExtension(extDef, importPath, sourceUri: extSources[extKey]);
     }
+
+    // GEN-107: Register library re-exports
+    for (final r in bridgeReExports()) {
+      interpreter.registerLibraryReExport(r.source, r.target, show: r.show, hide: r.hide);
+    }
   }
 
   /// Registers all global variables with the interpreter.
@@ -230,7 +310,7 @@ class AllBridge {
     final errors = <String>[];
 
     try {
-      interpreter.registerGlobalVariable('kDefaultRetryDelaysMs', kDefaultRetryDelaysMs, importPath, sourceUri: 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart');
+      interpreter.registerGlobalVariable('kDefaultRetryDelaysMs', $tom_basics_network_1.kDefaultRetryDelaysMs, importPath, sourceUri: 'package:tom_basics_network/src/http_retry.dart');
     } catch (e) {
       errors.add('Failed to register variable "kDefaultRetryDelaysMs": $e');
     }
@@ -249,11 +329,11 @@ class AllBridge {
           throw ArgumentError('withRetry: Missing required argument "operation" at position 0');
         }
         final operationRaw = positional[0];
-        final operation = () { return D4.callInterpreterCallback(visitor!, operationRaw, []) as Future<dynamic>; };
+        final operation = (() { return Future.value(D4.callInterpreterCallback(visitor!, operationRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function();
         final config = D4.getNamedArgWithDefault<$tom_basics_network_1.RetryConfig>(named, 'config', $tom_basics_network_1.RetryConfig.defaultConfig);
         final shouldRetryRaw = named['shouldRetry'];
-        final shouldRetry = shouldRetryRaw == null ? null : (Object p0) { return D4.callInterpreterCallback(visitor!, shouldRetryRaw, [p0]) as bool; };
-        return withRetry<dynamic>(operation, config: config, shouldRetry: shouldRetry);
+        final shouldRetry = shouldRetryRaw == null ? null : ((Object p0) { return D4.callInterpreterCallback(visitor!, shouldRetryRaw, [p0]) as bool; }) as bool Function(Object);
+        return $tom_basics_network_1.withRetry<dynamic>(operation, config: config, shouldRetry: shouldRetry);
       },
     };
   }
@@ -264,7 +344,7 @@ class AllBridge {
   /// multiple barrels (e.g., tom_core_kernel and tom_core_server).
   static Map<String, String> globalFunctionSourceUris() {
     return {
-      'withRetry': 'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
+      'withRetry': 'package:tom_basics_network/src/http_retry.dart',
     };
   }
 
@@ -282,33 +362,33 @@ class AllBridge {
   /// multiple barrels.
   static List<String> sourceLibraries() {
     return [
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\http_retry.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\basics\tom_basics_network\lib\src\server_discovery.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\client\local_process_monitor_client.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\client\process_monitor_base.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\client\remote_process_monitor_client.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\lock_timeout_exception.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\permission_denied_exception.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\process_disabled_exception.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\process_monitor_exception.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\exceptions\process_not_found_exception.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\aliveness_check.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\monitor_status.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\partner_discovery_config.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_config.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_entry.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_state.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\process_status.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\registry.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\remote_access_config.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\restart_policy.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\models\startup_check.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\aliveness_checker.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\aliveness_server_helper.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\log_manager.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\process_control.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\registry_lock.dart',
-      'C:\Code\al_the_bear\inhouse\second_wind\enterprise_flutter\tom_agent_container\tom_ai\distributed\tom_process_monitor\lib\src\services\registry_service.dart',
+      'package:tom_basics_network/src/http_retry.dart',
+      'package:tom_basics_network/src/server_discovery.dart',
+      'package:tom_process_monitor/src/client/local_process_monitor_client.dart',
+      'package:tom_process_monitor/src/client/process_monitor_base.dart',
+      'package:tom_process_monitor/src/client/remote_process_monitor_client.dart',
+      'package:tom_process_monitor/src/exceptions/lock_timeout_exception.dart',
+      'package:tom_process_monitor/src/exceptions/permission_denied_exception.dart',
+      'package:tom_process_monitor/src/exceptions/process_disabled_exception.dart',
+      'package:tom_process_monitor/src/exceptions/process_monitor_exception.dart',
+      'package:tom_process_monitor/src/exceptions/process_not_found_exception.dart',
+      'package:tom_process_monitor/src/models/aliveness_check.dart',
+      'package:tom_process_monitor/src/models/monitor_status.dart',
+      'package:tom_process_monitor/src/models/partner_discovery_config.dart',
+      'package:tom_process_monitor/src/models/process_config.dart',
+      'package:tom_process_monitor/src/models/process_entry.dart',
+      'package:tom_process_monitor/src/models/process_state.dart',
+      'package:tom_process_monitor/src/models/process_status.dart',
+      'package:tom_process_monitor/src/models/registry.dart',
+      'package:tom_process_monitor/src/models/remote_access_config.dart',
+      'package:tom_process_monitor/src/models/restart_policy.dart',
+      'package:tom_process_monitor/src/models/startup_check.dart',
+      'package:tom_process_monitor/src/services/aliveness_checker.dart',
+      'package:tom_process_monitor/src/services/aliveness_server_helper.dart',
+      'package:tom_process_monitor/src/services/log_manager.dart',
+      'package:tom_process_monitor/src/services/process_control.dart',
+      'package:tom_process_monitor/src/services/registry_lock.dart',
+      'package:tom_process_monitor/src/services/registry_service.dart',
     ];
   }
 
@@ -317,7 +397,10 @@ class AllBridge {
   /// Use this in your D4rt initialization script to make all
   /// bridged classes available to scripts.
   static String getImportBlock() {
-    return "import 'package:tom_process_monitor/tom_process_monitor.dart';";
+    final imports = StringBuffer();
+    imports.writeln("import 'package:tom_process_monitor/tom_process_monitor.dart';");
+    imports.writeln("import 'package:tom_basics_network/tom_basics_network.dart';");
+    return imports.toString();
   }
 
   /// Returns barrel import URIs for sub-packages discovered through re-exports.
@@ -327,7 +410,9 @@ class AllBridge {
   /// These barrels need to be registered with the interpreter separately
   /// so that module resolution finds content for those URIs.
   static List<String> subPackageBarrels() {
-    return [];
+    return [
+      'package:tom_basics_network/tom_basics_network.dart',
+    ];
   }
 
   /// Returns a list of bridged enum names.
@@ -343,9 +428,9 @@ class AllBridge {
 
 BridgedClass _createProcessConfigBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_6.ProcessConfig,
+    nativeType: $tom_process_monitor_12.ProcessConfig,
     name: 'ProcessConfig',
-    isAssignable: (v) => v is $tom_process_monitor_6.ProcessConfig,
+    isAssignable: (v) => v is $tom_process_monitor_12.ProcessConfig,
     constructors: {
       '': (visitor, positional, named) {
         final id = D4.getRequiredNamedArg<String>(named, 'id', 'ProcessConfig');
@@ -357,9 +442,9 @@ BridgedClass _createProcessConfigBridge() {
         final workingDirectory = D4.getOptionalNamedArg<String?>(named, 'workingDirectory');
         final environment = D4.coerceMapOrNull<String, String>(named['environment'], 'environment');
         final autostart = D4.getNamedArgWithDefault<bool>(named, 'autostart', true);
-        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_12.RestartPolicy?>(named, 'restartPolicy');
-        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_3.AlivenessCheck?>(named, 'alivenessCheck');
-        return $tom_process_monitor_6.ProcessConfig(id: id, name: name, command: command, args: args, workingDirectory: workingDirectory, environment: environment, autostart: autostart, restartPolicy: restartPolicy, alivenessCheck: alivenessCheck);
+        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_18.RestartPolicy?>(named, 'restartPolicy');
+        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_9.AlivenessCheck?>(named, 'alivenessCheck');
+        return $tom_process_monitor_12.ProcessConfig(id: id, name: name, command: command, args: args, workingDirectory: workingDirectory, environment: environment, autostart: autostart, restartPolicy: restartPolicy, alivenessCheck: alivenessCheck);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessConfig');
@@ -367,27 +452,27 @@ BridgedClass _createProcessConfigBridge() {
           throw ArgumentError('ProcessConfig: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_6.ProcessConfig.fromJson(json);
+        return $tom_process_monitor_12.ProcessConfig.fromJson(json);
       },
     },
     getters: {
-      'id': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').id,
-      'name': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').name,
-      'command': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').command,
-      'args': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').args,
-      'workingDirectory': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').workingDirectory,
-      'environment': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').environment,
-      'autostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').autostart,
-      'restartPolicy': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').restartPolicy,
-      'alivenessCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig').alivenessCheck,
+      'id': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').id,
+      'name': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').name,
+      'command': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').command,
+      'args': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').args,
+      'workingDirectory': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').workingDirectory,
+      'environment': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').environment,
+      'autostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').autostart,
+      'restartPolicy': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').restartPolicy,
+      'alivenessCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig').alivenessCheck,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig');
+        final t = D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_6.ProcessConfig>(target, 'ProcessConfig');
+        final t = D4.validateTarget<$tom_process_monitor_12.ProcessConfig>(target, 'ProcessConfig');
         final id = D4.getOptionalNamedArg<String?>(named, 'id');
         final name = D4.getOptionalNamedArg<String?>(named, 'name');
         final command = D4.getOptionalNamedArg<String?>(named, 'command');
@@ -395,8 +480,8 @@ BridgedClass _createProcessConfigBridge() {
         final workingDirectory = D4.getOptionalNamedArg<String?>(named, 'workingDirectory');
         final environment = D4.coerceMapOrNull<String, String>(named['environment'], 'environment');
         final autostart = D4.getOptionalNamedArg<bool?>(named, 'autostart');
-        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_12.RestartPolicy?>(named, 'restartPolicy');
-        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_3.AlivenessCheck?>(named, 'alivenessCheck');
+        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_18.RestartPolicy?>(named, 'restartPolicy');
+        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_9.AlivenessCheck?>(named, 'alivenessCheck');
         return t.copyWith(id: id, name: name, command: command, args: args, workingDirectory: workingDirectory, environment: environment, autostart: autostart, restartPolicy: restartPolicy, alivenessCheck: alivenessCheck);
       },
     },
@@ -428,9 +513,9 @@ BridgedClass _createProcessConfigBridge() {
 
 BridgedClass _createProcessEntryBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_7.ProcessEntry,
+    nativeType: $tom_process_monitor_13.ProcessEntry,
     name: 'ProcessEntry',
-    isAssignable: (v) => v is $tom_process_monitor_7.ProcessEntry,
+    isAssignable: (v) => v is $tom_process_monitor_13.ProcessEntry,
     constructors: {
       '': (visitor, positional, named) {
         final id = D4.getRequiredNamedArg<String>(named, 'id', 'ProcessEntry');
@@ -444,16 +529,16 @@ BridgedClass _createProcessEntryBridge() {
         final autostart = D4.getNamedArgWithDefault<bool>(named, 'autostart', true);
         final enabled = D4.getNamedArgWithDefault<bool>(named, 'enabled', true);
         final isRemote = D4.getNamedArgWithDefault<bool>(named, 'isRemote', false);
-        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_12.RestartPolicy?>(named, 'restartPolicy');
-        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_3.AlivenessCheck?>(named, 'alivenessCheck');
+        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_18.RestartPolicy?>(named, 'restartPolicy');
+        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_9.AlivenessCheck?>(named, 'alivenessCheck');
         final registeredAt = D4.getRequiredNamedArg<DateTime>(named, 'registeredAt', 'ProcessEntry');
         final lastStartedAt = D4.getOptionalNamedArg<DateTime?>(named, 'lastStartedAt');
         final lastStoppedAt = D4.getOptionalNamedArg<DateTime?>(named, 'lastStoppedAt');
         final pid = D4.getOptionalNamedArg<int?>(named, 'pid');
-        final state = D4.getNamedArgWithDefault<$tom_process_monitor_8.ProcessState>(named, 'state', $tom_process_monitor_8.ProcessState.stopped);
+        final state = D4.getNamedArgWithDefault<$tom_process_monitor_14.ProcessState>(named, 'state', $tom_process_monitor_14.ProcessState.stopped);
         final restartAttempts = D4.getNamedArgWithDefault<int>(named, 'restartAttempts', 0);
         final consecutiveFailures = D4.getNamedArgWithDefault<int>(named, 'consecutiveFailures', 0);
-        return $tom_process_monitor_7.ProcessEntry(id: id, name: name, command: command, args: args, workingDirectory: workingDirectory, environment: environment, autostart: autostart, enabled: enabled, isRemote: isRemote, restartPolicy: restartPolicy, alivenessCheck: alivenessCheck, registeredAt: registeredAt, lastStartedAt: lastStartedAt, lastStoppedAt: lastStoppedAt, pid: pid, state: state, restartAttempts: restartAttempts, consecutiveFailures: consecutiveFailures);
+        return $tom_process_monitor_13.ProcessEntry(id: id, name: name, command: command, args: args, workingDirectory: workingDirectory, environment: environment, autostart: autostart, enabled: enabled, isRemote: isRemote, restartPolicy: restartPolicy, alivenessCheck: alivenessCheck, registeredAt: registeredAt, lastStartedAt: lastStartedAt, lastStoppedAt: lastStoppedAt, pid: pid, state: state, restartAttempts: restartAttempts, consecutiveFailures: consecutiveFailures);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessEntry');
@@ -461,72 +546,72 @@ BridgedClass _createProcessEntryBridge() {
           throw ArgumentError('ProcessEntry: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_7.ProcessEntry.fromJson(json);
+        return $tom_process_monitor_13.ProcessEntry.fromJson(json);
       },
     },
     getters: {
-      'id': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').id,
-      'name': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').name,
-      'command': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').command,
-      'args': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').args,
-      'workingDirectory': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').workingDirectory,
-      'environment': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').environment,
-      'autostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').autostart,
-      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').enabled,
-      'isRemote': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').isRemote,
-      'restartPolicy': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').restartPolicy,
-      'alivenessCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').alivenessCheck,
-      'registeredAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').registeredAt,
-      'lastStartedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').lastStartedAt,
-      'lastStoppedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').lastStoppedAt,
-      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').pid,
-      'state': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').state,
-      'restartAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').restartAttempts,
-      'consecutiveFailures': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').consecutiveFailures,
+      'id': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').id,
+      'name': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').name,
+      'command': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').command,
+      'args': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').args,
+      'workingDirectory': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').workingDirectory,
+      'environment': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').environment,
+      'autostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').autostart,
+      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').enabled,
+      'isRemote': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').isRemote,
+      'restartPolicy': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').restartPolicy,
+      'alivenessCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').alivenessCheck,
+      'registeredAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').registeredAt,
+      'lastStartedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').lastStartedAt,
+      'lastStoppedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').lastStoppedAt,
+      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').pid,
+      'state': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').state,
+      'restartAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').restartAttempts,
+      'consecutiveFailures': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').consecutiveFailures,
     },
     setters: {
       'id': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').id = D4.extractBridgedArg<String>(value, 'id'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').id = D4.extractBridgedArg<String>(value, 'id'),
       'name': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').name = D4.extractBridgedArg<String>(value, 'name'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').name = D4.extractBridgedArg<String>(value, 'name'),
       'command': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').command = D4.extractBridgedArg<String>(value, 'command'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').command = D4.extractBridgedArg<String>(value, 'command'),
       'args': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').args = (value as List).cast<String>().toList(),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').args = D4.coerceList<String>(value, 'args'),
       'workingDirectory': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').workingDirectory = D4.extractBridgedArgOrNull<String>(value, 'workingDirectory'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').workingDirectory = D4.extractBridgedArgOrNull<String>(value, 'workingDirectory'),
       'autostart': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').autostart = D4.extractBridgedArg<bool>(value, 'autostart'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').autostart = D4.extractBridgedArg<bool>(value, 'autostart'),
       'enabled': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').enabled = D4.extractBridgedArg<bool>(value, 'enabled'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').enabled = D4.extractBridgedArg<bool>(value, 'enabled'),
       'isRemote': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').isRemote = D4.extractBridgedArg<bool>(value, 'isRemote'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').isRemote = D4.extractBridgedArg<bool>(value, 'isRemote'),
       'restartPolicy': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').restartPolicy = D4.extractBridgedArgOrNull<$tom_process_monitor_12.RestartPolicy>(value, 'restartPolicy'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').restartPolicy = D4.extractBridgedArgOrNull<$tom_process_monitor_18.RestartPolicy>(value, 'restartPolicy'),
       'alivenessCheck': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').alivenessCheck = D4.extractBridgedArgOrNull<$tom_process_monitor_3.AlivenessCheck>(value, 'alivenessCheck'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').alivenessCheck = D4.extractBridgedArgOrNull<$tom_process_monitor_9.AlivenessCheck>(value, 'alivenessCheck'),
       'registeredAt': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').registeredAt = D4.extractBridgedArg<DateTime>(value, 'registeredAt'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').registeredAt = D4.extractBridgedArg<DateTime>(value, 'registeredAt'),
       'lastStartedAt': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').lastStartedAt = D4.extractBridgedArgOrNull<DateTime>(value, 'lastStartedAt'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').lastStartedAt = D4.extractBridgedArgOrNull<DateTime>(value, 'lastStartedAt'),
       'lastStoppedAt': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').lastStoppedAt = D4.extractBridgedArgOrNull<DateTime>(value, 'lastStoppedAt'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').lastStoppedAt = D4.extractBridgedArgOrNull<DateTime>(value, 'lastStoppedAt'),
       'pid': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').pid = D4.extractBridgedArgOrNull<int>(value, 'pid'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').pid = D4.extractBridgedArgOrNull<int>(value, 'pid'),
       'state': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').state = D4.extractBridgedArg<$tom_process_monitor_8.ProcessState>(value, 'state'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').state = D4.extractBridgedArg<$tom_process_monitor_14.ProcessState>(value, 'state'),
       'restartAttempts': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').restartAttempts = D4.extractBridgedArg<int>(value, 'restartAttempts'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').restartAttempts = D4.extractBridgedArg<int>(value, 'restartAttempts'),
       'consecutiveFailures': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry').consecutiveFailures = D4.extractBridgedArg<int>(value, 'consecutiveFailures'),
+        D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry').consecutiveFailures = D4.extractBridgedArg<int>(value, 'consecutiveFailures'),
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry');
+        final t = D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_7.ProcessEntry>(target, 'ProcessEntry');
+        final t = D4.validateTarget<$tom_process_monitor_13.ProcessEntry>(target, 'ProcessEntry');
         final id = D4.getOptionalNamedArg<String?>(named, 'id');
         final name = D4.getOptionalNamedArg<String?>(named, 'name');
         final command = D4.getOptionalNamedArg<String?>(named, 'command');
@@ -536,13 +621,13 @@ BridgedClass _createProcessEntryBridge() {
         final autostart = D4.getOptionalNamedArg<bool?>(named, 'autostart');
         final enabled = D4.getOptionalNamedArg<bool?>(named, 'enabled');
         final isRemote = D4.getOptionalNamedArg<bool?>(named, 'isRemote');
-        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_12.RestartPolicy?>(named, 'restartPolicy');
-        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_3.AlivenessCheck?>(named, 'alivenessCheck');
+        final restartPolicy = D4.getOptionalNamedArg<$tom_process_monitor_18.RestartPolicy?>(named, 'restartPolicy');
+        final alivenessCheck = D4.getOptionalNamedArg<$tom_process_monitor_9.AlivenessCheck?>(named, 'alivenessCheck');
         final registeredAt = D4.getOptionalNamedArg<DateTime?>(named, 'registeredAt');
         final lastStartedAt = D4.getOptionalNamedArg<DateTime?>(named, 'lastStartedAt');
         final lastStoppedAt = D4.getOptionalNamedArg<DateTime?>(named, 'lastStoppedAt');
         final pid = D4.getOptionalNamedArg<int?>(named, 'pid');
-        final state = D4.getOptionalNamedArg<$tom_process_monitor_8.ProcessState?>(named, 'state');
+        final state = D4.getOptionalNamedArg<$tom_process_monitor_14.ProcessState?>(named, 'state');
         final restartAttempts = D4.getOptionalNamedArg<int?>(named, 'restartAttempts');
         final consecutiveFailures = D4.getOptionalNamedArg<int?>(named, 'consecutiveFailures');
         return t.copyWith(id: id, name: name, command: command, args: args, workingDirectory: workingDirectory, environment: environment, autostart: autostart, enabled: enabled, isRemote: isRemote, restartPolicy: restartPolicy, alivenessCheck: alivenessCheck, registeredAt: registeredAt, lastStartedAt: lastStartedAt, lastStoppedAt: lastStoppedAt, pid: pid, state: state, restartAttempts: restartAttempts, consecutiveFailures: consecutiveFailures);
@@ -605,14 +690,14 @@ BridgedClass _createProcessEntryBridge() {
 
 BridgedClass _createProcessStatusBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_9.ProcessStatus,
+    nativeType: $tom_process_monitor_15.ProcessStatus,
     name: 'ProcessStatus',
-    isAssignable: (v) => v is $tom_process_monitor_9.ProcessStatus,
+    isAssignable: (v) => v is $tom_process_monitor_15.ProcessStatus,
     constructors: {
       '': (visitor, positional, named) {
         final id = D4.getRequiredNamedArg<String>(named, 'id', 'ProcessStatus');
         final name = D4.getRequiredNamedArg<String>(named, 'name', 'ProcessStatus');
-        final state = D4.getRequiredNamedArg<$tom_process_monitor_8.ProcessState>(named, 'state', 'ProcessStatus');
+        final state = D4.getRequiredNamedArg<$tom_process_monitor_14.ProcessState>(named, 'state', 'ProcessStatus');
         final enabled = D4.getRequiredNamedArg<bool>(named, 'enabled', 'ProcessStatus');
         final autostart = D4.getRequiredNamedArg<bool>(named, 'autostart', 'ProcessStatus');
         final isRemote = D4.getRequiredNamedArg<bool>(named, 'isRemote', 'ProcessStatus');
@@ -620,7 +705,7 @@ BridgedClass _createProcessStatusBridge() {
         final lastStartedAt = D4.getOptionalNamedArg<DateTime?>(named, 'lastStartedAt');
         final lastStoppedAt = D4.getOptionalNamedArg<DateTime?>(named, 'lastStoppedAt');
         final restartAttempts = D4.getNamedArgWithDefault<int>(named, 'restartAttempts', 0);
-        return $tom_process_monitor_9.ProcessStatus(id: id, name: name, state: state, enabled: enabled, autostart: autostart, isRemote: isRemote, pid: pid, lastStartedAt: lastStartedAt, lastStoppedAt: lastStoppedAt, restartAttempts: restartAttempts);
+        return $tom_process_monitor_15.ProcessStatus(id: id, name: name, state: state, enabled: enabled, autostart: autostart, isRemote: isRemote, pid: pid, lastStartedAt: lastStartedAt, lastStoppedAt: lastStoppedAt, restartAttempts: restartAttempts);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessStatus');
@@ -628,24 +713,24 @@ BridgedClass _createProcessStatusBridge() {
           throw ArgumentError('ProcessStatus: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_9.ProcessStatus.fromJson(json);
+        return $tom_process_monitor_15.ProcessStatus.fromJson(json);
       },
     },
     getters: {
-      'id': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').id,
-      'name': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').name,
-      'state': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').state,
-      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').enabled,
-      'autostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').autostart,
-      'isRemote': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').isRemote,
-      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').pid,
-      'lastStartedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').lastStartedAt,
-      'lastStoppedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').lastStoppedAt,
-      'restartAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus').restartAttempts,
+      'id': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').id,
+      'name': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').name,
+      'state': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').state,
+      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').enabled,
+      'autostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').autostart,
+      'isRemote': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').isRemote,
+      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').pid,
+      'lastStartedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').lastStartedAt,
+      'lastStoppedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').lastStoppedAt,
+      'restartAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus').restartAttempts,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_9.ProcessStatus>(target, 'ProcessStatus');
+        final t = D4.validateTarget<$tom_process_monitor_15.ProcessStatus>(target, 'ProcessStatus');
         return t.toJson();
       },
     },
@@ -677,9 +762,9 @@ BridgedClass _createProcessStatusBridge() {
 
 BridgedClass _createMonitorStatusBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_4.MonitorStatus,
+    nativeType: $tom_process_monitor_10.MonitorStatus,
     name: 'MonitorStatus',
-    isAssignable: (v) => v is $tom_process_monitor_4.MonitorStatus,
+    isAssignable: (v) => v is $tom_process_monitor_10.MonitorStatus,
     constructors: {
       '': (visitor, positional, named) {
         final instanceId = D4.getRequiredNamedArg<String>(named, 'instanceId', 'MonitorStatus');
@@ -693,7 +778,7 @@ BridgedClass _createMonitorStatusBridge() {
         final partnerPid = D4.getOptionalNamedArg<int?>(named, 'partnerPid');
         final managedProcessCount = D4.getRequiredNamedArg<int>(named, 'managedProcessCount', 'MonitorStatus');
         final runningProcessCount = D4.getRequiredNamedArg<int>(named, 'runningProcessCount', 'MonitorStatus');
-        return $tom_process_monitor_4.MonitorStatus(instanceId: instanceId, pid: pid, startedAt: startedAt, uptime: uptime, state: state, standaloneMode: standaloneMode, partnerInstanceId: partnerInstanceId, partnerStatus: partnerStatus, partnerPid: partnerPid, managedProcessCount: managedProcessCount, runningProcessCount: runningProcessCount);
+        return $tom_process_monitor_10.MonitorStatus(instanceId: instanceId, pid: pid, startedAt: startedAt, uptime: uptime, state: state, standaloneMode: standaloneMode, partnerInstanceId: partnerInstanceId, partnerStatus: partnerStatus, partnerPid: partnerPid, managedProcessCount: managedProcessCount, runningProcessCount: runningProcessCount);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'MonitorStatus');
@@ -701,25 +786,25 @@ BridgedClass _createMonitorStatusBridge() {
           throw ArgumentError('MonitorStatus: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_4.MonitorStatus.fromJson(json);
+        return $tom_process_monitor_10.MonitorStatus.fromJson(json);
       },
     },
     getters: {
-      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').instanceId,
-      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').pid,
-      'startedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').startedAt,
-      'uptime': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').uptime,
-      'state': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').state,
-      'standaloneMode': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').standaloneMode,
-      'partnerInstanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').partnerInstanceId,
-      'partnerStatus': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').partnerStatus,
-      'partnerPid': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').partnerPid,
-      'managedProcessCount': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').managedProcessCount,
-      'runningProcessCount': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus').runningProcessCount,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').instanceId,
+      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').pid,
+      'startedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').startedAt,
+      'uptime': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').uptime,
+      'state': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').state,
+      'standaloneMode': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').standaloneMode,
+      'partnerInstanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').partnerInstanceId,
+      'partnerStatus': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').partnerStatus,
+      'partnerPid': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').partnerPid,
+      'managedProcessCount': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').managedProcessCount,
+      'runningProcessCount': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus').runningProcessCount,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_4.MonitorStatus>(target, 'MonitorStatus');
+        final t = D4.validateTarget<$tom_process_monitor_10.MonitorStatus>(target, 'MonitorStatus');
         return t.toJson();
       },
     },
@@ -752,9 +837,9 @@ BridgedClass _createMonitorStatusBridge() {
 
 BridgedClass _createRestartPolicyBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_12.RestartPolicy,
+    nativeType: $tom_process_monitor_18.RestartPolicy,
     name: 'RestartPolicy',
-    isAssignable: (v) => v is $tom_process_monitor_12.RestartPolicy,
+    isAssignable: (v) => v is $tom_process_monitor_18.RestartPolicy,
     constructors: {
       '': (visitor, positional, named) {
         final maxAttempts = D4.getNamedArgWithDefault<int>(named, 'maxAttempts', 5);
@@ -764,7 +849,7 @@ BridgedClass _createRestartPolicyBridge() {
         final resetAfterMs = D4.getNamedArgWithDefault<int>(named, 'resetAfterMs', 300000);
         final retryIndefinitely = D4.getNamedArgWithDefault<bool>(named, 'retryIndefinitely', false);
         final indefiniteIntervalMs = D4.getNamedArgWithDefault<int>(named, 'indefiniteIntervalMs', 21600000);
-        return $tom_process_monitor_12.RestartPolicy(maxAttempts: maxAttempts, backoffIntervalsMs: backoffIntervalsMs, resetAfterMs: resetAfterMs, retryIndefinitely: retryIndefinitely, indefiniteIntervalMs: indefiniteIntervalMs);
+        return $tom_process_monitor_18.RestartPolicy(maxAttempts: maxAttempts, backoffIntervalsMs: backoffIntervalsMs, resetAfterMs: resetAfterMs, retryIndefinitely: retryIndefinitely, indefiniteIntervalMs: indefiniteIntervalMs);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'RestartPolicy');
@@ -772,23 +857,23 @@ BridgedClass _createRestartPolicyBridge() {
           throw ArgumentError('RestartPolicy: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_12.RestartPolicy.fromJson(json);
+        return $tom_process_monitor_18.RestartPolicy.fromJson(json);
       },
     },
     getters: {
-      'maxAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy').maxAttempts,
-      'backoffIntervalsMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy').backoffIntervalsMs,
-      'resetAfterMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy').resetAfterMs,
-      'retryIndefinitely': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy').retryIndefinitely,
-      'indefiniteIntervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy').indefiniteIntervalMs,
+      'maxAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy').maxAttempts,
+      'backoffIntervalsMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy').backoffIntervalsMs,
+      'resetAfterMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy').resetAfterMs,
+      'retryIndefinitely': (visitor, target) => D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy').retryIndefinitely,
+      'indefiniteIntervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy').indefiniteIntervalMs,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy');
+        final t = D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_12.RestartPolicy>(target, 'RestartPolicy');
+        final t = D4.validateTarget<$tom_process_monitor_18.RestartPolicy>(target, 'RestartPolicy');
         final maxAttempts = D4.getOptionalNamedArg<int?>(named, 'maxAttempts');
         final backoffIntervalsMs = D4.coerceListOrNull<int>(named['backoffIntervalsMs'], 'backoffIntervalsMs');
         final resetAfterMs = D4.getOptionalNamedArg<int?>(named, 'resetAfterMs');
@@ -798,7 +883,7 @@ BridgedClass _createRestartPolicyBridge() {
       },
     },
     staticGetters: {
-      'defaultPolicy': (visitor) => $tom_process_monitor_12.RestartPolicy.defaultPolicy,
+      'defaultPolicy': (visitor) => $tom_process_monitor_18.RestartPolicy.defaultPolicy,
     },
     constructorSignatures: {
       '': 'const RestartPolicy({int maxAttempts = 5, List<int> backoffIntervalsMs = const [1000, 2000, 5000], int resetAfterMs = 300000, bool retryIndefinitely = false, int indefiniteIntervalMs = 21600000})',
@@ -827,9 +912,9 @@ BridgedClass _createRestartPolicyBridge() {
 
 BridgedClass _createAlivenessCheckBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_3.AlivenessCheck,
+    nativeType: $tom_process_monitor_9.AlivenessCheck,
     name: 'AlivenessCheck',
-    isAssignable: (v) => v is $tom_process_monitor_3.AlivenessCheck,
+    isAssignable: (v) => v is $tom_process_monitor_9.AlivenessCheck,
     constructors: {
       '': (visitor, positional, named) {
         final enabled = D4.getRequiredNamedArg<bool>(named, 'enabled', 'AlivenessCheck');
@@ -838,8 +923,8 @@ BridgedClass _createAlivenessCheckBridge() {
         final intervalMs = D4.getNamedArgWithDefault<int>(named, 'intervalMs', 3000);
         final timeoutMs = D4.getNamedArgWithDefault<int>(named, 'timeoutMs', 2000);
         final consecutiveFailuresRequired = D4.getNamedArgWithDefault<int>(named, 'consecutiveFailuresRequired', 2);
-        final startupCheck = D4.getOptionalNamedArg<$tom_process_monitor_13.StartupCheck?>(named, 'startupCheck');
-        return $tom_process_monitor_3.AlivenessCheck(enabled: enabled, url: url, statusUrl: statusUrl, intervalMs: intervalMs, timeoutMs: timeoutMs, consecutiveFailuresRequired: consecutiveFailuresRequired, startupCheck: startupCheck);
+        final startupCheck = D4.getOptionalNamedArg<$tom_process_monitor_19.StartupCheck?>(named, 'startupCheck');
+        return $tom_process_monitor_9.AlivenessCheck(enabled: enabled, url: url, statusUrl: statusUrl, intervalMs: intervalMs, timeoutMs: timeoutMs, consecutiveFailuresRequired: consecutiveFailuresRequired, startupCheck: startupCheck);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'AlivenessCheck');
@@ -847,32 +932,32 @@ BridgedClass _createAlivenessCheckBridge() {
           throw ArgumentError('AlivenessCheck: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_3.AlivenessCheck.fromJson(json);
+        return $tom_process_monitor_9.AlivenessCheck.fromJson(json);
       },
     },
     getters: {
-      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').enabled,
-      'url': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').url,
-      'statusUrl': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').statusUrl,
-      'intervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').intervalMs,
-      'timeoutMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').timeoutMs,
-      'consecutiveFailuresRequired': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').consecutiveFailuresRequired,
-      'startupCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck').startupCheck,
+      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').enabled,
+      'url': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').url,
+      'statusUrl': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').statusUrl,
+      'intervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').intervalMs,
+      'timeoutMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').timeoutMs,
+      'consecutiveFailuresRequired': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').consecutiveFailuresRequired,
+      'startupCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck').startupCheck,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck');
+        final t = D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_3.AlivenessCheck>(target, 'AlivenessCheck');
+        final t = D4.validateTarget<$tom_process_monitor_9.AlivenessCheck>(target, 'AlivenessCheck');
         final enabled = D4.getOptionalNamedArg<bool?>(named, 'enabled');
         final url = D4.getOptionalNamedArg<String?>(named, 'url');
         final statusUrl = D4.getOptionalNamedArg<String?>(named, 'statusUrl');
         final intervalMs = D4.getOptionalNamedArg<int?>(named, 'intervalMs');
         final timeoutMs = D4.getOptionalNamedArg<int?>(named, 'timeoutMs');
         final consecutiveFailuresRequired = D4.getOptionalNamedArg<int?>(named, 'consecutiveFailuresRequired');
-        final startupCheck = D4.getOptionalNamedArg<$tom_process_monitor_13.StartupCheck?>(named, 'startupCheck');
+        final startupCheck = D4.getOptionalNamedArg<$tom_process_monitor_19.StartupCheck?>(named, 'startupCheck');
         return t.copyWith(enabled: enabled, url: url, statusUrl: statusUrl, intervalMs: intervalMs, timeoutMs: timeoutMs, consecutiveFailuresRequired: consecutiveFailuresRequired, startupCheck: startupCheck);
       },
     },
@@ -902,9 +987,9 @@ BridgedClass _createAlivenessCheckBridge() {
 
 BridgedClass _createStartupCheckBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_13.StartupCheck,
+    nativeType: $tom_process_monitor_19.StartupCheck,
     name: 'StartupCheck',
-    isAssignable: (v) => v is $tom_process_monitor_13.StartupCheck,
+    isAssignable: (v) => v is $tom_process_monitor_19.StartupCheck,
     constructors: {
       '': (visitor, positional, named) {
         final enabled = D4.getNamedArgWithDefault<bool>(named, 'enabled', true);
@@ -912,7 +997,7 @@ BridgedClass _createStartupCheckBridge() {
         final checkIntervalMs = D4.getNamedArgWithDefault<int>(named, 'checkIntervalMs', 1000);
         final maxAttempts = D4.getNamedArgWithDefault<int>(named, 'maxAttempts', 30);
         final failAction = D4.getNamedArgWithDefault<String>(named, 'failAction', 'restart');
-        return $tom_process_monitor_13.StartupCheck(enabled: enabled, initialDelayMs: initialDelayMs, checkIntervalMs: checkIntervalMs, maxAttempts: maxAttempts, failAction: failAction);
+        return $tom_process_monitor_19.StartupCheck(enabled: enabled, initialDelayMs: initialDelayMs, checkIntervalMs: checkIntervalMs, maxAttempts: maxAttempts, failAction: failAction);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'StartupCheck');
@@ -920,23 +1005,23 @@ BridgedClass _createStartupCheckBridge() {
           throw ArgumentError('StartupCheck: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_13.StartupCheck.fromJson(json);
+        return $tom_process_monitor_19.StartupCheck.fromJson(json);
       },
     },
     getters: {
-      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck').enabled,
-      'initialDelayMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck').initialDelayMs,
-      'checkIntervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck').checkIntervalMs,
-      'maxAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck').maxAttempts,
-      'failAction': (visitor, target) => D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck').failAction,
+      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck').enabled,
+      'initialDelayMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck').initialDelayMs,
+      'checkIntervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck').checkIntervalMs,
+      'maxAttempts': (visitor, target) => D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck').maxAttempts,
+      'failAction': (visitor, target) => D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck').failAction,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck');
+        final t = D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_13.StartupCheck>(target, 'StartupCheck');
+        final t = D4.validateTarget<$tom_process_monitor_19.StartupCheck>(target, 'StartupCheck');
         final enabled = D4.getOptionalNamedArg<bool?>(named, 'enabled');
         final initialDelayMs = D4.getOptionalNamedArg<int?>(named, 'initialDelayMs');
         final checkIntervalMs = D4.getOptionalNamedArg<int?>(named, 'checkIntervalMs');
@@ -969,9 +1054,9 @@ BridgedClass _createStartupCheckBridge() {
 
 BridgedClass _createRemoteAccessConfigBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_11.RemoteAccessConfig,
+    nativeType: $tom_process_monitor_17.RemoteAccessConfig,
     name: 'RemoteAccessConfig',
-    isAssignable: (v) => v is $tom_process_monitor_11.RemoteAccessConfig,
+    isAssignable: (v) => v is $tom_process_monitor_17.RemoteAccessConfig,
     constructors: {
       '': (visitor, positional, named) {
         final startRemoteAccess = D4.getNamedArgWithDefault<bool>(named, 'startRemoteAccess', false);
@@ -992,7 +1077,7 @@ BridgedClass _createRemoteAccessConfigBridge() {
         final executableBlacklist = named.containsKey('executableBlacklist') && named['executableBlacklist'] != null
             ? D4.coerceList<String>(named['executableBlacklist'], 'executableBlacklist')
             : const <String>[];
-        return $tom_process_monitor_11.RemoteAccessConfig(startRemoteAccess: startRemoteAccess, remotePort: remotePort, trustedHosts: trustedHosts, allowRemoteRegister: allowRemoteRegister, allowRemoteDeregister: allowRemoteDeregister, allowRemoteStart: allowRemoteStart, allowRemoteStop: allowRemoteStop, allowRemoteDisable: allowRemoteDisable, allowRemoteAutostart: allowRemoteAutostart, allowRemoteMonitorRestart: allowRemoteMonitorRestart, executableWhitelist: executableWhitelist, executableBlacklist: executableBlacklist);
+        return $tom_process_monitor_17.RemoteAccessConfig(startRemoteAccess: startRemoteAccess, remotePort: remotePort, trustedHosts: trustedHosts, allowRemoteRegister: allowRemoteRegister, allowRemoteDeregister: allowRemoteDeregister, allowRemoteStart: allowRemoteStart, allowRemoteStop: allowRemoteStop, allowRemoteDisable: allowRemoteDisable, allowRemoteAutostart: allowRemoteAutostart, allowRemoteMonitorRestart: allowRemoteMonitorRestart, executableWhitelist: executableWhitelist, executableBlacklist: executableBlacklist);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'RemoteAccessConfig');
@@ -1000,30 +1085,30 @@ BridgedClass _createRemoteAccessConfigBridge() {
           throw ArgumentError('RemoteAccessConfig: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_11.RemoteAccessConfig.fromJson(json);
+        return $tom_process_monitor_17.RemoteAccessConfig.fromJson(json);
       },
     },
     getters: {
-      'startRemoteAccess': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').startRemoteAccess,
-      'remotePort': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').remotePort,
-      'trustedHosts': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').trustedHosts,
-      'allowRemoteRegister': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteRegister,
-      'allowRemoteDeregister': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteDeregister,
-      'allowRemoteStart': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteStart,
-      'allowRemoteStop': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteStop,
-      'allowRemoteDisable': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteDisable,
-      'allowRemoteAutostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteAutostart,
-      'allowRemoteMonitorRestart': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteMonitorRestart,
-      'executableWhitelist': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').executableWhitelist,
-      'executableBlacklist': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig').executableBlacklist,
+      'startRemoteAccess': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').startRemoteAccess,
+      'remotePort': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').remotePort,
+      'trustedHosts': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').trustedHosts,
+      'allowRemoteRegister': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteRegister,
+      'allowRemoteDeregister': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteDeregister,
+      'allowRemoteStart': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteStart,
+      'allowRemoteStop': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteStop,
+      'allowRemoteDisable': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteDisable,
+      'allowRemoteAutostart': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteAutostart,
+      'allowRemoteMonitorRestart': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').allowRemoteMonitorRestart,
+      'executableWhitelist': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').executableWhitelist,
+      'executableBlacklist': (visitor, target) => D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig').executableBlacklist,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig');
+        final t = D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_11.RemoteAccessConfig>(target, 'RemoteAccessConfig');
+        final t = D4.validateTarget<$tom_process_monitor_17.RemoteAccessConfig>(target, 'RemoteAccessConfig');
         final startRemoteAccess = D4.getOptionalNamedArg<bool?>(named, 'startRemoteAccess');
         final remotePort = D4.getOptionalNamedArg<int?>(named, 'remotePort');
         final trustedHosts = D4.coerceListOrNull<String>(named['trustedHosts'], 'trustedHosts');
@@ -1040,7 +1125,7 @@ BridgedClass _createRemoteAccessConfigBridge() {
       },
     },
     staticGetters: {
-      'defaultConfig': (visitor) => $tom_process_monitor_11.RemoteAccessConfig.defaultConfig,
+      'defaultConfig': (visitor) => $tom_process_monitor_17.RemoteAccessConfig.defaultConfig,
     },
     constructorSignatures: {
       '': 'const RemoteAccessConfig({bool startRemoteAccess = false, int remotePort = 19881, List<String> trustedHosts = const [\'localhost\', \'127.0.0.1\', \'::1\'], bool allowRemoteRegister = true, bool allowRemoteDeregister = true, bool allowRemoteStart = true, bool allowRemoteStop = true, bool allowRemoteDisable = true, bool allowRemoteAutostart = true, bool allowRemoteMonitorRestart = false, List<String> executableWhitelist = const [], List<String> executableBlacklist = const []})',
@@ -1076,16 +1161,16 @@ BridgedClass _createRemoteAccessConfigBridge() {
 
 BridgedClass _createPartnerDiscoveryConfigBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_5.PartnerDiscoveryConfig,
+    nativeType: $tom_process_monitor_11.PartnerDiscoveryConfig,
     name: 'PartnerDiscoveryConfig',
-    isAssignable: (v) => v is $tom_process_monitor_5.PartnerDiscoveryConfig,
+    isAssignable: (v) => v is $tom_process_monitor_11.PartnerDiscoveryConfig,
     constructors: {
       '': (visitor, positional, named) {
         final partnerInstanceId = D4.getOptionalNamedArg<String?>(named, 'partnerInstanceId');
         final partnerAlivenessPort = D4.getOptionalNamedArg<int?>(named, 'partnerAlivenessPort');
         final partnerStatusUrl = D4.getOptionalNamedArg<String?>(named, 'partnerStatusUrl');
         final discoveryOnStartup = D4.getNamedArgWithDefault<bool>(named, 'discoveryOnStartup', true);
-        return $tom_process_monitor_5.PartnerDiscoveryConfig(partnerInstanceId: partnerInstanceId, partnerAlivenessPort: partnerAlivenessPort, partnerStatusUrl: partnerStatusUrl, discoveryOnStartup: discoveryOnStartup);
+        return $tom_process_monitor_11.PartnerDiscoveryConfig(partnerInstanceId: partnerInstanceId, partnerAlivenessPort: partnerAlivenessPort, partnerStatusUrl: partnerStatusUrl, discoveryOnStartup: discoveryOnStartup);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'PartnerDiscoveryConfig');
@@ -1093,22 +1178,22 @@ BridgedClass _createPartnerDiscoveryConfigBridge() {
           throw ArgumentError('PartnerDiscoveryConfig: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_5.PartnerDiscoveryConfig.fromJson(json);
+        return $tom_process_monitor_11.PartnerDiscoveryConfig.fromJson(json);
       },
     },
     getters: {
-      'partnerInstanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_5.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').partnerInstanceId,
-      'partnerAlivenessPort': (visitor, target) => D4.validateTarget<$tom_process_monitor_5.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').partnerAlivenessPort,
-      'partnerStatusUrl': (visitor, target) => D4.validateTarget<$tom_process_monitor_5.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').partnerStatusUrl,
-      'discoveryOnStartup': (visitor, target) => D4.validateTarget<$tom_process_monitor_5.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').discoveryOnStartup,
+      'partnerInstanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').partnerInstanceId,
+      'partnerAlivenessPort': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').partnerAlivenessPort,
+      'partnerStatusUrl': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').partnerStatusUrl,
+      'discoveryOnStartup': (visitor, target) => D4.validateTarget<$tom_process_monitor_11.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig').discoveryOnStartup,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_5.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig');
+        final t = D4.validateTarget<$tom_process_monitor_11.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig');
         return t.toJson();
       },
       'copyWith': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_5.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig');
+        final t = D4.validateTarget<$tom_process_monitor_11.PartnerDiscoveryConfig>(target, 'PartnerDiscoveryConfig');
         final partnerInstanceId = D4.getOptionalNamedArg<String?>(named, 'partnerInstanceId');
         final partnerAlivenessPort = D4.getOptionalNamedArg<int?>(named, 'partnerAlivenessPort');
         final partnerStatusUrl = D4.getOptionalNamedArg<String?>(named, 'partnerStatusUrl');
@@ -1120,7 +1205,7 @@ BridgedClass _createPartnerDiscoveryConfigBridge() {
       'defaultForInstance': (visitor, positional, named, typeArgs) {
         D4.requireMinArgs(positional, 1, 'defaultForInstance');
         final instanceId = D4.getRequiredArg<String>(positional, 0, 'instanceId', 'defaultForInstance');
-        return $tom_process_monitor_5.PartnerDiscoveryConfig.defaultForInstance(instanceId);
+        return $tom_process_monitor_11.PartnerDiscoveryConfig.defaultForInstance(instanceId);
       },
     },
     constructorSignatures: {
@@ -1149,14 +1234,14 @@ BridgedClass _createPartnerDiscoveryConfigBridge() {
 
 BridgedClass _createAlivenessServerConfigBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_10.AlivenessServerConfig,
+    nativeType: $tom_process_monitor_16.AlivenessServerConfig,
     name: 'AlivenessServerConfig',
-    isAssignable: (v) => v is $tom_process_monitor_10.AlivenessServerConfig,
+    isAssignable: (v) => v is $tom_process_monitor_16.AlivenessServerConfig,
     constructors: {
       '': (visitor, positional, named) {
         final enabled = D4.getNamedArgWithDefault<bool>(named, 'enabled', true);
         final port = D4.getNamedArgWithDefault<int>(named, 'port', 19883);
-        return $tom_process_monitor_10.AlivenessServerConfig(enabled: enabled, port: port);
+        return $tom_process_monitor_16.AlivenessServerConfig(enabled: enabled, port: port);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'AlivenessServerConfig');
@@ -1164,16 +1249,16 @@ BridgedClass _createAlivenessServerConfigBridge() {
           throw ArgumentError('AlivenessServerConfig: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_10.AlivenessServerConfig.fromJson(json);
+        return $tom_process_monitor_16.AlivenessServerConfig.fromJson(json);
       },
     },
     getters: {
-      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.AlivenessServerConfig>(target, 'AlivenessServerConfig').enabled,
-      'port': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.AlivenessServerConfig>(target, 'AlivenessServerConfig').port,
+      'enabled': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.AlivenessServerConfig>(target, 'AlivenessServerConfig').enabled,
+      'port': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.AlivenessServerConfig>(target, 'AlivenessServerConfig').port,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_10.AlivenessServerConfig>(target, 'AlivenessServerConfig');
+        final t = D4.validateTarget<$tom_process_monitor_16.AlivenessServerConfig>(target, 'AlivenessServerConfig');
         return t.toJson();
       },
     },
@@ -1197,15 +1282,15 @@ BridgedClass _createAlivenessServerConfigBridge() {
 
 BridgedClass _createWatcherInfoBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_10.WatcherInfo,
+    nativeType: $tom_process_monitor_16.WatcherInfo,
     name: 'WatcherInfo',
-    isAssignable: (v) => v is $tom_process_monitor_10.WatcherInfo,
+    isAssignable: (v) => v is $tom_process_monitor_16.WatcherInfo,
     constructors: {
       '': (visitor, positional, named) {
         final watcherPid = D4.getRequiredNamedArg<int>(named, 'watcherPid', 'WatcherInfo');
         final watcherInstanceId = D4.getRequiredNamedArg<String>(named, 'watcherInstanceId', 'WatcherInfo');
         final watcherAlivenessPort = D4.getRequiredNamedArg<int>(named, 'watcherAlivenessPort', 'WatcherInfo');
-        return $tom_process_monitor_10.WatcherInfo(watcherPid: watcherPid, watcherInstanceId: watcherInstanceId, watcherAlivenessPort: watcherAlivenessPort);
+        return $tom_process_monitor_16.WatcherInfo(watcherPid: watcherPid, watcherInstanceId: watcherInstanceId, watcherAlivenessPort: watcherAlivenessPort);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'WatcherInfo');
@@ -1213,17 +1298,17 @@ BridgedClass _createWatcherInfoBridge() {
           throw ArgumentError('WatcherInfo: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_10.WatcherInfo.fromJson(json);
+        return $tom_process_monitor_16.WatcherInfo.fromJson(json);
       },
     },
     getters: {
-      'watcherPid': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.WatcherInfo>(target, 'WatcherInfo').watcherPid,
-      'watcherInstanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.WatcherInfo>(target, 'WatcherInfo').watcherInstanceId,
-      'watcherAlivenessPort': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.WatcherInfo>(target, 'WatcherInfo').watcherAlivenessPort,
+      'watcherPid': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.WatcherInfo>(target, 'WatcherInfo').watcherPid,
+      'watcherInstanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.WatcherInfo>(target, 'WatcherInfo').watcherInstanceId,
+      'watcherAlivenessPort': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.WatcherInfo>(target, 'WatcherInfo').watcherAlivenessPort,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_10.WatcherInfo>(target, 'WatcherInfo');
+        final t = D4.validateTarget<$tom_process_monitor_16.WatcherInfo>(target, 'WatcherInfo');
         return t.toJson();
       },
     },
@@ -1248,9 +1333,9 @@ BridgedClass _createWatcherInfoBridge() {
 
 BridgedClass _createProcessRegistryBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_10.ProcessRegistry,
+    nativeType: $tom_process_monitor_16.ProcessRegistry,
     name: 'ProcessRegistry',
-    isAssignable: (v) => v is $tom_process_monitor_10.ProcessRegistry,
+    isAssignable: (v) => v is $tom_process_monitor_16.ProcessRegistry,
     constructors: {
       '': (visitor, positional, named) {
         final version = D4.getNamedArgWithDefault<int>(named, 'version', 1);
@@ -1258,12 +1343,12 @@ BridgedClass _createProcessRegistryBridge() {
         final instanceId = D4.getRequiredNamedArg<String>(named, 'instanceId', 'ProcessRegistry');
         final monitorIntervalMs = D4.getNamedArgWithDefault<int>(named, 'monitorIntervalMs', 5000);
         final standaloneMode = D4.getNamedArgWithDefault<bool>(named, 'standaloneMode', false);
-        final partnerDiscovery = D4.getOptionalNamedArg<$tom_process_monitor_5.PartnerDiscoveryConfig?>(named, 'partnerDiscovery');
-        final remoteAccess = D4.getOptionalNamedArg<$tom_process_monitor_11.RemoteAccessConfig?>(named, 'remoteAccess');
-        final alivenessServer = D4.getOptionalNamedArg<$tom_process_monitor_10.AlivenessServerConfig?>(named, 'alivenessServer');
-        final watcherInfo = D4.getOptionalNamedArg<$tom_process_monitor_10.WatcherInfo?>(named, 'watcherInfo');
-        final processes = D4.coerceMapOrNull<String, $tom_process_monitor_7.ProcessEntry>(named['processes'], 'processes');
-        return $tom_process_monitor_10.ProcessRegistry(version: version, lastModified: lastModified, instanceId: instanceId, monitorIntervalMs: monitorIntervalMs, standaloneMode: standaloneMode, partnerDiscovery: partnerDiscovery, remoteAccess: remoteAccess, alivenessServer: alivenessServer, watcherInfo: watcherInfo, processes: processes);
+        final partnerDiscovery = D4.getOptionalNamedArg<$tom_process_monitor_11.PartnerDiscoveryConfig?>(named, 'partnerDiscovery');
+        final remoteAccess = D4.getOptionalNamedArg<$tom_process_monitor_17.RemoteAccessConfig?>(named, 'remoteAccess');
+        final alivenessServer = D4.getOptionalNamedArg<$tom_process_monitor_16.AlivenessServerConfig?>(named, 'alivenessServer');
+        final watcherInfo = D4.getOptionalNamedArg<$tom_process_monitor_16.WatcherInfo?>(named, 'watcherInfo');
+        final processes = D4.coerceMapOrNull<String, $tom_process_monitor_13.ProcessEntry>(named['processes'], 'processes');
+        return $tom_process_monitor_16.ProcessRegistry(version: version, lastModified: lastModified, instanceId: instanceId, monitorIntervalMs: monitorIntervalMs, standaloneMode: standaloneMode, partnerDiscovery: partnerDiscovery, remoteAccess: remoteAccess, alivenessServer: alivenessServer, watcherInfo: watcherInfo, processes: processes);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessRegistry');
@@ -1271,44 +1356,44 @@ BridgedClass _createProcessRegistryBridge() {
           throw ArgumentError('ProcessRegistry: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return $tom_process_monitor_10.ProcessRegistry.fromJson(json);
+        return $tom_process_monitor_16.ProcessRegistry.fromJson(json);
       },
     },
     getters: {
-      'version': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').version,
-      'lastModified': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').lastModified,
-      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').instanceId,
-      'monitorIntervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').monitorIntervalMs,
-      'standaloneMode': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').standaloneMode,
-      'partnerDiscovery': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').partnerDiscovery,
-      'remoteAccess': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').remoteAccess,
-      'alivenessServer': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').alivenessServer,
-      'watcherInfo': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').watcherInfo,
-      'processes': (visitor, target) => D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').processes,
+      'version': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').version,
+      'lastModified': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').lastModified,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').instanceId,
+      'monitorIntervalMs': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').monitorIntervalMs,
+      'standaloneMode': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').standaloneMode,
+      'partnerDiscovery': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').partnerDiscovery,
+      'remoteAccess': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').remoteAccess,
+      'alivenessServer': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').alivenessServer,
+      'watcherInfo': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').watcherInfo,
+      'processes': (visitor, target) => D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').processes,
     },
     setters: {
       'version': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').version = D4.extractBridgedArg<int>(value, 'version'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').version = D4.extractBridgedArg<int>(value, 'version'),
       'lastModified': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').lastModified = D4.extractBridgedArg<DateTime>(value, 'lastModified'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').lastModified = D4.extractBridgedArg<DateTime>(value, 'lastModified'),
       'instanceId': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').instanceId = D4.extractBridgedArg<String>(value, 'instanceId'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').instanceId = D4.extractBridgedArg<String>(value, 'instanceId'),
       'monitorIntervalMs': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').monitorIntervalMs = D4.extractBridgedArg<int>(value, 'monitorIntervalMs'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').monitorIntervalMs = D4.extractBridgedArg<int>(value, 'monitorIntervalMs'),
       'standaloneMode': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').standaloneMode = D4.extractBridgedArg<bool>(value, 'standaloneMode'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').standaloneMode = D4.extractBridgedArg<bool>(value, 'standaloneMode'),
       'partnerDiscovery': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').partnerDiscovery = D4.extractBridgedArg<$tom_process_monitor_5.PartnerDiscoveryConfig>(value, 'partnerDiscovery'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').partnerDiscovery = D4.extractBridgedArg<$tom_process_monitor_11.PartnerDiscoveryConfig>(value, 'partnerDiscovery'),
       'remoteAccess': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').remoteAccess = D4.extractBridgedArg<$tom_process_monitor_11.RemoteAccessConfig>(value, 'remoteAccess'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').remoteAccess = D4.extractBridgedArg<$tom_process_monitor_17.RemoteAccessConfig>(value, 'remoteAccess'),
       'alivenessServer': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').alivenessServer = D4.extractBridgedArg<$tom_process_monitor_10.AlivenessServerConfig>(value, 'alivenessServer'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').alivenessServer = D4.extractBridgedArg<$tom_process_monitor_16.AlivenessServerConfig>(value, 'alivenessServer'),
       'watcherInfo': (visitor, target, value) => 
-        D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry').watcherInfo = D4.extractBridgedArgOrNull<$tom_process_monitor_10.WatcherInfo>(value, 'watcherInfo'),
+        D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry').watcherInfo = D4.extractBridgedArgOrNull<$tom_process_monitor_16.WatcherInfo>(value, 'watcherInfo'),
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_10.ProcessRegistry>(target, 'ProcessRegistry');
+        final t = D4.validateTarget<$tom_process_monitor_16.ProcessRegistry>(target, 'ProcessRegistry');
         return t.toJson();
       },
     },
@@ -1352,22 +1437,23 @@ BridgedClass _createProcessRegistryBridge() {
 
 BridgedClass _createProcessMonitorExceptionBridge() {
   return BridgedClass(
-    nativeType: ProcessMonitorException,
+    nativeType: $tom_process_monitor_7.ProcessMonitorException,
     name: 'ProcessMonitorException',
-    isAssignable: (v) => v is ProcessMonitorException,
+    isAssignable: (v) => v is $tom_process_monitor_7.ProcessMonitorException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessMonitorException');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'ProcessMonitorException');
-        return ProcessMonitorException(message);
+        return $tom_process_monitor_7.ProcessMonitorException(message);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<ProcessMonitorException>(target, 'ProcessMonitorException').message,
+      'message': (visitor, target) => D4.validateTarget<$tom_process_monitor_7.ProcessMonitorException>(target, 'ProcessMonitorException').message,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessMonitorException>(target, 'ProcessMonitorException');
+        final t = D4.validateTarget<$tom_process_monitor_7.ProcessMonitorException>(target, 'ProcessMonitorException');
         return t.toString();
       },
     },
@@ -1389,22 +1475,23 @@ BridgedClass _createProcessMonitorExceptionBridge() {
 
 BridgedClass _createLockTimeoutExceptionBridge() {
   return BridgedClass(
-    nativeType: LockTimeoutException,
+    nativeType: $tom_process_monitor_4.LockTimeoutException,
     name: 'LockTimeoutException',
-    isAssignable: (v) => v is LockTimeoutException,
+    isAssignable: (v) => v is $tom_process_monitor_4.LockTimeoutException,
+    hierarchyDepth: 2,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'LockTimeoutException');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'LockTimeoutException');
-        return LockTimeoutException(message);
+        return $tom_process_monitor_4.LockTimeoutException(message);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<LockTimeoutException>(target, 'LockTimeoutException').message,
+      'message': (visitor, target) => D4.validateTarget<$tom_process_monitor_4.LockTimeoutException>(target, 'LockTimeoutException').message,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LockTimeoutException>(target, 'LockTimeoutException');
+        final t = D4.validateTarget<$tom_process_monitor_4.LockTimeoutException>(target, 'LockTimeoutException');
         return t.toString();
       },
     },
@@ -1426,23 +1513,24 @@ BridgedClass _createLockTimeoutExceptionBridge() {
 
 BridgedClass _createProcessNotFoundExceptionBridge() {
   return BridgedClass(
-    nativeType: ProcessNotFoundException,
+    nativeType: $tom_process_monitor_8.ProcessNotFoundException,
     name: 'ProcessNotFoundException',
-    isAssignable: (v) => v is ProcessNotFoundException,
+    isAssignable: (v) => v is $tom_process_monitor_8.ProcessNotFoundException,
+    hierarchyDepth: 2,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessNotFoundException');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'ProcessNotFoundException');
-        return ProcessNotFoundException(processId);
+        return $tom_process_monitor_8.ProcessNotFoundException(processId);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<ProcessNotFoundException>(target, 'ProcessNotFoundException').message,
-      'processId': (visitor, target) => D4.validateTarget<ProcessNotFoundException>(target, 'ProcessNotFoundException').processId,
+      'message': (visitor, target) => D4.validateTarget<$tom_process_monitor_8.ProcessNotFoundException>(target, 'ProcessNotFoundException').message,
+      'processId': (visitor, target) => D4.validateTarget<$tom_process_monitor_8.ProcessNotFoundException>(target, 'ProcessNotFoundException').processId,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessNotFoundException>(target, 'ProcessNotFoundException');
+        final t = D4.validateTarget<$tom_process_monitor_8.ProcessNotFoundException>(target, 'ProcessNotFoundException');
         return t.toString();
       },
     },
@@ -1465,23 +1553,24 @@ BridgedClass _createProcessNotFoundExceptionBridge() {
 
 BridgedClass _createProcessDisabledExceptionBridge() {
   return BridgedClass(
-    nativeType: ProcessDisabledException,
+    nativeType: $tom_process_monitor_6.ProcessDisabledException,
     name: 'ProcessDisabledException',
-    isAssignable: (v) => v is ProcessDisabledException,
+    isAssignable: (v) => v is $tom_process_monitor_6.ProcessDisabledException,
+    hierarchyDepth: 2,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'ProcessDisabledException');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'ProcessDisabledException');
-        return ProcessDisabledException(processId);
+        return $tom_process_monitor_6.ProcessDisabledException(processId);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<ProcessDisabledException>(target, 'ProcessDisabledException').message,
-      'processId': (visitor, target) => D4.validateTarget<ProcessDisabledException>(target, 'ProcessDisabledException').processId,
+      'message': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessDisabledException>(target, 'ProcessDisabledException').message,
+      'processId': (visitor, target) => D4.validateTarget<$tom_process_monitor_6.ProcessDisabledException>(target, 'ProcessDisabledException').processId,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessDisabledException>(target, 'ProcessDisabledException');
+        final t = D4.validateTarget<$tom_process_monitor_6.ProcessDisabledException>(target, 'ProcessDisabledException');
         return t.toString();
       },
     },
@@ -1504,23 +1593,24 @@ BridgedClass _createProcessDisabledExceptionBridge() {
 
 BridgedClass _createPermissionDeniedExceptionBridge() {
   return BridgedClass(
-    nativeType: PermissionDeniedException,
+    nativeType: $tom_process_monitor_5.PermissionDeniedException,
     name: 'PermissionDeniedException',
-    isAssignable: (v) => v is PermissionDeniedException,
+    isAssignable: (v) => v is $tom_process_monitor_5.PermissionDeniedException,
+    hierarchyDepth: 2,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'PermissionDeniedException');
         final operation = D4.getRequiredArg<String>(positional, 0, 'operation', 'PermissionDeniedException');
-        return PermissionDeniedException(operation);
+        return $tom_process_monitor_5.PermissionDeniedException(operation);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<PermissionDeniedException>(target, 'PermissionDeniedException').message,
-      'operation': (visitor, target) => D4.validateTarget<PermissionDeniedException>(target, 'PermissionDeniedException').operation,
+      'message': (visitor, target) => D4.validateTarget<$tom_process_monitor_5.PermissionDeniedException>(target, 'PermissionDeniedException').message,
+      'operation': (visitor, target) => D4.validateTarget<$tom_process_monitor_5.PermissionDeniedException>(target, 'PermissionDeniedException').operation,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<PermissionDeniedException>(target, 'PermissionDeniedException');
+        final t = D4.validateTarget<$tom_process_monitor_5.PermissionDeniedException>(target, 'PermissionDeniedException');
         return t.toString();
       },
     },
@@ -1543,16 +1633,16 @@ BridgedClass _createPermissionDeniedExceptionBridge() {
 
 BridgedClass _createLockInfoBridge() {
   return BridgedClass(
-    nativeType: LockInfo,
+    nativeType: $tom_process_monitor_24.LockInfo,
     name: 'LockInfo',
-    isAssignable: (v) => v is LockInfo,
+    isAssignable: (v) => v is $tom_process_monitor_24.LockInfo,
     constructors: {
       '': (visitor, positional, named) {
         final lockedBy = D4.getRequiredNamedArg<String>(named, 'lockedBy', 'LockInfo');
         final lockedAt = D4.getRequiredNamedArg<DateTime>(named, 'lockedAt', 'LockInfo');
         final pid = D4.getRequiredNamedArg<int>(named, 'pid', 'LockInfo');
         final operation = D4.getRequiredNamedArg<String>(named, 'operation', 'LockInfo');
-        return LockInfo(lockedBy: lockedBy, lockedAt: lockedAt, pid: pid, operation: operation);
+        return $tom_process_monitor_24.LockInfo(lockedBy: lockedBy, lockedAt: lockedAt, pid: pid, operation: operation);
       },
       'fromJson': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'LockInfo');
@@ -1560,18 +1650,18 @@ BridgedClass _createLockInfoBridge() {
           throw ArgumentError('LockInfo: Missing required argument "json" at position 0');
         }
         final json = D4.coerceMap<String, dynamic>(positional[0], 'json');
-        return LockInfo.fromJson(json);
+        return $tom_process_monitor_24.LockInfo.fromJson(json);
       },
     },
     getters: {
-      'lockedBy': (visitor, target) => D4.validateTarget<LockInfo>(target, 'LockInfo').lockedBy,
-      'lockedAt': (visitor, target) => D4.validateTarget<LockInfo>(target, 'LockInfo').lockedAt,
-      'pid': (visitor, target) => D4.validateTarget<LockInfo>(target, 'LockInfo').pid,
-      'operation': (visitor, target) => D4.validateTarget<LockInfo>(target, 'LockInfo').operation,
+      'lockedBy': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.LockInfo>(target, 'LockInfo').lockedBy,
+      'lockedAt': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.LockInfo>(target, 'LockInfo').lockedAt,
+      'pid': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.LockInfo>(target, 'LockInfo').pid,
+      'operation': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.LockInfo>(target, 'LockInfo').operation,
     },
     methods: {
       'toJson': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LockInfo>(target, 'LockInfo');
+        final t = D4.validateTarget<$tom_process_monitor_24.LockInfo>(target, 'LockInfo');
         return t.toJson();
       },
     },
@@ -1597,31 +1687,31 @@ BridgedClass _createLockInfoBridge() {
 
 BridgedClass _createRegistryLockBridge() {
   return BridgedClass(
-    nativeType: RegistryLock,
+    nativeType: $tom_process_monitor_24.RegistryLock,
     name: 'RegistryLock',
-    isAssignable: (v) => v is RegistryLock,
+    isAssignable: (v) => v is $tom_process_monitor_24.RegistryLock,
     constructors: {
       '': (visitor, positional, named) {
         final lockPath = D4.getRequiredNamedArg<String>(named, 'lockPath', 'RegistryLock');
         final instanceId = D4.getRequiredNamedArg<String>(named, 'instanceId', 'RegistryLock');
         final timeout = D4.getNamedArgWithDefault<Duration>(named, 'timeout', const Duration(milliseconds: 5000));
-        return RegistryLock(lockPath: lockPath, instanceId: instanceId, timeout: timeout);
+        return $tom_process_monitor_24.RegistryLock(lockPath: lockPath, instanceId: instanceId, timeout: timeout);
       },
     },
     getters: {
-      'lockPath': (visitor, target) => D4.validateTarget<RegistryLock>(target, 'RegistryLock').lockPath,
-      'instanceId': (visitor, target) => D4.validateTarget<RegistryLock>(target, 'RegistryLock').instanceId,
-      'timeout': (visitor, target) => D4.validateTarget<RegistryLock>(target, 'RegistryLock').timeout,
+      'lockPath': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.RegistryLock>(target, 'RegistryLock').lockPath,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.RegistryLock>(target, 'RegistryLock').instanceId,
+      'timeout': (visitor, target) => D4.validateTarget<$tom_process_monitor_24.RegistryLock>(target, 'RegistryLock').timeout,
     },
     methods: {
       'withLock': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryLock>(target, 'RegistryLock');
+        final t = D4.validateTarget<$tom_process_monitor_24.RegistryLock>(target, 'RegistryLock');
         D4.requireMinArgs(positional, 1, 'withLock');
         if (positional.isEmpty) {
           throw ArgumentError('withLock: Missing required argument "operation" at position 0');
         }
         final operationRaw = positional[0];
-        return t.withLock(() { return D4.callInterpreterCallback(visitor!, operationRaw, []) as Future<dynamic>; });
+        return t.withLock<Object?>((() { return Future.value(D4.callInterpreterCallback(visitor!, operationRaw, [])).then((v) => v as dynamic); }) as Future<dynamic> Function());
       },
     },
     constructorSignatures: {
@@ -1644,56 +1734,56 @@ BridgedClass _createRegistryLockBridge() {
 
 BridgedClass _createRegistryServiceBridge() {
   return BridgedClass(
-    nativeType: RegistryService,
+    nativeType: $tom_process_monitor_25.RegistryService,
     name: 'RegistryService',
-    isAssignable: (v) => v is RegistryService,
+    isAssignable: (v) => v is $tom_process_monitor_25.RegistryService,
     constructors: {
       '': (visitor, positional, named) {
         final directory = D4.getRequiredNamedArg<String>(named, 'directory', 'RegistryService');
         final instanceId = D4.getRequiredNamedArg<String>(named, 'instanceId', 'RegistryService');
-        return RegistryService(directory: directory, instanceId: instanceId);
+        return $tom_process_monitor_25.RegistryService(directory: directory, instanceId: instanceId);
       },
     },
     getters: {
-      'directory': (visitor, target) => D4.validateTarget<RegistryService>(target, 'RegistryService').directory,
-      'instanceId': (visitor, target) => D4.validateTarget<RegistryService>(target, 'RegistryService').instanceId,
-      'registryPath': (visitor, target) => D4.validateTarget<RegistryService>(target, 'RegistryService').registryPath,
+      'directory': (visitor, target) => D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService').directory,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService').instanceId,
+      'registryPath': (visitor, target) => D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService').registryPath,
     },
     methods: {
       'load': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryService>(target, 'RegistryService');
+        final t = D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService');
         return t.load();
       },
       'save': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryService>(target, 'RegistryService');
+        final t = D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService');
         D4.requireMinArgs(positional, 1, 'save');
-        final registry = D4.getRequiredArg<$tom_process_monitor_10.ProcessRegistry>(positional, 0, 'registry', 'save');
+        final registry = D4.getRequiredArg<$tom_process_monitor_16.ProcessRegistry>(positional, 0, 'registry', 'save');
         return t.save(registry);
       },
       'withLock': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryService>(target, 'RegistryService');
+        final t = D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService');
         D4.requireMinArgs(positional, 1, 'withLock');
         if (positional.isEmpty) {
           throw ArgumentError('withLock: Missing required argument "operation" at position 0');
         }
         final operationRaw = positional[0];
-        return t.withLock(($tom_process_monitor_10.ProcessRegistry p0) { return D4.callInterpreterCallback(visitor!, operationRaw, [p0]) as Future<dynamic>; });
+        return t.withLock<Object?>((($tom_process_monitor_16.ProcessRegistry p0) { return Future.value(D4.callInterpreterCallback(visitor!, operationRaw, [p0])).then((v) => v as dynamic); }) as Future<dynamic> Function($tom_process_monitor_16.ProcessRegistry));
       },
       'withLockReadOnly': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryService>(target, 'RegistryService');
+        final t = D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService');
         D4.requireMinArgs(positional, 1, 'withLockReadOnly');
         if (positional.isEmpty) {
           throw ArgumentError('withLockReadOnly: Missing required argument "operation" at position 0');
         }
         final operationRaw = positional[0];
-        return t.withLockReadOnly(($tom_process_monitor_10.ProcessRegistry p0) { return D4.callInterpreterCallback(visitor!, operationRaw, [p0]) as Future<dynamic>; });
+        return t.withLockReadOnly<Object?>((($tom_process_monitor_16.ProcessRegistry p0) { return Future.value(D4.callInterpreterCallback(visitor!, operationRaw, [p0])).then((v) => v as dynamic); }) as Future<dynamic> Function($tom_process_monitor_16.ProcessRegistry));
       },
       'initialize': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryService>(target, 'RegistryService');
+        final t = D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService');
         return t.initialize();
       },
       'exists': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RegistryService>(target, 'RegistryService');
+        final t = D4.validateTarget<$tom_process_monitor_25.RegistryService>(target, 'RegistryService');
         return t.exists();
       },
     },
@@ -1722,44 +1812,44 @@ BridgedClass _createRegistryServiceBridge() {
 
 BridgedClass _createProcessControlBridge() {
   return BridgedClass(
-    nativeType: ProcessControl,
+    nativeType: $tom_process_monitor_23.ProcessControl,
     name: 'ProcessControl',
-    isAssignable: (v) => v is ProcessControl,
+    isAssignable: (v) => v is $tom_process_monitor_23.ProcessControl,
     constructors: {
       '': (visitor, positional, named) {
         final logDirectory = D4.getRequiredNamedArg<String>(named, 'logDirectory', 'ProcessControl');
         final instanceId = D4.getRequiredNamedArg<String>(named, 'instanceId', 'ProcessControl');
         final loggerRaw = named['logger'];
-        return ProcessControl(logDirectory: logDirectory, instanceId: instanceId, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); });
+        return $tom_process_monitor_23.ProcessControl(logDirectory: logDirectory, instanceId: instanceId, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); });
       },
     },
     getters: {
-      'logDirectory': (visitor, target) => D4.validateTarget<ProcessControl>(target, 'ProcessControl').logDirectory,
-      'instanceId': (visitor, target) => D4.validateTarget<ProcessControl>(target, 'ProcessControl').instanceId,
-      'logger': (visitor, target) => D4.validateTarget<ProcessControl>(target, 'ProcessControl').logger,
+      'logDirectory': (visitor, target) => D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl').logDirectory,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl').instanceId,
+      'logger': (visitor, target) => D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl').logger,
     },
     methods: {
       'isProcessAlive': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessControl>(target, 'ProcessControl');
+        final t = D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl');
         D4.requireMinArgs(positional, 1, 'isProcessAlive');
         final pid = D4.getRequiredArg<int>(positional, 0, 'pid', 'isProcessAlive');
         return t.isProcessAlive(pid);
       },
       'startProcess': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessControl>(target, 'ProcessControl');
+        final t = D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl');
         D4.requireMinArgs(positional, 1, 'startProcess');
-        final process = D4.getRequiredArg<$tom_process_monitor_7.ProcessEntry>(positional, 0, 'process', 'startProcess');
+        final process = D4.getRequiredArg<$tom_process_monitor_13.ProcessEntry>(positional, 0, 'process', 'startProcess');
         return t.startProcess(process);
       },
       'stopProcess': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessControl>(target, 'ProcessControl');
+        final t = D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl');
         D4.requireMinArgs(positional, 1, 'stopProcess');
         final pid = D4.getRequiredArg<int>(positional, 0, 'pid', 'stopProcess');
         final force = D4.getNamedArgWithDefault<bool>(named, 'force', false);
         return t.stopProcess(pid, force: force);
       },
       'stopProcessGracefully': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<ProcessControl>(target, 'ProcessControl');
+        final t = D4.validateTarget<$tom_process_monitor_23.ProcessControl>(target, 'ProcessControl');
         D4.requireMinArgs(positional, 1, 'stopProcessGracefully');
         final pid = D4.getRequiredArg<int>(positional, 0, 'pid', 'stopProcessGracefully');
         final timeout = D4.getNamedArgWithDefault<Duration>(named, 'timeout', const Duration(seconds: 10));
@@ -1767,7 +1857,7 @@ BridgedClass _createProcessControlBridge() {
       },
     },
     constructorSignatures: {
-      '': 'ProcessControl({required String logDirectory, required String instanceId, void Function(String)? logger})',
+      '': 'ProcessControl({required String logDirectory, required String instanceId, void Function(String message)? logger})',
     },
     methodSignatures: {
       'isProcessAlive': 'Future<bool> isProcessAlive(int pid)',
@@ -1789,40 +1879,40 @@ BridgedClass _createProcessControlBridge() {
 
 BridgedClass _createAlivenessCheckerBridge() {
   return BridgedClass(
-    nativeType: AlivenessChecker,
+    nativeType: $tom_process_monitor_20.AlivenessChecker,
     name: 'AlivenessChecker',
-    isAssignable: (v) => v is AlivenessChecker,
+    isAssignable: (v) => v is $tom_process_monitor_20.AlivenessChecker,
     constructors: {
       '': (visitor, positional, named) {
         final loggerRaw = named['logger'];
-        return AlivenessChecker(logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); });
+        return $tom_process_monitor_20.AlivenessChecker(logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); });
       },
     },
     getters: {
-      'logger': (visitor, target) => D4.validateTarget<AlivenessChecker>(target, 'AlivenessChecker').logger,
+      'logger': (visitor, target) => D4.validateTarget<$tom_process_monitor_20.AlivenessChecker>(target, 'AlivenessChecker').logger,
     },
     methods: {
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<AlivenessChecker>(target, 'AlivenessChecker');
+        final t = D4.validateTarget<$tom_process_monitor_20.AlivenessChecker>(target, 'AlivenessChecker');
         (t as dynamic).dispose();
         return null;
       },
       'checkAlive': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<AlivenessChecker>(target, 'AlivenessChecker');
+        final t = D4.validateTarget<$tom_process_monitor_20.AlivenessChecker>(target, 'AlivenessChecker');
         D4.requireMinArgs(positional, 1, 'checkAlive');
         final url = D4.getRequiredArg<String>(positional, 0, 'url', 'checkAlive');
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
         return t.checkAlive(url, timeout: timeout);
       },
       'fetchPid': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<AlivenessChecker>(target, 'AlivenessChecker');
+        final t = D4.validateTarget<$tom_process_monitor_20.AlivenessChecker>(target, 'AlivenessChecker');
         D4.requireMinArgs(positional, 1, 'fetchPid');
         final url = D4.getRequiredArg<String>(positional, 0, 'url', 'fetchPid');
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
         return t.fetchPid(url, timeout: timeout);
       },
       'fetchStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<AlivenessChecker>(target, 'AlivenessChecker');
+        final t = D4.validateTarget<$tom_process_monitor_20.AlivenessChecker>(target, 'AlivenessChecker');
         D4.requireMinArgs(positional, 1, 'fetchStatus');
         final url = D4.getRequiredArg<String>(positional, 0, 'url', 'fetchStatus');
         final timeout = D4.getOptionalNamedArg<Duration?>(named, 'timeout');
@@ -1830,7 +1920,7 @@ BridgedClass _createAlivenessCheckerBridge() {
       },
     },
     constructorSignatures: {
-      '': 'AlivenessChecker({void Function(String)? logger})',
+      '': 'AlivenessChecker({void Function(String message)? logger})',
     },
     methodSignatures: {
       'dispose': 'void dispose()',
@@ -1850,19 +1940,19 @@ BridgedClass _createAlivenessCheckerBridge() {
 
 BridgedClass _createAlivenessCallbackBridge() {
   return BridgedClass(
-    nativeType: AlivenessCallback,
+    nativeType: $tom_process_monitor_21.AlivenessCallback,
     name: 'AlivenessCallback',
-    isAssignable: (v) => v is AlivenessCallback,
+    isAssignable: (v) => v is $tom_process_monitor_21.AlivenessCallback,
     constructors: {
       '': (visitor, positional, named) {
         final onHealthCheckRaw = named['onHealthCheck'];
         final onStatusRequestRaw = named['onStatusRequest'];
-        return AlivenessCallback(onHealthCheck: onHealthCheckRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onHealthCheckRaw, []) as Future<bool>; }, onStatusRequest: onStatusRequestRaw == null ? null : () { return D4.callInterpreterCallback(visitor!, onStatusRequestRaw, []) as Future<Map<String, dynamic>>; });
+        return $tom_process_monitor_21.AlivenessCallback(onHealthCheck: onHealthCheckRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onHealthCheckRaw, [])).then((v) => v as bool); }) as Future<bool> Function(), onStatusRequest: onStatusRequestRaw == null ? null : (() { return Future.value(D4.callInterpreterCallback(visitor!, onStatusRequestRaw, [])).then((v) => v as Map<String, dynamic>); }) as Future<Map<String, dynamic>> Function());
       },
     },
     getters: {
-      'onHealthCheck': (visitor, target) => D4.validateTarget<AlivenessCallback>(target, 'AlivenessCallback').onHealthCheck,
-      'onStatusRequest': (visitor, target) => D4.validateTarget<AlivenessCallback>(target, 'AlivenessCallback').onStatusRequest,
+      'onHealthCheck': (visitor, target) => D4.validateTarget<$tom_process_monitor_21.AlivenessCallback>(target, 'AlivenessCallback').onHealthCheck,
+      'onStatusRequest': (visitor, target) => D4.validateTarget<$tom_process_monitor_21.AlivenessCallback>(target, 'AlivenessCallback').onStatusRequest,
     },
     constructorSignatures: {
       '': 'const AlivenessCallback({Future<bool> Function()? onHealthCheck, Future<Map<String, dynamic>> Function()? onStatusRequest})',
@@ -1880,29 +1970,29 @@ BridgedClass _createAlivenessCallbackBridge() {
 
 BridgedClass _createLogManagerBridge() {
   return BridgedClass(
-    nativeType: LogManager,
+    nativeType: $tom_process_monitor_22.LogManager,
     name: 'LogManager',
-    isAssignable: (v) => v is LogManager,
+    isAssignable: (v) => v is $tom_process_monitor_22.LogManager,
     constructors: {
       '': (visitor, positional, named) {
         final baseDirectory = D4.getRequiredNamedArg<String>(named, 'baseDirectory', 'LogManager');
         final instanceId = D4.getRequiredNamedArg<String>(named, 'instanceId', 'LogManager');
         final maxLogFiles = D4.getNamedArgWithDefault<int>(named, 'maxLogFiles', 10);
-        return LogManager(baseDirectory: baseDirectory, instanceId: instanceId, maxLogFiles: maxLogFiles);
+        return $tom_process_monitor_22.LogManager(baseDirectory: baseDirectory, instanceId: instanceId, maxLogFiles: maxLogFiles);
       },
     },
     getters: {
-      'baseDirectory': (visitor, target) => D4.validateTarget<LogManager>(target, 'LogManager').baseDirectory,
-      'instanceId': (visitor, target) => D4.validateTarget<LogManager>(target, 'LogManager').instanceId,
-      'maxLogFiles': (visitor, target) => D4.validateTarget<LogManager>(target, 'LogManager').maxLogFiles,
+      'baseDirectory': (visitor, target) => D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager').baseDirectory,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager').instanceId,
+      'maxLogFiles': (visitor, target) => D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager').maxLogFiles,
     },
     methods: {
       'initialize': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         return t.initialize();
       },
       'log': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         D4.requireMinArgs(positional, 1, 'log');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'log');
         final level = D4.getNamedArgWithDefault<String>(named, 'level', 'INFO');
@@ -1910,38 +2000,38 @@ BridgedClass _createLogManagerBridge() {
         return null;
       },
       'info': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         D4.requireMinArgs(positional, 1, 'info');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'info');
         t.info(message);
         return null;
       },
       'warn': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         D4.requireMinArgs(positional, 1, 'warn');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'warn');
         t.warn(message);
         return null;
       },
       'error': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         D4.requireMinArgs(positional, 1, 'error');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'error');
         t.error(message);
         return null;
       },
       'close': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         return t.close();
       },
       'getProcessLogDir': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         D4.requireMinArgs(positional, 1, 'getProcessLogDir');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'getProcessLogDir');
         return t.getProcessLogDir(processId);
       },
       'cleanupProcessLogs': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LogManager>(target, 'LogManager');
+        final t = D4.validateTarget<$tom_process_monitor_22.LogManager>(target, 'LogManager');
         D4.requireMinArgs(positional, 1, 'cleanupProcessLogs');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'cleanupProcessLogs');
         return t.cleanupProcessLogs(processId);
@@ -1974,25 +2064,26 @@ BridgedClass _createLogManagerBridge() {
 
 BridgedClass _createRetryExhaustedExceptionBridge() {
   return BridgedClass(
-    nativeType: RetryExhaustedException,
+    nativeType: $tom_basics_network_1.RetryExhaustedException,
     name: 'RetryExhaustedException',
-    isAssignable: (v) => v is RetryExhaustedException,
+    isAssignable: (v) => v is $tom_basics_network_1.RetryExhaustedException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         final lastError = D4.getRequiredNamedArg<Object>(named, 'lastError', 'RetryExhaustedException');
         final lastStackTrace = D4.getOptionalNamedArg<StackTrace?>(named, 'lastStackTrace');
         final attempts = D4.getRequiredNamedArg<int>(named, 'attempts', 'RetryExhaustedException');
-        return RetryExhaustedException(lastError: lastError, lastStackTrace: lastStackTrace, attempts: attempts);
+        return $tom_basics_network_1.RetryExhaustedException(lastError: lastError, lastStackTrace: lastStackTrace, attempts: attempts);
       },
     },
     getters: {
-      'lastError': (visitor, target) => D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException').lastError,
-      'lastStackTrace': (visitor, target) => D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException').lastStackTrace,
-      'attempts': (visitor, target) => D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException').attempts,
+      'lastError': (visitor, target) => D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException').lastError,
+      'lastStackTrace': (visitor, target) => D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException').lastStackTrace,
+      'attempts': (visitor, target) => D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException').attempts,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<RetryExhaustedException>(target, 'RetryExhaustedException');
+        final t = D4.validateTarget<$tom_basics_network_1.RetryExhaustedException>(target, 'RetryExhaustedException');
         return t.toString();
       },
     },
@@ -2040,7 +2131,7 @@ BridgedClass _createRetryConfigBridge() {
       'defaultConfig': (visitor) => $tom_basics_network_1.RetryConfig.defaultConfig,
     },
     constructorSignatures: {
-      '': 'const RetryConfig({List<int> retryDelaysMs = kDefaultRetryDelaysMs, void Function(int, Object, Duration)? onRetry})',
+      '': 'const RetryConfig({List<int> retryDelaysMs = kDefaultRetryDelaysMs, void Function(int attempt, Object error, Duration nextDelay)? onRetry})',
     },
     getterSignatures: {
       'retryDelaysMs': 'List<int> get retryDelaysMs',
@@ -2118,7 +2209,7 @@ BridgedClass _createDiscoveryOptionsBridge() {
         final statusPath = D4.getNamedArgWithDefault<String>(named, 'statusPath', '/status');
         final loggerRaw = named['logger'];
         final statusValidatorRaw = named['statusValidator'];
-        return $tom_basics_network_2.DiscoveryOptions(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : (Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; });
+        return $tom_basics_network_2.DiscoveryOptions(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : ((Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; }) as bool Function(Map<String, dynamic>));
       },
     },
     getters: {
@@ -2140,11 +2231,11 @@ BridgedClass _createDiscoveryOptionsBridge() {
         final statusPath = D4.getOptionalNamedArg<String?>(named, 'statusPath');
         final loggerRaw = named['logger'];
         final statusValidatorRaw = named['statusValidator'];
-        return t.copyWith(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : (Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; });
+        return t.copyWith(port: port, timeout: timeout, scanSubnet: scanSubnet, maxConcurrent: maxConcurrent, statusPath: statusPath, logger: loggerRaw == null ? null : (String p0) { D4.callInterpreterCallback(visitor!, loggerRaw, [p0]); }, statusValidator: statusValidatorRaw == null ? null : ((Map<String, dynamic> p0) { return D4.callInterpreterCallback(visitor!, statusValidatorRaw, [p0]) as bool; }) as bool Function(Map<String, dynamic>));
       },
     },
     constructorSignatures: {
-      '': 'const DiscoveryOptions({int port = 19880, Duration timeout = const Duration(milliseconds: 500), bool scanSubnet = true, int maxConcurrent = 20, String statusPath = \'/status\', void Function(String)? logger, bool Function(Map<String, dynamic>)? statusValidator})',
+      '': 'const DiscoveryOptions({int port = 19880, Duration timeout = const Duration(milliseconds: 500), bool scanSubnet = true, int maxConcurrent = 20, String statusPath = \'/status\', void Function(String message)? logger, bool Function(Map<String, dynamic> status)? statusValidator})',
     },
     methodSignatures: {
       'copyWith': 'DiscoveryOptions copyWith({int? port, Duration? timeout, bool? scanSubnet, int? maxConcurrent, String? statusPath, void Function(String message)? logger, bool Function(Map<String, dynamic> status)? statusValidator})',
@@ -2167,22 +2258,23 @@ BridgedClass _createDiscoveryOptionsBridge() {
 
 BridgedClass _createDiscoveryFailedExceptionBridge() {
   return BridgedClass(
-    nativeType: DiscoveryFailedException,
+    nativeType: $tom_basics_network_2.DiscoveryFailedException,
     name: 'DiscoveryFailedException',
-    isAssignable: (v) => v is DiscoveryFailedException,
+    isAssignable: (v) => v is $tom_basics_network_2.DiscoveryFailedException,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         D4.requireMinArgs(positional, 1, 'DiscoveryFailedException');
         final message = D4.getRequiredArg<String>(positional, 0, 'message', 'DiscoveryFailedException');
-        return DiscoveryFailedException(message);
+        return $tom_basics_network_2.DiscoveryFailedException(message);
       },
     },
     getters: {
-      'message': (visitor, target) => D4.validateTarget<DiscoveryFailedException>(target, 'DiscoveryFailedException').message,
+      'message': (visitor, target) => D4.validateTarget<$tom_basics_network_2.DiscoveryFailedException>(target, 'DiscoveryFailedException').message,
     },
     methods: {
       'toString': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<DiscoveryFailedException>(target, 'DiscoveryFailedException');
+        final t = D4.validateTarget<$tom_basics_network_2.DiscoveryFailedException>(target, 'DiscoveryFailedException');
         return t.toString();
       },
     },
@@ -2204,34 +2296,34 @@ BridgedClass _createDiscoveryFailedExceptionBridge() {
 
 BridgedClass _createServerDiscoveryBridge() {
   return BridgedClass(
-    nativeType: ServerDiscovery,
+    nativeType: $tom_basics_network_2.ServerDiscovery,
     name: 'ServerDiscovery',
-    isAssignable: (v) => v is ServerDiscovery,
+    isAssignable: (v) => v is $tom_basics_network_2.ServerDiscovery,
     constructors: {
       '': (visitor, positional, named) {
-        return ServerDiscovery();
+        return $tom_basics_network_2.ServerDiscovery();
       },
     },
     staticMethods: {
       'discover': (visitor, positional, named, typeArgs) {
         final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
-        return ServerDiscovery.discover(options);
+        return $tom_basics_network_2.ServerDiscovery.discover(options);
       },
       'discoverOrThrow': (visitor, positional, named, typeArgs) {
         final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
-        return ServerDiscovery.discoverOrThrow(options);
+        return $tom_basics_network_2.ServerDiscovery.discoverOrThrow(options);
       },
       'discoverAll': (visitor, positional, named, typeArgs) {
         final options = D4.getOptionalArgWithDefault<$tom_basics_network_2.DiscoveryOptions>(positional, 0, 'options', const $tom_basics_network_2.DiscoveryOptions());
-        return ServerDiscovery.discoverAll(options);
+        return $tom_basics_network_2.ServerDiscovery.discoverAll(options);
       },
       'getLocalIpAddresses': (visitor, positional, named, typeArgs) {
-        return ServerDiscovery.getLocalIpAddresses();
+        return $tom_basics_network_2.ServerDiscovery.getLocalIpAddresses();
       },
       'getSubnetAddresses': (visitor, positional, named, typeArgs) {
         D4.requireMinArgs(positional, 1, 'getSubnetAddresses');
         final ip = D4.getRequiredArg<String>(positional, 0, 'ip', 'getSubnetAddresses');
-        return ServerDiscovery.getSubnetAddresses(ip);
+        return $tom_basics_network_2.ServerDiscovery.getSubnetAddresses(ip);
       },
     },
     constructorSignatures: {
@@ -2253,90 +2345,91 @@ BridgedClass _createServerDiscoveryBridge() {
 
 BridgedClass _createProcessMonitorClientBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_1.ProcessMonitorClient,
+    nativeType: $tom_process_monitor_2.ProcessMonitorClient,
     name: 'ProcessMonitorClient',
-    isAssignable: (v) => v is $tom_process_monitor_1.ProcessMonitorClient,
+    isAssignable: (v) => v is $tom_process_monitor_2.ProcessMonitorClient,
+    isAbstract: true,
     constructors: {
     },
     getters: {
-      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient').instanceId,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient').instanceId,
     },
     methods: {
       'register': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'register');
-        final config = D4.getRequiredArg<$tom_process_monitor_6.ProcessConfig>(positional, 0, 'config', 'register');
+        final config = D4.getRequiredArg<$tom_process_monitor_12.ProcessConfig>(positional, 0, 'config', 'register');
         return t.register(config);
       },
       'deregister': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'deregister');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'deregister');
         return t.deregister(processId);
       },
       'enable': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'enable');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'enable');
         return t.enable(processId);
       },
       'disable': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'disable');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'disable');
         return t.disable(processId);
       },
       'setAutostart': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 2, 'setAutostart');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'setAutostart');
         final autostart = D4.getRequiredArg<bool>(positional, 1, 'autostart', 'setAutostart');
         return t.setAutostart(processId, autostart);
       },
       'start': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'start');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'start');
         return t.start(processId);
       },
       'stop': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'stop');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'stop');
         return t.stop(processId);
       },
       'restart': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'restart');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'restart');
         return t.restart(processId);
       },
       'getStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'getStatus');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'getStatus');
         return t.getStatus(processId);
       },
       'getAllStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getAllStatus();
       },
       'getMonitorStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getMonitorStatus();
       },
       'setRemoteAccess': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteAccess');
         final enabled = D4.getRequiredArg<bool>(positional, 0, 'enabled', 'setRemoteAccess');
         return t.setRemoteAccess(enabled);
       },
       'getRemoteAccessConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getRemoteAccessConfig();
       },
       'setRemoteAccessPermissions': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         final allowRegister = D4.getOptionalNamedArg<bool?>(named, 'allowRegister');
         final allowDeregister = D4.getOptionalNamedArg<bool?>(named, 'allowDeregister');
         final allowStart = D4.getOptionalNamedArg<bool?>(named, 'allowStart');
@@ -2347,7 +2440,7 @@ BridgedClass _createProcessMonitorClientBridge() {
         return t.setRemoteAccessPermissions(allowRegister: allowRegister, allowDeregister: allowDeregister, allowStart: allowStart, allowStop: allowStop, allowDisable: allowDisable, allowAutostart: allowAutostart, allowMonitorRestart: allowMonitorRestart);
       },
       'setTrustedHosts': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setTrustedHosts');
         if (positional.isEmpty) {
           throw ArgumentError('setTrustedHosts: Missing required argument "hosts" at position 0');
@@ -2356,15 +2449,15 @@ BridgedClass _createProcessMonitorClientBridge() {
         return t.setTrustedHosts(hosts);
       },
       'getTrustedHosts': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getTrustedHosts();
       },
       'getRemoteExecutableWhitelist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getRemoteExecutableWhitelist();
       },
       'setRemoteExecutableWhitelist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteExecutableWhitelist');
         if (positional.isEmpty) {
           throw ArgumentError('setRemoteExecutableWhitelist: Missing required argument "patterns" at position 0');
@@ -2373,11 +2466,11 @@ BridgedClass _createProcessMonitorClientBridge() {
         return t.setRemoteExecutableWhitelist(patterns);
       },
       'getRemoteExecutableBlacklist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getRemoteExecutableBlacklist();
       },
       'setRemoteExecutableBlacklist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteExecutableBlacklist');
         if (positional.isEmpty) {
           throw ArgumentError('setRemoteExecutableBlacklist: Missing required argument "patterns" at position 0');
@@ -2386,31 +2479,31 @@ BridgedClass _createProcessMonitorClientBridge() {
         return t.setRemoteExecutableBlacklist(patterns);
       },
       'setStandaloneMode': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setStandaloneMode');
         final enabled = D4.getRequiredArg<bool>(positional, 0, 'enabled', 'setStandaloneMode');
         return t.setStandaloneMode(enabled);
       },
       'isStandaloneMode': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.isStandaloneMode();
       },
       'getPartnerDiscoveryConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.getPartnerDiscoveryConfig();
       },
       'setPartnerDiscoveryConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setPartnerDiscoveryConfig');
-        final config = D4.getRequiredArg<$tom_process_monitor_5.PartnerDiscoveryConfig>(positional, 0, 'config', 'setPartnerDiscoveryConfig');
+        final config = D4.getRequiredArg<$tom_process_monitor_11.PartnerDiscoveryConfig>(positional, 0, 'config', 'setPartnerDiscoveryConfig');
         return t.setPartnerDiscoveryConfig(config);
       },
       'restartMonitor': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         return t.restartMonitor();
       },
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_1.ProcessMonitorClient>(target, 'ProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_2.ProcessMonitorClient>(target, 'ProcessMonitorClient');
         (t as dynamic).dispose();
         return null;
       },
@@ -2422,7 +2515,7 @@ BridgedClass _createProcessMonitorClientBridge() {
         final baseUrl = D4.getOptionalNamedArg<String?>(named, 'baseUrl');
         final port = D4.getNamedArgWithDefault<int>(named, 'port', 19881);
         final timeout = D4.getNamedArgWithDefault<Duration>(named, 'timeout', const Duration(seconds: 5));
-        return $tom_process_monitor_1.ProcessMonitorClient.connect(instanceId: instanceId, directory: directory, baseUrl: baseUrl, port: port, timeout: timeout);
+        return $tom_process_monitor_2.ProcessMonitorClient.connect(instanceId: instanceId, directory: directory, baseUrl: baseUrl, port: port, timeout: timeout);
       },
     },
     methodSignatures: {
@@ -2468,92 +2561,93 @@ BridgedClass _createProcessMonitorClientBridge() {
 
 BridgedClass _createLocalProcessMonitorClientBridge() {
   return BridgedClass(
-    nativeType: LocalProcessMonitorClient,
+    nativeType: $tom_process_monitor_1.LocalProcessMonitorClient,
     name: 'LocalProcessMonitorClient',
-    isAssignable: (v) => v is LocalProcessMonitorClient,
+    isAssignable: (v) => v is $tom_process_monitor_1.LocalProcessMonitorClient,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         final directory = D4.getOptionalNamedArg<String?>(named, 'directory');
         final instanceId = D4.getNamedArgWithDefault<String>(named, 'instanceId', 'default');
-        return LocalProcessMonitorClient(directory: directory, instanceId: instanceId);
+        return $tom_process_monitor_1.LocalProcessMonitorClient(directory: directory, instanceId: instanceId);
       },
     },
     getters: {
-      'directory': (visitor, target) => D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient').directory,
-      'instanceId': (visitor, target) => D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient').instanceId,
+      'directory': (visitor, target) => D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient').directory,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient').instanceId,
     },
     methods: {
       'register': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'register');
-        final config = D4.getRequiredArg<$tom_process_monitor_6.ProcessConfig>(positional, 0, 'config', 'register');
+        final config = D4.getRequiredArg<$tom_process_monitor_12.ProcessConfig>(positional, 0, 'config', 'register');
         return t.register(config);
       },
       'deregister': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'deregister');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'deregister');
         return t.deregister(processId);
       },
       'enable': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'enable');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'enable');
         return t.enable(processId);
       },
       'disable': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'disable');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'disable');
         return t.disable(processId);
       },
       'setAutostart': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 2, 'setAutostart');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'setAutostart');
         final autostart = D4.getRequiredArg<bool>(positional, 1, 'autostart', 'setAutostart');
         return t.setAutostart(processId, autostart);
       },
       'start': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'start');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'start');
         return t.start(processId);
       },
       'stop': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'stop');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'stop');
         return t.stop(processId);
       },
       'restart': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'restart');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'restart');
         return t.restart(processId);
       },
       'getStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'getStatus');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'getStatus');
         return t.getStatus(processId);
       },
       'getAllStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getAllStatus();
       },
       'setRemoteAccess': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteAccess');
         final enabled = D4.getRequiredArg<bool>(positional, 0, 'enabled', 'setRemoteAccess');
         return t.setRemoteAccess(enabled);
       },
       'getRemoteAccessConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getRemoteAccessConfig();
       },
       'setRemoteAccessPermissions': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         final allowRegister = D4.getOptionalNamedArg<bool?>(named, 'allowRegister');
         final allowDeregister = D4.getOptionalNamedArg<bool?>(named, 'allowDeregister');
         final allowStart = D4.getOptionalNamedArg<bool?>(named, 'allowStart');
@@ -2564,7 +2658,7 @@ BridgedClass _createLocalProcessMonitorClientBridge() {
         return t.setRemoteAccessPermissions(allowRegister: allowRegister, allowDeregister: allowDeregister, allowStart: allowStart, allowStop: allowStop, allowDisable: allowDisable, allowAutostart: allowAutostart, allowMonitorRestart: allowMonitorRestart);
       },
       'setTrustedHosts': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setTrustedHosts');
         if (positional.isEmpty) {
           throw ArgumentError('setTrustedHosts: Missing required argument "hosts" at position 0');
@@ -2573,15 +2667,15 @@ BridgedClass _createLocalProcessMonitorClientBridge() {
         return t.setTrustedHosts(hosts);
       },
       'getTrustedHosts': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getTrustedHosts();
       },
       'getRemoteExecutableWhitelist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getRemoteExecutableWhitelist();
       },
       'setRemoteExecutableWhitelist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteExecutableWhitelist');
         if (positional.isEmpty) {
           throw ArgumentError('setRemoteExecutableWhitelist: Missing required argument "patterns" at position 0');
@@ -2590,11 +2684,11 @@ BridgedClass _createLocalProcessMonitorClientBridge() {
         return t.setRemoteExecutableWhitelist(patterns);
       },
       'getRemoteExecutableBlacklist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getRemoteExecutableBlacklist();
       },
       'setRemoteExecutableBlacklist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteExecutableBlacklist');
         if (positional.isEmpty) {
           throw ArgumentError('setRemoteExecutableBlacklist: Missing required argument "patterns" at position 0');
@@ -2603,35 +2697,35 @@ BridgedClass _createLocalProcessMonitorClientBridge() {
         return t.setRemoteExecutableBlacklist(patterns);
       },
       'setStandaloneMode': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setStandaloneMode');
         final enabled = D4.getRequiredArg<bool>(positional, 0, 'enabled', 'setStandaloneMode');
         return t.setStandaloneMode(enabled);
       },
       'isStandaloneMode': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.isStandaloneMode();
       },
       'getPartnerDiscoveryConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getPartnerDiscoveryConfig();
       },
       'setPartnerDiscoveryConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setPartnerDiscoveryConfig');
-        final config = D4.getRequiredArg<$tom_process_monitor_5.PartnerDiscoveryConfig>(positional, 0, 'config', 'setPartnerDiscoveryConfig');
+        final config = D4.getRequiredArg<$tom_process_monitor_11.PartnerDiscoveryConfig>(positional, 0, 'config', 'setPartnerDiscoveryConfig');
         return t.setPartnerDiscoveryConfig(config);
       },
       'restartMonitor': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.restartMonitor();
       },
       'getMonitorStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         return t.getMonitorStatus();
       },
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_1.LocalProcessMonitorClient>(target, 'LocalProcessMonitorClient');
         (t as dynamic).dispose();
         return null;
       },
@@ -2680,101 +2774,102 @@ BridgedClass _createLocalProcessMonitorClientBridge() {
 
 BridgedClass _createRemoteProcessMonitorClientBridge() {
   return BridgedClass(
-    nativeType: $tom_process_monitor_2.RemoteProcessMonitorClient,
+    nativeType: $tom_process_monitor_3.RemoteProcessMonitorClient,
     name: 'RemoteProcessMonitorClient',
-    isAssignable: (v) => v is $tom_process_monitor_2.RemoteProcessMonitorClient,
+    isAssignable: (v) => v is $tom_process_monitor_3.RemoteProcessMonitorClient,
+    hierarchyDepth: 1,
     constructors: {
       '': (visitor, positional, named) {
         final baseUrl = D4.getOptionalNamedArg<String?>(named, 'baseUrl');
         final instanceId = D4.getNamedArgWithDefault<String>(named, 'instanceId', 'default');
-        return $tom_process_monitor_2.RemoteProcessMonitorClient(baseUrl: baseUrl, instanceId: instanceId);
+        return $tom_process_monitor_3.RemoteProcessMonitorClient(baseUrl: baseUrl, instanceId: instanceId);
       },
     },
     getters: {
-      'baseUrl': (visitor, target) => D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient').baseUrl,
-      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient').instanceId,
+      'baseUrl': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient').baseUrl,
+      'instanceId': (visitor, target) => D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient').instanceId,
     },
     methods: {
       'dispose': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         (t as dynamic).dispose();
         return null;
       },
       'register': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'register');
-        final config = D4.getRequiredArg<$tom_process_monitor_6.ProcessConfig>(positional, 0, 'config', 'register');
+        final config = D4.getRequiredArg<$tom_process_monitor_12.ProcessConfig>(positional, 0, 'config', 'register');
         return t.register(config);
       },
       'deregister': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'deregister');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'deregister');
         return t.deregister(processId);
       },
       'enable': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'enable');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'enable');
         return t.enable(processId);
       },
       'disable': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'disable');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'disable');
         return t.disable(processId);
       },
       'setAutostart': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 2, 'setAutostart');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'setAutostart');
         final autostart = D4.getRequiredArg<bool>(positional, 1, 'autostart', 'setAutostart');
         return t.setAutostart(processId, autostart);
       },
       'start': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'start');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'start');
         return t.start(processId);
       },
       'stop': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'stop');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'stop');
         return t.stop(processId);
       },
       'restart': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'restart');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'restart');
         return t.restart(processId);
       },
       'getStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'getStatus');
         final processId = D4.getRequiredArg<String>(positional, 0, 'processId', 'getStatus');
         return t.getStatus(processId);
       },
       'getAllStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getAllStatus();
       },
       'getMonitorStatus': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getMonitorStatus();
       },
       'setRemoteAccess': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteAccess');
         final enabled = D4.getRequiredArg<bool>(positional, 0, 'enabled', 'setRemoteAccess');
         return t.setRemoteAccess(enabled);
       },
       'getRemoteAccessConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getRemoteAccessConfig();
       },
       'setRemoteAccessPermissions': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         final allowRegister = D4.getOptionalNamedArg<bool?>(named, 'allowRegister');
         final allowDeregister = D4.getOptionalNamedArg<bool?>(named, 'allowDeregister');
         final allowStart = D4.getOptionalNamedArg<bool?>(named, 'allowStart');
@@ -2785,7 +2880,7 @@ BridgedClass _createRemoteProcessMonitorClientBridge() {
         return t.setRemoteAccessPermissions(allowRegister: allowRegister, allowDeregister: allowDeregister, allowStart: allowStart, allowStop: allowStop, allowDisable: allowDisable, allowAutostart: allowAutostart, allowMonitorRestart: allowMonitorRestart);
       },
       'setTrustedHosts': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setTrustedHosts');
         if (positional.isEmpty) {
           throw ArgumentError('setTrustedHosts: Missing required argument "hosts" at position 0');
@@ -2794,15 +2889,15 @@ BridgedClass _createRemoteProcessMonitorClientBridge() {
         return t.setTrustedHosts(hosts);
       },
       'getTrustedHosts': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getTrustedHosts();
       },
       'getRemoteExecutableWhitelist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getRemoteExecutableWhitelist();
       },
       'setRemoteExecutableWhitelist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteExecutableWhitelist');
         if (positional.isEmpty) {
           throw ArgumentError('setRemoteExecutableWhitelist: Missing required argument "patterns" at position 0');
@@ -2811,11 +2906,11 @@ BridgedClass _createRemoteProcessMonitorClientBridge() {
         return t.setRemoteExecutableWhitelist(patterns);
       },
       'getRemoteExecutableBlacklist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getRemoteExecutableBlacklist();
       },
       'setRemoteExecutableBlacklist': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setRemoteExecutableBlacklist');
         if (positional.isEmpty) {
           throw ArgumentError('setRemoteExecutableBlacklist: Missing required argument "patterns" at position 0');
@@ -2824,27 +2919,27 @@ BridgedClass _createRemoteProcessMonitorClientBridge() {
         return t.setRemoteExecutableBlacklist(patterns);
       },
       'setStandaloneMode': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setStandaloneMode');
         final enabled = D4.getRequiredArg<bool>(positional, 0, 'enabled', 'setStandaloneMode');
         return t.setStandaloneMode(enabled);
       },
       'isStandaloneMode': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.isStandaloneMode();
       },
       'getPartnerDiscoveryConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.getPartnerDiscoveryConfig();
       },
       'setPartnerDiscoveryConfig': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         D4.requireMinArgs(positional, 1, 'setPartnerDiscoveryConfig');
-        final config = D4.getRequiredArg<$tom_process_monitor_5.PartnerDiscoveryConfig>(positional, 0, 'config', 'setPartnerDiscoveryConfig');
+        final config = D4.getRequiredArg<$tom_process_monitor_11.PartnerDiscoveryConfig>(positional, 0, 'config', 'setPartnerDiscoveryConfig');
         return t.setPartnerDiscoveryConfig(config);
       },
       'restartMonitor': (visitor, target, positional, named, typeArgs) {
-        final t = D4.validateTarget<$tom_process_monitor_2.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
+        final t = D4.validateTarget<$tom_process_monitor_3.RemoteProcessMonitorClient>(target, 'RemoteProcessMonitorClient');
         return t.restartMonitor();
       },
     },
@@ -2853,14 +2948,14 @@ BridgedClass _createRemoteProcessMonitorClientBridge() {
         final port = D4.getNamedArgWithDefault<int>(named, 'port', 19881);
         final timeout = D4.getNamedArgWithDefault<Duration>(named, 'timeout', const Duration(seconds: 5));
         final instanceId = D4.getNamedArgWithDefault<String>(named, 'instanceId', 'default');
-        return $tom_process_monitor_2.RemoteProcessMonitorClient.discover(port: port, timeout: timeout, instanceId: instanceId);
+        return $tom_process_monitor_3.RemoteProcessMonitorClient.discover(port: port, timeout: timeout, instanceId: instanceId);
       },
       'scanSubnet': (visitor, positional, named, typeArgs) {
         D4.requireMinArgs(positional, 1, 'scanSubnet');
         final subnet = D4.getRequiredArg<String>(positional, 0, 'subnet', 'scanSubnet');
         final port = D4.getNamedArgWithDefault<int>(named, 'port', 19881);
         final timeout = D4.getNamedArgWithDefault<Duration>(named, 'timeout', const Duration(milliseconds: 500));
-        return $tom_process_monitor_2.RemoteProcessMonitorClient.scanSubnet(subnet, port: port, timeout: timeout);
+        return $tom_process_monitor_3.RemoteProcessMonitorClient.scanSubnet(subnet, port: port, timeout: timeout);
       },
     },
     constructorSignatures: {
