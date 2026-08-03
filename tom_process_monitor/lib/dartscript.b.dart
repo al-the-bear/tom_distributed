@@ -1,6 +1,6 @@
 // D4rt Bridge - Generated file, do not edit
 // Dartscript registration for tom_process_monitor
-// Generated: 2026-06-17T19:02:53.247289
+// Generated: 2026-08-03T11:29:57.072726
 
 /// D4rt Bridge Registration for tom_process_monitor
 library;
