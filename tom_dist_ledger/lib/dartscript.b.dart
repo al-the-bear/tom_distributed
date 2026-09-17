@@ -1,6 +1,6 @@
 // D4rt Bridge - Generated file, do not edit
 // Dartscript registration for tom_dist_ledger
-// Generated: 2026-08-03T12:03:51.107699
+// Generated: 2026-09-18T00:29:53.149655 by tom_d4rt_generator 1.26.2
 
 /// D4rt Bridge Registration for tom_dist_ledger
 library;
