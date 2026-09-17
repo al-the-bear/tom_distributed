@@ -1,6 +1,14 @@
-# Local development overrides - use workspace paths
+# Local development override — ONE entry, and it is a holding position.
+#
+# `tom_d4rt` is overridden because dropping it would move this package
+# BACKWARDS from the working tree's 1.130.0 to pub.dev's 1.77.0 — 53 minors,
+# including every interpreter fix since. It stays until `tom_d4rt` publishes,
+# which sce237 owns and sce162 currently blocks with four base-corpus
+# regressions sitting in the unpublished delta.
+#
+# SCE2 removed the `tom_basics_network` entry: its working tree and published
+# 1.0.1 are byte-identical under `lib/`, so the override changed where the code
+# came from and nothing else.
 dependency_overrides:
   tom_d4rt:
     path: ../../d4rt/tom_d4rt
-  tom_basics_network:
-    path: ../../basics/tom_basics_network
