@@ -10,16 +10,27 @@
 // When it fails: run `dart run tom_d4rt_generator:d4rtgen` in this package and
 // commit what it changes.
 //
-// SKIPPED, and the mechanism is known rather than suspected. SCE1 regenerated
-// this package to a fixed point with `d4rtgen` 1.26.2 — running it again
-// changes nothing but the `// Generated:` line — and this check still reports
-// `tom_dist_ledger_bridges.b.dart` as differing. The cause is not staleness:
-// `d4rtgen` runs `_generateBridges` (`src/v2/d4rtgen_executor.dart`) and
-// `checkBridgeFreshness` runs `generateBridges` (`src/bridge_api.dart`), two
-// hand-maintained implementations that have drifted apart. Measured elsewhere
-// in the same sweep, on `tom_d4rt_generator/example/dart_overview`: the tool
-// emits 5960 code lines, the check's path 5144, the missing 816 being every
-// abstract, sealed, generic and mixin class.
+// SKIPPED, and the mechanism is measured rather than suspected. The committed
+// bridges ARE what `d4rtgen` produces; this check disagrees with the tool
+// because of the path form it passes, not because anything is stale.
+//
+// `checkBridgeFreshness` opens with `p.normalize(p.absolute(projectPath))`,
+// while `d4rtgen` passes `-p .` through as given. `generateBridges` is not
+// invariant under that difference: its barrel export-clause filter looks up
+// `exportInfo[c.sourceFile]`, and `sourceFile` is written in mixed forms
+// (filesystem path in one place, package URI in another), so a relative path
+// misses the lookup and falls open while an absolute path hits the wrong entry
+// and drops symbols the barrel explicitly shows.
+//
+// Measured here on 2026-09-18: the check reports this package's module bridge
+// as differing by exactly one GEN-107 re-export tuple
+// (`HeartbeatResult`), and regenerating with a RELATIVE project path
+// reproduces the committed file with that tuple present. So the report is a
+// false positive.
+//
+// This is NOT "two generator implementations" — SCE28 unified those, and both
+// entry points now call one `generateBridges` with one config. That earlier
+// diagnosis is retracted; see SCF1.
 //
 // The file is here rather than absent because the gate is wanted the moment
 // that is fixed: SCF1 owns it, and unskipping is deleting one line.
@@ -51,8 +62,8 @@ void main() {
     },
     timeout: const Timeout(Duration(minutes: 10)),
     skip:
-        'SCF1: the freshness check and d4rtgen run two different generator '
-        'implementations, and this package is one of the five where they '
-        'disagree. The committed bridges ARE what d4rtgen produces.',
+        'SCF1: `generateBridges` is not invariant under the project-path form, '
+        'so this check (absolute) disagrees with `d4rtgen` (relative). The '
+        'committed bridges ARE what `d4rtgen` produces — verified 2026-09-18.',
   );
 }
