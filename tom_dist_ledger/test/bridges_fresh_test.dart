@@ -66,4 +66,36 @@ void main() {
         'so this check (absolute) disagrees with `d4rtgen` (relative). The '
         'committed bridges ARE what `d4rtgen` produces — verified 2026-09-18.',
   );
+
+  // Unskipped on purpose. SCF1 makes this check and `d4rtgen` disagree about
+  // the CONTENT of a generated file (absolute vs relative project path); it
+  // does not change which files a run writes, so the orphan scan is sound
+  // here while the stale comparison above is not.
+  test(
+    'BRIDGE-FRESH-02: no committed generated file is orphaned '
+    '[2026-09-29] (PASS)',
+    () async {
+      final freshness = await checkBridgeFreshness(Directory.current.path);
+      expect(freshness.errors, isEmpty, reason: 'generation failed');
+      // SCE30 / scf12: a committed generated file no run writes any more is
+      // invisible to the stale comparison above, which only looks at what a run
+      // produces; it can only rot, or be hand-edited in the belief that a
+      // regeneration will keep the edit. And an empty list from a scan that
+      // never ran would read as a clean package, so that is asserted first.
+      expect(
+        freshness.orphanScanSkipped,
+        isNull,
+        reason: 'the orphan scan did not run, so its result means nothing',
+      );
+      expect(
+        freshness.orphaned,
+        isEmpty,
+        reason:
+            'committed generated files that no run writes. d4rtgen never '
+            'deletes them; decide and remove by hand:\n  '
+            '${freshness.orphaned.join('\n  ')}',
+      );
+    },
+    timeout: const Timeout(Duration(minutes: 10)),
+  );
 }
