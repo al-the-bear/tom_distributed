@@ -1,5 +1,6 @@
 name: tom_distributed_orchestration
 description: A starting point for Dart libraries or applications.
+publish_to: none
 version: 1.0.1
 # repository: https://github.com/my_org/my_repo
 
