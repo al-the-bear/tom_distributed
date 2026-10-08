@@ -1098,6 +1098,6 @@ const ledger = new LedgerClient({
 
 ## See Also
 
-- [Dart Ledger Client Documentation](../tom_dist_ledger/doc/README.md)
-- [Dart Process Monitor Client Documentation](../tom_process_monitor/doc/README.md)
-- [Integration Tests](./test/integration.test.ts) - Working examples
+- [Dart Ledger Client Documentation](../../tom_dist_ledger/doc/ledger_api_user_guide.md)
+- [Dart Process Monitor Client Documentation](../../tom_process_monitor/doc/processmonitor_user_guide.md)
+- [Integration Tests](../test/integration.test.ts) - Working examples

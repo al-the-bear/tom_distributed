@@ -380,5 +380,5 @@ The default registry is initialized with:
 
 ## See Also
 
-- [ProcessMonitor User Guide](processmonitor_user_guide.md) - Full API documentation
-- [ProcessMonitor Specification](processmonitor_specification.md) - Technical specification
+- [ProcessMonitor User Guide](../../tom_process_monitor/doc/processmonitor_user_guide.md) - Full API documentation
+- [ProcessMonitor Specification](../../tom_process_monitor/doc/processmonitor_specification.md) - Technical specification

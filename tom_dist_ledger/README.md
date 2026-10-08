@@ -128,7 +128,7 @@ final config = SimulationConfig(
 
 ## Documentation
 
-See [doc/distributed_operation_ledger_proposal.md](doc/distributed_operation_ledger_proposal.md)
+See [doc/design/distributed_ledger_specification.md](doc/design/distributed_ledger_specification.md)
 for the full protocol specification.
 
 ## Remote Ledger Server
