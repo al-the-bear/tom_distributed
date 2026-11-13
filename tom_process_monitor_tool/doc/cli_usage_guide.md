@@ -1,11 +1,9 @@
 # ProcessMonitor CLI Guide
 
-> **This package does not build `process_monitor`.** The CLI is implemented here
-> (`lib/src/cli_runner.dart`, `lib/src/commands/`) but the package has no `bin/`,
-> so there is no entry point to compile. The binaries you run are built outside
-> this workspace; `CLAUDE.md` says where they are installed. Everything below
-> describes the command's behaviour, which is accurate — it is the *build* that
-> is missing, not the tool.
+> `process_monitor` is built from `bin/process_monitor.dart` into the binaries
+> layer (`buildkit :compiler`, `buildkit.yaml` `compiler:`), on tom_build_base's
+> ToolRunner (`lib/src/cli_runner.dart`); the macOS installer
+> (`tool/setup_autostart_macos.sh`) copies it from there.
 
 This guide covers the command-line interface tool for ProcessMonitor: `process_monitor`.
 
@@ -48,7 +46,7 @@ process_monitor [options]
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--help` | `-h` | Show help message |
-| `--version` | | Show version information |
+| `--version` | `-V` | Show the version (from the versioner) and where the binary comes from |
 | `--directory` | `-d` | Base directory for files (default: `~/.tom/process_monitor/`) |
 | `--foreground` | `-f` | Run in foreground mode |
 | `--stop` | | Stop the running instance |

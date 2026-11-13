@@ -8,6 +8,9 @@ description: >-
 license: BSD-3-Clause
 
 # Compiler: the binary into the binaries layer ($TOM_BINARY_PATH/<platform>/).
+versioner:
+  variable-prefix: DistLedgerTool
+
 compiler:
   compiles:
     # macOS ARM64 - compile for self; with --all-platforms also linux-x64

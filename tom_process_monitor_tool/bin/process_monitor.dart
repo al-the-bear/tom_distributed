@@ -8,8 +8,9 @@ library;
 
 import 'dart:io';
 
+import 'package:tom_build_base/tom_build_base_v2.dart';
 import 'package:tom_process_monitor_tool/tom_process_monitor_tool.dart';
 
-Future<void> main(List<String> args) async {
+Future<void> main(List<String> args) => runWithConsoleMarkdown(() async {
   exitCode = await ProcessMonitorCommand().run(args);
-}
+});

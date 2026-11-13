@@ -5,6 +5,8 @@
 /// the monitor finds it.
 library;
 
+import 'package:tom_build_base/tom_build_base_v2.dart';
 import 'package:tom_dist_ledger_tool/tom_dist_ledger_tool.dart';
 
-Future<void> main(List<String> args) => ledgerServerMain(args);
+Future<void> main(List<String> args) =>
+    runWithConsoleMarkdown(() => ledgerServerMain(args));

@@ -44,7 +44,7 @@ process_monitor [options]
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--help` | `-h` | Show help message |
-| `--version` | | Show version information |
+| `--version` | `-V` | Show the version (from the versioner) and where the binary comes from |
 | `--directory` | `-d` | Base directory for files (default: `~/.tom/process_monitor/`) |
 | `--foreground` | `-f` | Run in foreground mode |
 | `--stop` | | Stop the running instance |
@@ -133,7 +133,7 @@ monitor_watcher [options]
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--help` | `-h` | Show help message |
-| `--version` | | Show version information |
+| `--version` | `-V` | Show the version (from the versioner) and where the binary comes from |
 | `--directory` | `-d` | Base directory for files (default: `~/.tom/process_monitor/`) |
 | `--foreground` | `-f` | Run in foreground mode |
 | `--stop` | | Stop the running watcher |

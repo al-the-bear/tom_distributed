@@ -1,11 +1,12 @@
 # Tom Distributed Ledger Tool
 
-> **No command-line tool is built from this package.** It has no `bin/` and no
-> `executables:`, so `distledger` does not exist as a binary — see
-> `_copilot_guidelines/tool_dependencies.md`, "Retired tools". The server itself
-> is real and lives in `lib/src/ledger_server_main.dart`.
+> `ledger_server` is built from `bin/ledger_server.dart` into the binaries layer
+> (`buildkit :compiler`), on tom_build_base's ToolRunner
+> (`lib/src/ledger_server_main.dart`); the ProcessMonitor installer copies it
+> beside the monitor as `Tom Ledger Server`, and a ProcessMonitor starts it with
+> `--path <dir>`.
 
-Library for running a Distributed Ledger HTTP Server.
+The Distributed Ledger HTTP Server.
 
 ## Overview
 
@@ -18,8 +19,12 @@ to perform distributed operations across machines.
 ### Starting the Server
 
 ```bash
-# Start with defaults (port 19880, current directory)
+# Start with defaults (port 19880, ledger in ~/.tom/distributed_ledger)
 dart run bin/ledger_server.dart
+
+# Version and options
+ledger_server --version
+ledger_server --help
 
 # Specify port
 dart run bin/ledger_server.dart --port=9000
