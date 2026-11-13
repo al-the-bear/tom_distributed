@@ -5,8 +5,15 @@ set -e
 # Sets up ProcessMonitor as a macOS LaunchAgent.
 # The main ProcessMonitor will automatically spawn the MonitorWatcher.
 #
+# The binaries come from the binaries layer, $TOM_BINARY_PATH/darwin-<arch>/
+# (`process_monitor`, `ledger_server`, built by buildkit's `:compiler`). They
+# are copied - the layer is a git checkout that changes under a running
+# service - into ~/Library/Application Support/Tom/bin as "Tom Process
+# Monitor" and "Tom Ledger Server" (the monitor finds the ledger server beside
+# itself, and macOS lists the services by these names).
+#
 # Usage:
-#   cd xternal/tom_module_distributed/tom_process_monitor_tool
+#   cd tom_ai/distributed/tom_process_monitor_tool
 #   ./tool/setup_autostart_macos.sh [--clean]
 #
 # Options:
@@ -25,40 +32,38 @@ for arg in "$@"; do
     esac
 done
 
-if ! command -v dart >/dev/null 2>&1; then
-    echo "Error: dart not found in PATH."
+if [ -z "${TOM_BINARY_PATH:-}" ]; then
+    echo "Error: TOM_BINARY_PATH is not set (it names the binaries layer, tom_binaries/tom)."
     exit 1
 fi
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-PACKAGE_ROOT="$(dirname "$SCRIPT_DIR")"
-
-echo "Compiling executables..."
 # Detect architecture
 ARCH=$(uname -m)
 if [ "$ARCH" == "x86_64" ]; then
-    DART_ARCH="darwin_x64"
+    PLATFORM="darwin-x64"
 elif [ "$ARCH" == "arm64" ]; then
-    DART_ARCH="darwin_arm64"
+    PLATFORM="darwin-arm64"
 else
     echo "Unsupported architecture: $ARCH"
     exit 1
 fi
-INSTALL_BIN="$HOME/.tom/bin/$DART_ARCH"
+LAYER_BIN="$TOM_BINARY_PATH/$PLATFORM"
+for b in process_monitor ledger_server; do
+    if [ ! -x "$LAYER_BIN/$b" ]; then
+        echo "Error: $LAYER_BIN/$b is missing. Pull the binaries layer (tom_pull_binaries) or build it:"
+        echo "  buildkit -p tom_process_monitor_tool -p tom_dist_ledger_tool :compiler"
+        exit 1
+    fi
+done
+
+INSTALL_BIN="$HOME/Library/Application Support/Tom/bin"
 mkdir -p "$INSTALL_BIN"
 
-# Compile process_monitor as "Tom Process Monitor"
-# This ensures it shows up with a user-friendly name in macOS background items list.
+# "Tom Process Monitor": the name macOS shows in its background items list.
 BINARY_NAME="Tom Process Monitor"
 BINARY_PATH="$INSTALL_BIN/$BINARY_NAME"
 
-echo "Compiling $BINARY_NAME..."
-dart compile exe "$PACKAGE_ROOT/bin/process_monitor.dart" -o "$BINARY_PATH"
-
-# Compile Ledger Server
-echo "Compiling Ledger Server..."
-LEDGER_TOOL_DIR="$PACKAGE_ROOT/../tom_dist_ledger_tool"
-dart compile exe "$LEDGER_TOOL_DIR/bin/ledger_server.dart" -o "$INSTALL_BIN/Tom Ledger Server"
+echo "Installing $BINARY_NAME and Tom Ledger Server from $LAYER_BIN..."
 
 if [ "$CLEAN" = true ]; then
     echo "Cleaning old configuration..."
@@ -130,13 +135,18 @@ echo "Stopping existing processes..."
 pkill -f "process_monitor" || true
 pkill -f "Tom Process Monitor" || true
 
+# Copy the binaries now that the old ones no longer run.
+install -m 0755 "$LAYER_BIN/process_monitor" "$BINARY_PATH"
+install -m 0755 "$LAYER_BIN/ledger_server" "$INSTALL_BIN/Tom Ledger Server"
+
 # Remove deprecated watcher plist if it exists
 rm -f "$LAUNCH_AGENTS/com.tom.monitor_watcher.plist"
 rm -f "$LAUNCH_AGENTS/com.tom.process_monitor.plist"
 
-# Remove old binary names to avoid confusion
-rm -f "$INSTALL_BIN/process_monitor"
-rm -f "$INSTALL_BIN/monitor_watcher"
+# Remove the copies earlier versions of this script compiled into ~/.tom/bin.
+for old in "$HOME/.tom/bin/darwin_arm64" "$HOME/.tom/bin/darwin_x64"; do
+    rm -f "$old/Tom Process Monitor" "$old/Tom Ledger Server" "$old/process_monitor" "$old/monitor_watcher"
+done
 
 echo "Loading ProcessMonitor Agent (Label: Tom Process Monitor)..."
 launchctl load "$PM_PLIST"
