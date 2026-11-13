@@ -1,5 +1,11 @@
 # Tom Build Configuration for tom_process_monitor
 
+project_id: PML
+name: pm-lib
+description: >-
+  Process monitor library.
+license: BSD-3-Clause
+
 d4rtgen:
   name: tom_process_monitor
   helpersImport: package:tom_d4rt/tom_d4rt.dart

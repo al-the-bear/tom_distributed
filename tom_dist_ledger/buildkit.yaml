@@ -1,5 +1,11 @@
 # Tom Build Configuration for tom_dist_ledger
 
+project_id: DLL
+name: dl-lib
+description: >-
+  Distributed ledger library.
+license: BSD-3-Clause
+
 d4rtgen:
   name: tom_dist_ledger
   helpersImport: package:tom_d4rt/tom_d4rt.dart
