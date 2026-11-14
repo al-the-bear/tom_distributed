@@ -153,7 +153,10 @@ print('Server running on port ${server.port}');
 await server.stop();
 ```
 
-**CORS Support**: The Ledger Server supports CORS for all origins (`*`) to allow access from web browsers.
+**CORS Support**: The Ledger Server supports CORS for all origins (`*`) to allow access from web browsers: it sends
+`Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS` and
+`Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Participant-Id`, and answers an `OPTIONS` preflight
+request with `200 OK`.
 
 ### Connecting a Client
 
