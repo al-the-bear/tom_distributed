@@ -12,6 +12,9 @@ versioner:
   variable-prefix: ProcessMonitorTool
 
 compiler:
+  # The release executables (tom_binaries/tom/<platform>/; buildkit :skill-build-binaries --list).
+  executables:
+    process_monitor: {release: true}
   compiles:
     # macOS ARM64 - compile for self; with --all-platforms also linux-x64
     - pipeline:

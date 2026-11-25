@@ -12,6 +12,9 @@ versioner:
   variable-prefix: DistLedgerTool
 
 compiler:
+  # The release executables (tom_binaries/tom/<platform>/; buildkit :skill-build-binaries --list).
+  executables:
+    ledger_server: {release: true}
   compiles:
     # macOS ARM64 - compile for self; with --all-platforms also linux-x64
     - pipeline:
